@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {NgbModal, NgbModalRef} from "@ng-bootstrap/ng-bootstrap";
 import {ModalComponent} from "./modal/modal.component";
 
 @Component({
@@ -9,11 +9,18 @@ import {ModalComponent} from "./modal/modal.component";
 })
 export class NgBootstrapComponent implements OnInit {
 
-  constructor(private modalservie:NgbModal) { }
+  constructor(private modalservice:NgbModal) { }
 
   ngOnInit() {
   }
   openModal(){
-    this.modalservie.open(ModalComponent);
+    const ngbModalRef:NgbModalRef=this.modalservice.open(ModalComponent,
+      {backdrop:'static',size:'lg',windowClass:'animated slideInLeft'});
+    ngbModalRef.componentInstance.title='Example Title';
+    ngbModalRef.result.then((result)=>{
+
+    },(reason)=>{
+
+    });
   }
 }
