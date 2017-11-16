@@ -1,1 +1,22 @@
-
+@import "../../../theme/theme";
+#myalert{height: 48px;}
+#myalert /deep/ div.alert{margin-bottom: 0;}
+.firstpart{
+ display: flex;
+  margin-bottom: 15px;
+  >div{margin-right: 15px;}
+}
+.pageNav{
+  @include basicflex;
+  position: relative;
+  margin-bottom: 15px;
+  .selectAll{
+    position: absolute;
+    left: 0;
+    display: flex;
+    align-items: center;
+    .check-box-wrap{
+      margin-right: 15px;
+    }
+  }
+}

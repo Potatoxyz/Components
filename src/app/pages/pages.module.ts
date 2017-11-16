@@ -8,11 +8,13 @@ import { LoadingComponent } from './loading/loading.component';
 import { NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { NgBootstrapComponent } from './ng-bootstrap/ng-bootstrap.component';
 import { ModalComponent } from './ng-bootstrap/modal/modal.component';
+import {NgxPaginationModule} from "ngx-pagination";
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
     NgbModule.forRoot(),
+    NgxPaginationModule,
     routing
   ],
   providers:[],

@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {routing} from "./app.routing";
-import { PagesComponent } from './pages/pages.component';
 import {PagesModule} from "./pages/pages.module";
 
 @NgModule({

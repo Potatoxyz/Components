@@ -12,7 +12,17 @@ ul li {
 a {
   text-decoration: none;
 }
-
+p{
+  margin-bottom: 0;
+}
 .fa {
   margin-right: 10px;
+}
+.my-pagination /deep/ ul{
+  margin-bottom: 0;
+  li{
+    &.current,a:hover{
+      background: rgba(0,0,0,.5);
+    }
+  }
 }

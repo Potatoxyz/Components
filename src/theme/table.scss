@@ -1,0 +1,50 @@
+@import "publicMixin";
+@import "variables";
+
+.black-hover-bg {
+  background: rgba(0, 0, 0, .3);
+}
+
+table {
+  width: 100%;
+  tr th, tr td {
+    text-align: center;
+    padding: 5px 0;
+  }
+  tr th {
+    border-bottom: none !important;
+  }
+  tr:hover {
+    background: rgba(0, 0, 0, .3);
+  }
+}
+
+.check-box-wrap {
+  height: 100%;
+  display: inline-block;
+  @include basicflex;
+  > label.checkbox {
+    @include size(18px, 18px);
+    border: 2px solid white;
+    border-radius: 3px;
+    margin-bottom: 0;
+    @include basicflex;
+    > i {
+      margin-right: 0;
+      font-size: 16px;
+      font-weight: 300;
+      display: none;
+    }
+    > input {
+      @include size(100%, 100%);
+      visibility: hidden;
+      &:checked {
+        border-color: $PrimaryColor;
+      }
+    }
+    > input:checked + i {
+      display: inline-block;
+    }
+  }
+}
+
