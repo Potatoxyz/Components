@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {NgbModal, NgbModalRef} from "@ng-bootstrap/ng-bootstrap";
 import {ModalComponent} from "./modal/modal.component";
+import {Observable} from "rxjs/Observable";
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/distinctUntilChanged';
 declare var $:any;
 @Component({
   selector: 'app-ng-bootstrap',
@@ -24,6 +28,16 @@ export class NgBootstrapComponent implements OnInit {
   currentPages=[];
   pageData=[];
   pageCount:number;
+  isCollapsed:boolean=true;
+  date:any;
+  Data=['abc','Efg','hij','Uvw'];
+  public model: any;
+  search = (text$: Observable<string>) =>{
+    text$.debounceTime(200)
+      .distinctUntilChanged()
+      .map(term => term.length < 2 ? []
+        : this.Data.filter(v => v.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10));
+  };
   constructor(private modalservice:NgbModal) { }
 
   ngOnInit() {
@@ -44,10 +58,15 @@ export class NgBootstrapComponent implements OnInit {
     });
   }
   closeAlert(){
-    $('#myalert').removeClass('fadeInDown').addClass('fadeOutUp');
-    setTimeout( () =>{
+    if(!this.close){
       this.close=!this.close;
-    },700);
+    }
+    else{
+      $('#myalert').removeClass('fadeInDown').addClass('fadeOutUp');
+      setTimeout( () =>{
+        this.close=!this.close;
+      },700);
+    }
   }
   selectSingle(ifChecked:boolean,id:any){
     let index=this.selectedtableDate.indexOf(id);
@@ -140,5 +159,19 @@ export class NgBootstrapComponent implements OnInit {
   }
   pageChanged(page:any){
     this.currentPage=page;
+  }
+
+  toggleSlide(){
+    if(this.isCollapsed){
+      $('#collapseExample').removeClass('myslideUp').addClass('myslideIn');
+      this.isCollapsed=!this.isCollapsed;
+    }
+    else{
+      $('#collapseExample').removeClass('myslideIn').addClass('myslideUp');
+      setTimeout(()=>{
+        this.isCollapsed=!this.isCollapsed;
+      },500);
+
+    }
   }
 }

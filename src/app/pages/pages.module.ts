@@ -9,10 +9,12 @@ import { NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { NgBootstrapComponent } from './ng-bootstrap/ng-bootstrap.component';
 import { ModalComponent } from './ng-bootstrap/modal/modal.component';
 import {NgxPaginationModule} from "ngx-pagination";
+import {FormsModule} from "@angular/forms";
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
+    FormsModule,
     NgbModule.forRoot(),
     NgxPaginationModule,
     routing

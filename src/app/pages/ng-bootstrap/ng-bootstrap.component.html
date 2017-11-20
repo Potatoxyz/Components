@@ -1,16 +1,52 @@
 <p>
   ng-bootstrap works!
 </p>
-<div class="firstpart">
+<div class="firstpart gap">
   <div>
     <button class="btn btn-primary btn-lg" (click)="openModal()">Open Modal</button>
   </div>
   <div>
-    <button class="btn btn-lg btn-primary" (click)="close=!close">Create Alert</button>
+    <button class="btn btn-primary btn-lg" (click)=toggleSlide()>Open Collapse</button>
   </div>
-    <ngb-alert class="animated fadeInDown" id="myalert" *ngIf="close" [dismissible]="true" [type]="'danger'" (close)="closeAlert()">This Is A Example Alert</ngb-alert>
+  <div>
+    <form class="form-inline">
+      <div class="form-group">
+        <div class="input-group date-wrapper">
+          <input class="form-control" placeholder="yyyy-mm-dd"
+                 name="dp" [(ngModel)]="date" ngbDatepicker #d='ngbDatepicker'>
+          <button class="btn btn-primary input-group-addon date" (click)="d.toggle()" type="button">
+            <span class="fa fa-calendar"></span>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div>
+    <div ngbDropdown>
+      <button class="btn btn-primary btn-lg" id="dropdownBasic1" ngbDropdownToggle>Toggle dropdown</button>
+      <div ngbDropdownMenu>
+        <button class="dropdown-item">Action - 1</button>
+        <button class="dropdown-item">Another Action</button>
+        <button class="dropdown-item">Something else is here</button>
+      </div>
+  </div>
+  </div>
+  <div>
+    <button type="button" class="btn btn-primary btn-lg" ngbTooltip="You see, I show up on click!">
+      Hover me!
+    </button>
+  </div>
+  <div>
+    <button class="btn btn-lg btn-primary" (click)="closeAlert()">Create Alert</button>
+  </div>
+  <ngb-alert class="animated fadeInDown" id="myalert" *ngIf="close" [dismissible]="true" [type]="'danger'" (close)="closeAlert()">This Is A Example Alert</ngb-alert>
 </div>
-<div class="pageNav">
+<div>
+  <div id="collapseExample" [ngbCollapse]="isCollapsed">
+   <p class="text-center text-danger fa-3x">This is a example collapse!</p>
+  </div>
+</div>
+<div class="pageNav gap">
   <div class="selectAll">
     <div class="check-box-wrap">
       <label class="checkbox">
@@ -63,4 +99,6 @@
   </tr>
   </tbody>
 </table>
-
+<div>
+  <input id="typeahead-basic" name="typehead" type="text" class="form-control" [(ngModel)]="model" [ngbTypeahead]="search"/>
+</div>
