@@ -29,7 +29,7 @@
         <button class="dropdown-item">Another Action</button>
         <button class="dropdown-item">Something else is here</button>
       </div>
-  </div>
+    </div>
   </div>
   <div>
     <button type="button" class="btn btn-primary btn-lg" ngbTooltip="You see, I show up on click!">
@@ -39,40 +39,44 @@
   <div>
     <button class="btn btn-lg btn-primary" (click)="closeAlert()">Create Alert</button>
   </div>
-  <ngb-alert class="animated fadeInDown" id="myalert" *ngIf="close" [dismissible]="true" [type]="'danger'" (close)="closeAlert()">This Is A Example Alert</ngb-alert>
+  <ngb-alert class="animated fadeInDown" id="myalert" *ngIf="close" [dismissible]="true" [type]="'danger'"
+             (close)="closeAlert()">This Is A Example Alert
+  </ngb-alert>
 </div>
 <div>
   <div id="collapseExample" [ngbCollapse]="isCollapsed">
-   <p class="text-center text-danger fa-3x">This is a example collapse!</p>
+    <p class="text-center text-danger fa-3x">This is a example collapse!</p>
   </div>
 </div>
 <div class="pageNav gap">
   <div class="selectAll">
     <div class="check-box-wrap">
       <label class="checkbox">
-        <input type="checkbox" (click)="selectAll($event.target.checked)" [checked]="selectedtableDate.length==tableDate.length">
+        <input type="checkbox" (click)="selectAll($event.target.checked)"
+               [checked]="selectedtableDate.length==tableDate.length">
         <i class="fa fa-check"></i>
       </label>
     </div>
     <p>选择全部</p>
   </div>
-  <pagination-controls  class="my-pagination"
-                        id="table"
-                        (pageChange)="pageChanged($event)"
-                        maxSize="9"
-                        directionLinks="true"
-                        autoHide="true"
-                        previousLabel="上一页"
-                        nextLabel="下一页">
+  <pagination-controls class="my-pagination"
+                       id="table"
+                       (pageChange)="pageChanged($event)"
+                       maxSize="9"
+                       directionLinks="true"
+                       autoHide="true"
+                       previousLabel="上一页"
+                       nextLabel="下一页">
   </pagination-controls>
 </div>
-<table class="table-bordered">
+<table class="table-bordered gap">
   <thead>
   <tr class="black-hover-bg">
     <th>
       <div class="check-box-wrap">
         <label class="checkbox">
-          <input type="checkbox" (click)="selectThisPage($event.target.checked,currentPage)" [checked]="currentPages.indexOf(currentPage)!=-1">
+          <input type="checkbox" (click)="selectThisPage($event.target.checked,currentPage)"
+                 [checked]="currentPages.indexOf(currentPage)!=-1">
           <i class="fa fa-check"></i>
         </label>
       </div>
@@ -82,14 +86,15 @@
   </tr>
   </thead>
   <tbody>
-  <tr  *ngFor="let item of tableDate | paginate: { id: 'table',
+  <tr *ngFor="let item of tableDate | paginate: { id: 'table',
                                                       itemsPerPage: pageSize,
                                                       currentPage: currentPage,
                                                       totalItems: tableDate.length }">
     <td>
       <div class="check-box-wrap">
         <label class="checkbox">
-          <input type="checkbox" (click)="selectSingle($event.target.checked,item.id)" [checked]="selectedtableDate.indexOf(item.id)!=-1">
+          <input type="checkbox" (click)="selectSingle($event.target.checked,item.id)"
+                 [checked]="selectedtableDate.indexOf(item.id)!=-1">
           <i class="fa fa-check"></i>
         </label>
       </div>
@@ -99,6 +104,40 @@
   </tr>
   </tbody>
 </table>
-<div>
-  <input id="typeahead-basic" name="typehead" type="text" class="form-control" [(ngModel)]="model" [ngbTypeahead]="search"/>
+<div class="gap myform-wrap">
+  <form #loginForm="ngForm" class="myform" (ngSubmit)="onSubmit(loginForm.value.password.valid)">
+    <div class="form-group">
+      <label for="typehead" class="form-title">TypeHead</label>
+      <input name="typehead" id="typehead" type="text" class="form-control" [(ngModel)]="typehead"
+             [ngbTypeahead]="search"/>
+    </div>
+    <div class="form-group">
+      <label for="name" class="form-title">Name</label>
+      <span class="bg-danger">必填</span>
+      <span *ngIf="n.errors?.minlength" class="form-error text-danger">最少6个字符</span>
+      <span *ngIf="n.errors?.required" class="form-error text-danger">456</span>
+      <input id="name" name="name" required minlength="6" type="text" class="form-control" #n="ngModel" [(ngModel)]="name"/>
+      <span *ngIf="n.valid" class="fa fa-2x fa-check-circle text-success"></span>
+      <span *ngIf="n.invalid" class="fa fa-2x fa-close text-danger"></span>
+    </div>
+    <div class="form-group">
+      <label for="password" class="form-title">Password</label>
+      <span class="bg-danger">必填</span>
+      <span class="form-error text-danger">{{p.valid}}</span>
+      <input id="password" name="password" required type="text" class="form-control" #p="ngModel" [(ngModel)]="password"
+             [ngbTypeahead]="search"/>
+    </div>
+    <div class="form-group">
+      <label for="email" class="form-title">Email</label>
+      <span class="bg-danger">必填</span>
+      <input id="email" name="email" required type="text" class="form-control" [(ngModel)]="email"/>
+    </div>
+    <div class="form-group">
+      <label for="tel" class="form-title">Tel</label>
+      <input id="tel" name="tel" type="text" class="form-control" [(ngModel)]="tel"/>
+    </div>
+    <div>
+      <button class="btn btn-primary pull-right" [disabled]="loginForm.invalid">提交</button>
+    </div>
+  </form>
 </div>

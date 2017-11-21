@@ -9,12 +9,13 @@ import { NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { NgBootstrapComponent } from './ng-bootstrap/ng-bootstrap.component';
 import { ModalComponent } from './ng-bootstrap/modal/modal.component';
 import {NgxPaginationModule} from "ngx-pagination";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
     FormsModule,
+    ReactiveFormsModule,
     NgbModule.forRoot(),
     NgxPaginationModule,
     routing

@@ -30,14 +30,35 @@ export class NgBootstrapComponent implements OnInit {
   pageCount:number;
   isCollapsed:boolean=true;
   date:any;
-  Data=['abc','Efg','hij','Uvw'];
-  public model: any;
-  search = (text$: Observable<string>) =>{
-    text$.debounceTime(200)
+  Province=[
+    {pname:'chongqing',cname:'重庆'},
+    {pname:'beijing',cname:'北京'},
+    {pname:'tianjin',cname:'天津'},
+    {pname:'shanghai',cname:'上海'},
+    {pname:'neimenggu',cname:'内蒙古'},
+    {pname:'xinjiang',cname:'新疆'},
+    {pname:'xizang',cname:'西藏'},
+    {pname:'guangxi',cname:'广西'},
+    {pname:'ningxia',cname:'宁夏'},
+  ];
+  typehead: any;
+  name: any;
+  password: any;
+  email: any;
+  tel: any;
+  search = (text$: Observable<string>) =>
+      text$
+      .debounceTime(200)
       .distinctUntilChanged()
-      .map(term => term.length < 2 ? []
-        : this.Data.filter(v => v.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10));
-  };
+      .map(term => {
+        if(term.length < 2)
+        return [];
+        else{
+          let objarr=this.Province.filter(v => v.pname.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10);
+          let cname=[];
+          objarr.forEach(value => {cname.push(value.cname)});
+          return cname;
+          }});
   constructor(private modalservice:NgbModal) { }
 
   ngOnInit() {
@@ -173,5 +194,8 @@ export class NgBootstrapComponent implements OnInit {
       },500);
 
     }
+  }
+  onSubmit(value:any){
+    console.log(value);
   }
 }
