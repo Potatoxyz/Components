@@ -199,9 +199,11 @@ export class NgBootstrapComponent implements OnInit {
     if(this.isCollapsed){
       $('#collapseExample').removeClass('myslideUp').addClass('myslideIn');
       this.isCollapsed=!this.isCollapsed;
+      // console.log('开');
     }
     else{
       $('#collapseExample').removeClass('myslideIn').addClass('myslideUp');
+      // console.log('关');
       setTimeout(()=>{
         this.isCollapsed=!this.isCollapsed;
       },500);

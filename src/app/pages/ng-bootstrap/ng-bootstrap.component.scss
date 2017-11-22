@@ -3,7 +3,21 @@
 #myalert /deep/ div.alert{margin-bottom: 0;}
 .firstpart{
  display: flex;
-  >div{margin-right: 15px;}
+  flex-wrap: wrap;
+  >div{
+    margin-right: 15px;
+    margin-bottom: 10px;
+    width: calc(25% - 15px);
+    button{
+      width: 100%;
+    }
+  form div.form-group{
+   width: 100%;
+    .input-group.date-wrapper button{
+      width: auto;
+    }
+  }
+  }
 }
 .gap{margin-bottom: 15px;}
 .pageNav{
@@ -56,7 +70,7 @@ button.input-group-addon{
   .myform,.myform2{
     width: 50%;
   }
-  .myform{margin-right: 150px;}
+  .myform{margin-right: 100px;}
 }
 .myform-wrap .form-group{
   position: relative;
@@ -79,7 +93,7 @@ button.input-group-addon{
     right: 5px;
   }
   .form-title{
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 }
 .valid{
@@ -87,4 +101,48 @@ button.input-group-addon{
 }
 .invalied{
   border-color: red;
+}
+@media screen and(max-width: 1000px){
+  .firstpart div{
+    button{
+      font-size: 14px;
+    }
+    .input-group.date-wrapper{
+      height: 39px;
+      width: 100%;
+    }
+  }
+  .myform-wrap .myform{
+    margin-right: 2rem;
+  }
+  @keyframes up {
+    0%{height: 45px}
+    100%{height: 0;}
+  }
+  @keyframes in {
+    0%{height: 0}
+    100%{height: 45px;}
+  }
+}
+@media screen and(max-width: 800px){
+  .firstpart div{
+    button{
+      font-size: 10px;
+    }
+  }
+}
+@media screen and(max-width: 640px){
+  .myform-wrap{
+    flex-wrap: wrap;
+    form{
+      width: 100%!important;
+      margin-right: 0!important;
+    }
+  }
+  .firstpart div{
+    width: calc(33.33% - 15px);
+    >button,&>.dropdown-wrap{
+      width: 100%;
+    }
+  }
 }

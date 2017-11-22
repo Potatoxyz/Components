@@ -3,16 +3,20 @@
   display: flex;
   >.sidebar{
     width: 200px;
-    height: 100vh;
+    min-height: 100vh;
     background: #191817;
   }
   >.content{
     box-sizing: border-box;
     padding:15px;
     position: relative;
-    width: calc(100% - 200px);
-    height: 100vh;
+    min-height: 100vh;
     background: url('../../assets/img/sky-bg.jpg') no-repeat;
     background-size: cover;
+  }
+}
+@media screen and (max-width: 1000px){
+  .frame{
+    font-size: 10px;
   }
 }
