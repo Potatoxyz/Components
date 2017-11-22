@@ -105,9 +105,12 @@
   </tbody>
 </table>
 <div class="gap myform-wrap">
-  <form #loginForm="ngForm" class="myform" (ngSubmit)="onSubmit(loginForm.value.password.valid)">
+  <form #loginForm="ngForm" class="myform" (ngSubmit)="onSubmit(loginForm.value)">
     <div class="form-group">
-      <label for="typehead" class="form-title">TypeHead</label>
+      <h4 class="text-center">FormModule</h4>
+    </div>
+    <div class="form-group">
+      <label for="typehead" class="form-title">TypeHead(下拉选项搜索)</label>
       <input name="typehead" id="typehead" type="text" class="form-control" [(ngModel)]="typehead"
              [ngbTypeahead]="search"/>
     </div>
@@ -115,22 +118,26 @@
       <label for="name" class="form-title">Name</label>
       <span class="bg-danger">必填</span>
       <span *ngIf="n.errors?.minlength" class="form-error text-danger">最少6个字符</span>
-      <span *ngIf="n.errors?.required" class="form-error text-danger">456</span>
-      <input id="name" name="name" required minlength="6" type="text" class="form-control" #n="ngModel" [(ngModel)]="name"/>
-      <span *ngIf="n.valid" class="fa fa-2x fa-check-circle text-success"></span>
-      <span *ngIf="n.invalid" class="fa fa-2x fa-close text-danger"></span>
+      <span *ngIf="n.errors?.required&&n.touched" class="form-error text-danger">不能为空</span>
+      <input id="name" name="name" required minlength="6" type="text" class="form-control" #n="ngModel" #na [(ngModel)]="name"/>
+      <span *ngIf="n.valid&&n.dirty" class="fa fa-2x fa-check-circle text-success"></span>
+      <span *ngIf="n.invalid&&n.touched" class="fa fa-2x fa-close text-danger"></span>
     </div>
     <div class="form-group">
       <label for="password" class="form-title">Password</label>
       <span class="bg-danger">必填</span>
-      <span class="form-error text-danger">{{p.valid}}</span>
-      <input id="password" name="password" required type="text" class="form-control" #p="ngModel" [(ngModel)]="password"
-             [ngbTypeahead]="search"/>
+      <span *ngIf="p.touched&&p.invalid" class="form-error text-danger">不能为空</span>
+      <input id="password" name="password" required type="text" class="form-control" #p="ngModel" [(ngModel)]="password"/>
+      <span *ngIf="p.invalid&&p.touched" class="fa fa-2x fa-close text-danger"></span>
     </div>
     <div class="form-group">
       <label for="email" class="form-title">Email</label>
       <span class="bg-danger">必填</span>
-      <input id="email" name="email" required type="text" class="form-control" [(ngModel)]="email"/>
+      <span *ngIf="e.touched&&e.errors?.required" class="form-error text-danger">不能为空</span>
+      <span *ngIf="e.errors?.email&&e.value!=''" class="text-danger">缺少@</span>
+      <input id="email" name="email" required email type="text" class="form-control" #e="ngModel" [(ngModel)]="email"/>
+      <span *ngIf="e.valid&&e.dirty" class="fa fa-2x fa-check-circle text-success"></span>
+      <span *ngIf="e.invalid&&e.touched" class="fa fa-2x fa-close text-danger"></span>
     </div>
     <div class="form-group">
       <label for="tel" class="form-title">Tel</label>
@@ -138,6 +145,42 @@
     </div>
     <div>
       <button class="btn btn-primary pull-right" [disabled]="loginForm.invalid">提交</button>
+    </div>
+  </form>
+
+
+  <form class="myform2" [formGroup]="myform2" (ngSubmit)="onSubmit2(myform2.controls.decimals.valid)">
+    <div class="form-group">
+      <h4 class="text-center">ReactiveForm</h4>
+    </div>
+    <div class="form-group">
+      <label for="name2" class="form-title">Name</label>
+      <span class="bg-danger">必填</span>
+      <span *ngIf="myform2.get('name2').errors?.minlength" class="text-danger">最少6个字符</span>
+      <input id="name2"  type="text" class="form-control" formControlName="name2"
+             [ngClass]="{'invalied':myform2.get('name2').invalid&&myform2.get('name2').touched}"/>
+    </div>
+    <div class="form-group">
+      <label for="password2" class="form-title">Password</label>
+      <span class="bg-danger">必填</span>
+      <input id="password2"  type="text" class="form-control" formControlName="password2"/>
+    </div>
+    <div class="form-group">
+      <label for="email2" class="form-title">Email</label>
+      <span class="bg-danger">必填</span>
+      <input id="email2"  type="text" class="form-control" formControlName="email2"/>
+    </div>
+    <div class="form-group">
+      <label for="tel2" class="form-title">Tel</label>
+      <input id="tel2"  type="text" class="form-control" formControlName="tel2"/>
+    </div>
+    <div class="form-group">
+      <label for="decimals" class="form-title">小数</label>
+      <span></span>
+      <input id="decimals"  type="text" class="form-control" formControlName="decimals"/>
+    </div>
+    <div>
+      <button class="btn btn-primary pull-right" [disabled]="myform2.invalid">提交</button>
     </div>
   </form>
 </div>

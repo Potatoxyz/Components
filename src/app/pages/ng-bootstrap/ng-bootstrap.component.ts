@@ -5,6 +5,7 @@ import {Observable} from "rxjs/Observable";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 declare var $:any;
 @Component({
   selector: 'app-ng-bootstrap',
@@ -41,11 +42,13 @@ export class NgBootstrapComponent implements OnInit {
     {pname:'guangxi',cname:'广西'},
     {pname:'ningxia',cname:'宁夏'},
   ];
-  typehead: any;
-  name: any;
-  password: any;
-  email: any;
-  tel: any;
+  typehead: any='';
+  name: any='';
+  password: any='';
+  email: any='';
+  tel: any='';
+
+  myform2:FormGroup;
   search = (text$: Observable<string>) =>
       text$
       .debounceTime(200)
@@ -59,7 +62,9 @@ export class NgBootstrapComponent implements OnInit {
           objarr.forEach(value => {cname.push(value.cname)});
           return cname;
           }});
-  constructor(private modalservice:NgbModal) { }
+  constructor(private modalservice:NgbModal,
+              private fb:FormBuilder) {
+  }
 
   ngOnInit() {
     this.pageCount=this.tableDate.length/this.pageSize;
@@ -67,6 +72,14 @@ export class NgBootstrapComponent implements OnInit {
     if(this.tableDate.length%this.pageSize!=0){
       this.pageCount=Number((this.tableDate.length/this.pageSize).toFixed(0));
     }
+
+    this.myform2=this.fb.group({
+      name2:['',[Validators.required,Validators.minLength(6)]],
+      password2:['',Validators.required],
+      email2:['',[Validators.required,Validators.email]],
+      tel2:['123'],
+      decimals:['',[Validators.pattern('/^[1-9]\\d*$/')]]
+    });
   }
   openModal(){
     const ngbModalRef:NgbModalRef=this.modalservice.open(ModalComponent,
@@ -196,6 +209,9 @@ export class NgBootstrapComponent implements OnInit {
     }
   }
   onSubmit(value:any){
+    console.log(value);
+  }
+  onSubmit2(value:any){
     console.log(value);
   }
 }

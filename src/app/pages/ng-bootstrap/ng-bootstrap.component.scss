@@ -53,9 +53,10 @@ button.input-group-addon{
 }
 .myform-wrap{
   @include basicflex;
-  .myform{
+  .myform,.myform2{
     width: 50%;
   }
+  .myform{margin-right: 150px;}
 }
 .myform-wrap .form-group{
   position: relative;
@@ -80,4 +81,10 @@ button.input-group-addon{
   .form-title{
     font-size: 1.5rem;
   }
+}
+.valid{
+  border-color: green;
+}
+.invalied{
+  border-color: red;
 }
