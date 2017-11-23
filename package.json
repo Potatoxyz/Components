@@ -30,6 +30,7 @@
     "ngx-pagination": "^3.0.3",
     "node-sass": "^4.6.1",
     "rxjs": "^5.4.2",
+    "sweetalert2": "^7.0.3",
     "zone.js": "^0.8.14"
   },
   "devDependencies": {

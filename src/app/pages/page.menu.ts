@@ -13,6 +13,11 @@ export const Pages:Array<PagesModel>=[
           name:'ng-bootstrap',
           pathName:'ngbootstrap',
           icon:'fa fa-rebel'
+        },
+        {
+          name:'sweet-alert',
+          pathName:'sweetalert',
+          icon:'fa fa-rebel'
         }
       ]
     }

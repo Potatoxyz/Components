@@ -4,6 +4,13 @@
 .firstpart{
  display: flex;
   flex-wrap: wrap;
+  .dropdown-wrap{
+    width: 100%;
+    position: relative;
+    .dropdown-menu{
+      width: 100%;
+    }
+  }
   >div{
     margin-right: 15px;
     margin-bottom: 10px;
@@ -11,7 +18,7 @@
     button{
       width: 100%;
     }
-  form div.form-group{
+  form div.form-group,.input-group.date-wrapper{
    width: 100%;
     .input-group.date-wrapper button{
       width: auto;
@@ -64,6 +71,7 @@ button.input-group-addon{
 }
 .date-wrapper{
   height: 48px;
+  width: 100%;
 }
 .myform-wrap{
   @include basicflex;
@@ -109,7 +117,6 @@ button.input-group-addon{
     }
     .input-group.date-wrapper{
       height: 39px;
-      width: 100%;
     }
   }
   .myform-wrap .myform{
@@ -141,7 +148,7 @@ button.input-group-addon{
   }
   .firstpart div{
     width: calc(33.33% - 15px);
-    >button,&>.dropdown-wrap{
+    >button{
       width: 100%;
     }
   }

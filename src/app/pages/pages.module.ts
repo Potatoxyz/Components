@@ -10,6 +10,7 @@ import { NgBootstrapComponent } from './ng-bootstrap/ng-bootstrap.component';
 import { ModalComponent } from './ng-bootstrap/modal/modal.component';
 import {NgxPaginationModule} from "ngx-pagination";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { SweetAlertComponent } from './sweet-alert/sweet-alert.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -22,6 +23,6 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
   ],
   providers:[],
   entryComponents:[ModalComponent],
-  declarations: [PagesComponent, SidebarComponent, LoadingComponent, NgBootstrapComponent, ModalComponent]
+  declarations: [PagesComponent, SidebarComponent, LoadingComponent, NgBootstrapComponent, ModalComponent, SweetAlertComponent]
 })
 export class PagesModule { }
