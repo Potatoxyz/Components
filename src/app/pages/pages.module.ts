@@ -11,7 +11,6 @@ import { ModalComponent } from './ng-bootstrap/modal/modal.component';
 import {NgxPaginationModule} from "ngx-pagination";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { SweetAlertComponent } from './sweet-alert/sweet-alert.component';
-import { DragulaComponent } from './dragula/dragula.component';
 import {DragulaModule} from "ng2-dragula";
 @NgModule({
   imports: [
@@ -26,6 +25,7 @@ import {DragulaModule} from "ng2-dragula";
   ],
   providers:[],
   entryComponents:[ModalComponent],
-  declarations: [PagesComponent, SidebarComponent, LoadingComponent, NgBootstrapComponent, ModalComponent, SweetAlertComponent, DragulaComponent]
+  declarations: [PagesComponent, SidebarComponent, LoadingComponent,
+    NgBootstrapComponent, ModalComponent, SweetAlertComponent]
 })
 export class PagesModule { }

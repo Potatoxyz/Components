@@ -18,7 +18,7 @@ export const Pages:Array<PagesModel>=[
           name:'sweet-alert',
           pathName:'sweetalert',
           icon:'fa fa-rebel'
-        }
+        },
       ]
     }
 ];
