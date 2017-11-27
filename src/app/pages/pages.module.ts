@@ -11,7 +11,9 @@ import { ModalComponent } from './ng-bootstrap/modal/modal.component';
 import {NgxPaginationModule} from "ngx-pagination";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { SweetAlertComponent } from './sweet-alert/sweet-alert.component';
-import {DragulaModule} from "ng2-dragula";
+import { AnimationComponent } from './animation/animation.component';
+import {BrowserModule} from "@angular/platform-browser";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 @NgModule({
   imports: [
     CommonModule,
@@ -20,12 +22,13 @@ import {DragulaModule} from "ng2-dragula";
     ReactiveFormsModule,
     NgbModule.forRoot(),
     NgxPaginationModule,
-    DragulaModule,
+    BrowserModule,
+    BrowserAnimationsModule,
     routing
   ],
   providers:[],
   entryComponents:[ModalComponent],
   declarations: [PagesComponent, SidebarComponent, LoadingComponent,
-    NgBootstrapComponent, ModalComponent, SweetAlertComponent]
+    NgBootstrapComponent, ModalComponent, SweetAlertComponent, AnimationComponent]
 })
 export class PagesModule { }

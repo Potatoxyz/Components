@@ -19,6 +19,11 @@ export const Pages:Array<PagesModel>=[
           pathName:'sweetalert',
           icon:'fa fa-rebel'
         },
+        {
+          name:'animation',
+          pathName:'animation',
+          icon:'fa fa-rebel'
+        },
       ]
     }
 ];

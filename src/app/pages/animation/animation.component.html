@@ -1,0 +1,8 @@
+<p>
+  animation works!
+</p>
+<button class="btn btn-primary" (click)="add()">Add Item</button>
+<button class="btn btn-danger" (click)="remove()">remove Item</button>
+<ul [@initShow]="state">
+  <li *ngFor="let item of fruits" [@fly]="item.state" (click)="toggleMove(item)">{{item.name}}</li>
+</ul>
