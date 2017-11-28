@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {SweetAlert} from "../../../shared/method/sweetAlert";
+import {routerTransition} from "../../../shared/animation/route.animate";
 declare var $:any;
 @Component({
   selector: 'app-sweet-alert',
   templateUrl: './sweet-alert.component.html',
-  styleUrls: ['./sweet-alert.component.scss']
+  styleUrls: ['./sweet-alert.component.scss'],
+  animations: [routerTransition()],
+  host: {'[@routerTransition]': ''}
 })
 export class SweetAlertComponent extends SweetAlert implements OnInit {
 

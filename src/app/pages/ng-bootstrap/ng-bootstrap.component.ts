@@ -6,11 +6,14 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {routerTransition} from "../../../shared/animation/route.animate";
 declare var $:any;
 @Component({
   selector: 'app-ng-bootstrap',
   templateUrl: './ng-bootstrap.component.html',
-  styleUrls: ['./ng-bootstrap.component.scss']
+  styleUrls: ['./ng-bootstrap.component.scss'],
+  animations: [routerTransition()],
+  host: {'[@routerTransition]': ''}
 })
 export class NgBootstrapComponent implements OnInit {
   close:boolean=false;
@@ -65,7 +68,13 @@ export class NgBootstrapComponent implements OnInit {
   constructor(private modalservice:NgbModal,
               private fb:FormBuilder) {
   }
+  open(content) {
+    this.modalservice.open(content).result.then((result) => {
 
+    }, (reason) => {
+
+    });
+  }
   ngOnInit() {
     this.pageCount=this.tableDate.length/this.pageSize;
 

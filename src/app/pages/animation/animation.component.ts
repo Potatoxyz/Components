@@ -4,43 +4,42 @@ import {
   animate, group, keyframes, query, sequence, stagger, state, style, transition,
   trigger
 } from "@angular/animations";
+import {routerTransition} from "../../../shared/animation/route.animate";
 
 @Component({
   selector: 'app-animation',
   templateUrl: './animation.component.html',
   styleUrls: ['./animation.component.scss'],
   providers: [DataService],
-  animations: [
-    trigger('initShow', [       //初始化动画，只要[@initShow]='**',初始化有值就能触发
-      transition('void=>*',
-        //keyframes通过offset百分比的值来控制在多少秒的时候什么样式
-        [
-            animate('800ms ease', keyframes([
-                style({transform:'translateY(-100%)',offset:0}),
-                style({transform:'translateY(-50%)',offset:0.2}),
-                style({transform:'translateY(0%)',offset:0.4}),
-                style({transform:'translateY(50%)',offset:0.6}),
-                style({transform:'translateY(0%)',offset:0.8}),
-              ]
-            )),
-          ]
-      ),
-    ]),
+  host: {'[@routerTransition]': ''}, //给属性赋值,激活动画
+  animations: [routerTransition(),
+    // trigger('initShow', [       //初始化动画，只要[@initShow]='**',初始化有值就能触发
+    //   transition('void=>*',
+    //     //keyframes通过offset百分比的值来控制在多少秒的时候什么样式
+    //     [
+    //         animate('800ms ease', keyframes([
+    //             style({transform:'translateY(-100%)',offset:0}),
+    //             style({transform:'translateY(-50%)',offset:0.2}),
+    //             style({transform:'translateY(0%)',offset:0.4}),
+    //             style({transform:'translateY(50%)',offset:0.6}),
+    //             style({transform:'translateY(0%)',offset:0.8}),
+    //           ]
+    //         )),
+    //       ]
+    //   ),
+    // ]),
     trigger('fly',[           //通过state的name不同触发  [@fly]="active | inactive"
-     // state('active',style({transform:'translateX(0)',color:'white'})),
-     // state('inactive',style({transform:'translateX(100%)',color:'black'})),
-      // transition('active<=>inactive',[
-      //   animate('500ms ease'),
-        // query(':enter',[style({tranform:'translateX(-100%)'}),
-        // animate('0.5s',style({tranform:'translateX(0)'}))],{optional:true})
-      // ]),
-      transition('void=>*',
-        //keyframes通过offset百分比的值来控制在多少秒的时候什么样式
-        [
-          animate('800ms ease',style({transform:'translateX(-100%)'})),
-        ]
-      )
-
+     state('active',style({transform:'translateX(0)',color:'white'})),
+     state('inactive',style({transform:'translateX(100%)',color:'black'})),
+      transition('active<=>inactive',animate('500ms ease')),
+       transition(":enter", [
+           style({ transform:'translateX(-100%)'}),
+         animate(500, style({ transform:'translateX(0)' }))
+       ]),
+      transition(":leave", [
+        style({ transform:'translateX(0)'}),
+        animate(500, style({ transform:'translateX(100%)' }))
+      ])
 
       //***使用不同的延迟
       // transition('active=>inactive',group([
@@ -62,7 +61,9 @@ import {
 
     //父级transition,group里放的animate动画是同时执行的,也就是说可以用不同的timer,delay实现不同的动画效果
 
-    //transition里面只能放animate或group>animate
+    //trigger里面只能放transition或state
+
+    //目前query:enter 实验不成功，解决方式是transition :enter
   ]
 })
 export class AnimationComponent implements OnInit {

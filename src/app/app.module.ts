@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import {routing} from "./app.routing";
 import {PagesModule} from "./pages/pages.module";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -11,6 +12,7 @@ import {PagesModule} from "./pages/pages.module";
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     PagesModule,
     routing
   ],
