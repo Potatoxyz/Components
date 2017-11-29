@@ -15,6 +15,10 @@ import { AnimationComponent } from './animation/animation.component';
 import {BrowserModule} from "@angular/platform-browser";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { CommonComponent } from './common/common.component';
+import {HttpClientModule} from "@angular/common/http";
+import {HttpClientInMemoryWebApiModule} from "angular-in-memory-web-api";
+import {InMemoryDataService} from "../../shared/http/in-memory-data.service";
+import { HttpComponent } from './http/http.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -25,11 +29,15 @@ import { CommonComponent } from './common/common.component';
     NgxPaginationModule,
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    ),
     routing
   ],
   providers:[],
   entryComponents:[ModalComponent],
   declarations: [PagesComponent, SidebarComponent, LoadingComponent,
-    NgBootstrapComponent, ModalComponent, SweetAlertComponent, AnimationComponent, CommonComponent]
+    NgBootstrapComponent, ModalComponent, SweetAlertComponent, AnimationComponent, CommonComponent, HttpComponent]
 })
 export class PagesModule { }

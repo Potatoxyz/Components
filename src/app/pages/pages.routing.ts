@@ -6,6 +6,7 @@ import {NgBootstrapComponent} from "./ng-bootstrap/ng-bootstrap.component";
 import {SweetAlertComponent} from "./sweet-alert/sweet-alert.component";
 import {AnimationComponent} from "./animation/animation.component";
 import {CommonComponent} from "./common/common.component";
+import {HttpComponent} from "./http/http.component";
 
 export const routes:Routes=[
   {
@@ -16,6 +17,7 @@ export const routes:Routes=[
       {path:'sweetalert',component:SweetAlertComponent},
       {path:'animation',component:AnimationComponent},
       {path:'common',component:CommonComponent},
+      {path:'http',component:HttpComponent},
     ]
   }
 ];

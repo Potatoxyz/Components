@@ -1,0 +1,9 @@
+<p>
+  http works!
+</p>
+<ul>
+  <li *ngFor="let item of HeroData | async">
+    {{item.name}}
+    <span class="fa fa-close pull-right text-danger" style="cursor: pointer;"></span>
+  </li>
+</ul>

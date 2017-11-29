@@ -3,6 +3,11 @@
   <app-sidebar></app-sidebar>
   </div>
   <div class="content">
+    <div id="processBar">
+      <ngb-progressbar type="danger" [value]="50"
+                       [max]="100" [striped]="true"
+                       [animated]="true" [type]="'success'"></ngb-progressbar>
+    </div>
     <router-outlet></router-outlet>
   </div>
 </div>

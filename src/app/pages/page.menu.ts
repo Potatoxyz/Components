@@ -29,6 +29,11 @@ export const Pages:Array<PagesModel>=[
           pathName:'common',
           icon:'fa fa-rebel'
         },
+        {
+          name:'http',
+          pathName:'http',
+          icon:'fa fa-rebel'
+        },
       ]
     }
 ];
