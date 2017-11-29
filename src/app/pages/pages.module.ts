@@ -14,6 +14,7 @@ import { SweetAlertComponent } from './sweet-alert/sweet-alert.component';
 import { AnimationComponent } from './animation/animation.component';
 import {BrowserModule} from "@angular/platform-browser";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { CommonComponent } from './common/common.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -29,6 +30,6 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
   providers:[],
   entryComponents:[ModalComponent],
   declarations: [PagesComponent, SidebarComponent, LoadingComponent,
-    NgBootstrapComponent, ModalComponent, SweetAlertComponent, AnimationComponent]
+    NgBootstrapComponent, ModalComponent, SweetAlertComponent, AnimationComponent, CommonComponent]
 })
 export class PagesModule { }

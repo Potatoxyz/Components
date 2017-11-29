@@ -5,6 +5,7 @@ import {LoadingComponent} from "./loading/loading.component";
 import {NgBootstrapComponent} from "./ng-bootstrap/ng-bootstrap.component";
 import {SweetAlertComponent} from "./sweet-alert/sweet-alert.component";
 import {AnimationComponent} from "./animation/animation.component";
+import {CommonComponent} from "./common/common.component";
 
 export const routes:Routes=[
   {
@@ -14,7 +15,8 @@ export const routes:Routes=[
       {path:'ngbootstrap',component:NgBootstrapComponent},
       {path:'sweetalert',component:SweetAlertComponent},
       {path:'animation',component:AnimationComponent},
+      {path:'common',component:CommonComponent},
     ]
   }
 ];
-export const routing:ModuleWithProviders=RouterModule.forRoot(routes);
+export const routing:ModuleWithProviders=RouterModule.forRoot(routes,{useHash:true});

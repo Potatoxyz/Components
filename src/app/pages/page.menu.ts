@@ -24,6 +24,11 @@ export const Pages:Array<PagesModel>=[
           pathName:'animation',
           icon:'fa fa-rebel'
         },
+        {
+          name:'common',
+          pathName:'common',
+          icon:'fa fa-rebel'
+        },
       ]
     }
 ];

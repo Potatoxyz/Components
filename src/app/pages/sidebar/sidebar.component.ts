@@ -13,8 +13,10 @@ export class SidebarComponent implements OnInit {
   }
   ngOnInit() {
   }
-  addActive(target:any){
-    $(target).parent().siblings().removeClass('active');
-    $(target).parent().addClass('active');
-  }
+  //routerLinkActive属性会给激活的路由添加类
+
+  // addActive(target:any){
+  //   $(target).parent().siblings().removeClass('active');
+  //   $(target).parent().addClass('active');
+  // }
 }

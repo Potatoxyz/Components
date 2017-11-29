@@ -1,7 +1,7 @@
 <div>
   <ul>
     <li *ngFor="let item of pages[0].children;let index=index;">
-        <a routerLink='/page/{{item.pathName}}' routerLinkActive="active" (click)="addActive($event.target)"><span class={{item.icon}}></span>{{item.name}}</a>
+        <a routerLink='/page/{{item.pathName}}' routerLinkActive="active"><span class={{item.icon}}></span>{{item.name}}</a>
     </li>
   </ul>
 </div>
