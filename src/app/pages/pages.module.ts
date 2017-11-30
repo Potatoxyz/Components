@@ -19,6 +19,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {HttpClientInMemoryWebApiModule} from "angular-in-memory-web-api";
 import {InMemoryDataService} from "../../shared/http/in-memory-data.service";
 import { HttpComponent } from './http/http.component';
+import {Public_api} from "../../shared/http/public_api";
 @NgModule({
   imports: [
     CommonModule,
@@ -35,7 +36,7 @@ import { HttpComponent } from './http/http.component';
     ),
     routing
   ],
-  providers:[],
+  providers:[Public_api,],
   entryComponents:[ModalComponent],
   declarations: [PagesComponent, SidebarComponent, LoadingComponent,
     NgBootstrapComponent, ModalComponent, SweetAlertComponent, AnimationComponent, CommonComponent, HttpComponent]

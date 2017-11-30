@@ -15,12 +15,5 @@ export class HttpComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.loadData();
   }
-  // loadData(){
-  //   this.dataService.getHeroes().subscribe(data=>{
-  //     console.log(data);
-  //     this.HeroData=data;
-  //   })
-  // }
 }
