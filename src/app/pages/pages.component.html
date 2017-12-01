@@ -4,10 +4,10 @@
   </div>
   <div class="content">
     <div id="processBar">
-      <ngb-progressbar type="danger" [value]="10"
-                       [max]="30" [striped]="true"
+      <ngb-progressbar type="danger" [value]=process
+                       [max]=end [striped]="true"
                        [animated]="true" [type]="'success'"></ngb-progressbar>
     </div>
-    <router-outlet>loading...</router-outlet>
+    <router-outlet></router-outlet>
   </div>
 </div>
