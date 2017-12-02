@@ -15,17 +15,15 @@ export class Public_api{
   }
   get(url):Observable<any>{
     return this.http.get(url).pipe(
+      //水龙头  能进行数据最开始和完成阶段操作
       tap(()=>{
         this.startTime=new Date().getTime();
-        $('#processBar').css('display','block');
         // console.log('start: '+this.startTime);
         this._time.next({time:this.startTime,timeKind:'start'});
       },()=>{},()=>{
         this.endTime=new Date().getTime();
         // console.log('end: '+this.endTime);
-        // $('#processBar').css('display','none');
         this._time.next({time:this.endTime,timeKind:'end'});
-        $('#processBar').css('display','none');
       }),
       map((value) => {
         // let endTime=new Date().getTime();

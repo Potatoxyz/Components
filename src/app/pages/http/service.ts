@@ -1,13 +1,13 @@
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs/Observable";
-import {catchError} from "rxjs/operators";
+import {map} from "rxjs/operators";
 import {of} from "rxjs/observable/of";
 import {Injectable} from "@angular/core";
 import {Public_api} from "../../../shared/http/public_api";
 
 @Injectable()
 export class Service{
-  private heroesUrl = 'api/heroes';  // URL to web api
+  private heroesUrl = 'api/heroes';// URL to web api
   constructor(private http: HttpClient,
               private api:Public_api) {
 
@@ -28,7 +28,13 @@ export class Service{
   //     return of(result as T);
   //   };
   // }
-
+  getHeroById(id:any):Observable<Hero[]>{
+    let url=`${this.heroesUrl}/${id}`;
+    return this.api.get(url).map((data)=>{
+      let arr=[];
+      arr.push(data);
+      return arr;});
+  }
 }
 export class Hero{
   id:number;

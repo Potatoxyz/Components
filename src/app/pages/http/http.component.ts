@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Service} from "./service";
+import {Hero, Service} from "./service";
 import {Observable} from "rxjs/Observable";
 
 @Component({
@@ -10,10 +10,12 @@ import {Observable} from "rxjs/Observable";
 })
 export class HttpComponent implements OnInit {
   HeroData:Observable<any>;
+  hero:Observable<Hero[]>;
   ayncData:any={};
   valueIndex=0;
   constructor(private dataService:Service) {
     this.HeroData=this.dataService.getHeroes();
+    this.hero=this.dataService.getHeroById(11);
   }
 
   ngOnInit() {

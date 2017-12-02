@@ -20,13 +20,17 @@ export class PagesComponent implements OnInit {
   }
   ngOnInit() {
     this.time.subscribe(time=>{
-      console.log('pageGetTime:  '+time.time+' '+time.timeKind);
-      // this.process=time.startTime;
-      // this.end=time.endTime;
-      // if(this.process==this.end){
-      //   $('#processBar').css('display','none');
-      // }
-      // console.log(this.process);
+      // console.log('pageGetTime:  '+time.time+' '+time.timeKind);
+      switch (time.timeKind){
+        case 'start':
+          this.process=0;
+          this.end=time.time;
+          $('#processBar').css('display','block');
+          break;
+        case 'end':
+          setTimeout(()=>{ this.process=time.time;},200);
+          setTimeout(()=>{$('#processBar').css('display','none');},1000);
+      }
     });
   }
 }

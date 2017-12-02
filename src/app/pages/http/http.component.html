@@ -7,8 +7,12 @@
     <span class="fa fa-close pull-right text-danger" style="cursor: pointer;"></span>
   </li>
 </ul>
-<button (click)="changeValue()" class="btn btn-primary">change ayncValue</button>
+<div class="part1">
+  <button (click)="changeValue()" class="btn btn-primary">change ayncValue</button>
+  <h4>Get Hero By Id：</h4>
+  <h4 *ngFor="let item of hero | async">{{item.name}}</h4>
+</div>
 <div>
-  <app-common [ayncData]="ayncData"></app-common>
+  <app-common [ayncData]="ayncData">loading...</app-common>
 </div>
 
