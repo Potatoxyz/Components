@@ -15,6 +15,12 @@ a {
 p{
   margin-bottom: 0;
 }
+//消除input原生样式
+input{
+  -webkit-appearance: none;
+  outline: none;
+  border:none;
+}
 .fa {
   margin-right: 10px;
   cursor: pointer;

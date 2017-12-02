@@ -14,11 +14,11 @@
     background: url('../../assets/img/sky-bg.jpg') no-repeat;
     background-size: cover;
     width: 100%;
-    overflow: hidden;
+    overflow: auto;
   }
 }
 #processBar{
-  position: absolute;
+  position: fixed;
   top:0;
   left: 0;
   width: 100%;
