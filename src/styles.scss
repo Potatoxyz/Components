@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@import "shared/StyleTheme/form";
 * {
   margin: 0;
   padding: 0;
@@ -14,12 +15,6 @@ a {
 }
 p{
   margin-bottom: 0;
-}
-//消除input原生样式
-input{
-  -webkit-appearance: none;
-  outline: none;
-  border:none;
 }
 .fa {
   margin-right: 10px;
@@ -39,15 +34,6 @@ input{
 }
 .btn:disabled{
   cursor: not-allowed;
-}
-//不显示input[number]的箭头
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-}
-input[type="number"]{
-  -moz-appearance: textfield;
 }
 .bg-black{
   background-color: rgba(0,0,0,.7)!important;

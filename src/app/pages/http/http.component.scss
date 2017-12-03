@@ -2,8 +2,17 @@ ul{
   width: 400px;
   margin-top: 20px;
   li{
+    height: 30px;
+    overflow: hidden;
     margin-bottom: 15px;
     border-bottom: 1px solid white;
+    span{
+      line-height: 30px;
+      &.text{
+        display: inline-block;
+        height: 100%;
+      }
+    }
   }
 }
 .part1{

@@ -3,8 +3,8 @@
 </p>
 <ul>
   <li *ngFor="let item of HeroData | async">
-    <span appInputable>{{item.name}}</span>
-    <span class="fa fa-close pull-right text-danger" style="cursor: pointer;"></span>
+    <span class="text" appInputable>{{item.name}}</span>
+    <span class="fa fa-close pull-right text-danger"></span>
   </li>
 </ul>
 <div class="part1">

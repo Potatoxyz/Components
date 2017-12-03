@@ -1,0 +1,19 @@
+//消除input原生样式
+input{
+  -webkit-appearance: none;
+  outline: none;
+  border:none;
+}
+//不显示input[number]的箭头
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input[type="number"]{
+  -moz-appearance: textfield;
+}
+input[type='text']{
+  padding:0.15em 0.3em;
+  background: rgba(0,0,0,.5);
+  color:white;
+}
