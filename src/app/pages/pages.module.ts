@@ -21,6 +21,7 @@ import {InMemoryDataService} from "../../shared/http/in-memory-data.service";
 import { HttpComponent } from './http/http.component';
 import {Public_api} from "../../shared/http/public_api";
 import {MydirectiveModule} from "../../shared/directve/mydirective.module";
+import {Select2Module} from "ng2-select2";
 @NgModule({
   imports: [
     CommonModule,
@@ -28,6 +29,7 @@ import {MydirectiveModule} from "../../shared/directve/mydirective.module";
     FormsModule,
     ReactiveFormsModule,
     NgbModule.forRoot(),
+    Select2Module,
     NgxPaginationModule,
     BrowserModule,
     BrowserAnimationsModule,

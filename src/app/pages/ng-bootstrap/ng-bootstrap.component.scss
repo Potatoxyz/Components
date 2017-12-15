@@ -110,6 +110,14 @@ button.input-group-addon{
 .invalied{
   border-color: red;
 }
+.select2 /deep/ .select2-container .select2-selection--single{
+  background: rgba(0,0,0,0.3);
+  border-color: transparent;
+  .select2-selection__rendered{
+    color:white;
+  }
+}
+
 @media screen and(max-width: 1000px){
   .firstpart div{
     button{

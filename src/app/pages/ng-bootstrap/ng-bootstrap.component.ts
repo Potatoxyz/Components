@@ -45,6 +45,8 @@ export class NgBootstrapComponent implements OnInit {
     {pname:'guangxi',cname:'广西'},
     {pname:'ningxia',cname:'宁夏'},
   ];
+  provinceList=[];
+  selectedprovinceList='';
   typehead: any='';
   name: any='';
   password: any='';
@@ -89,7 +91,15 @@ export class NgBootstrapComponent implements OnInit {
       tel2:['123'],
       decimals:['',[Validators.pattern('/^[1-9]\\d*$/')]]
     });
+
+    this.provinceList=this.Province.map(item=>item.cname);
   }
+
+  choose(e){
+    this.selectedprovinceList=e.value;
+    console.log(this.selectedprovinceList);
+  }
+
   openModal(){
     const ngbModalRef:NgbModalRef=this.modalservice.open(ModalComponent,
       {backdrop:'static',size:'lg',windowClass:'animated slideInLeft'});
