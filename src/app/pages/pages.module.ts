@@ -22,6 +22,11 @@ import { HttpComponent } from './http/http.component';
 import {Public_api} from "../../shared/http/public_api";
 import {MydirectiveModule} from "../../shared/directve/mydirective.module";
 import {Select2Module} from "ng2-select2";
+import {AnywereService} from "./anywere.service";
+import {SortPipe} from "../../shared/pipe/sort.pipe";
+import { CommonHeadComponent } from './common-head/common-head.component';
+import { NgDatepickerModule } from 'ng2-datepicker'
+
 @NgModule({
   imports: [
     CommonModule,
@@ -34,15 +39,16 @@ import {Select2Module} from "ng2-select2";
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    NgDatepickerModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
     ),
     MydirectiveModule,
     routing
   ],
-  providers:[Public_api,],
+  providers:[Public_api,AnywereService],
   entryComponents:[ModalComponent],
-  declarations: [PagesComponent, SidebarComponent, LoadingComponent,
-    NgBootstrapComponent, ModalComponent, SweetAlertComponent, AnimationComponent, CommonComponent, HttpComponent]
+  declarations: [SortPipe,PagesComponent, SidebarComponent, LoadingComponent,
+    NgBootstrapComponent, ModalComponent, SweetAlertComponent, AnimationComponent, CommonComponent, HttpComponent, CommonHeadComponent]
 })
 export class PagesModule { }

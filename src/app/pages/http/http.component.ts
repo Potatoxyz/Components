@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Hero, Service} from "./service";
 import {Observable} from "rxjs/Observable";
+import {AnywereService} from "../anywere.service";
 
 @Component({
   selector: 'app-http',

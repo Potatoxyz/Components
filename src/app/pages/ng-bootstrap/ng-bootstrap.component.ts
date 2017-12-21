@@ -17,19 +17,21 @@ declare var $:any;
 })
 export class NgBootstrapComponent implements OnInit {
   close:boolean=false;
+  valueSort:boolean=true;
   tableDate=[
-    {id:1,eName:'1',cName:'2'},
-    {id:2,eName:'1',cName:'2'},
-    {id:3,eName:'1',cName:'2'},
-    {id:4,eName:'1',cName:'2'},
-    {id:5,eName:'1',cName:'2'},
-    {id:6,eName:'1',cName:'2'},
-    {id:7,eName:'1',cName:'2'},
+    {id:1,eName:'1',cName:'2',value:1},
+    {id:2,eName:'2',cName:'2',value:8},
+    {id:3,eName:'3',cName:'2',value:4},
+    {id:4,eName:'4',cName:'2',value:2},
+    {id:5,eName:'5',cName:'2',value:9},
+    {id:6,eName:'6',cName:'2',value:3},
+    {id:7,eName:'7',cName:'2',value:1},
   ];
   selectedtableDate=[];
-  currentPage:number=1;
-  pageSize:number=2;
+
+  PageInfo={currentPage:1,pageSize:5,totalCount:1};
   currentPages=[];
+
   pageData=[];
   pageCount:number;
   isCollapsed:boolean=true;
@@ -78,11 +80,7 @@ export class NgBootstrapComponent implements OnInit {
     });
   }
   ngOnInit() {
-    this.pageCount=this.tableDate.length/this.pageSize;
-
-    if(this.tableDate.length%this.pageSize!=0){
-      this.pageCount=Number((this.tableDate.length/this.pageSize).toFixed(0));
-    }
+    this.PageInfo.totalCount=this.tableDate.length;
 
     this.myform2=this.fb.group({
       name2:['',[Validators.required,Validators.minLength(6)]],
@@ -134,7 +132,7 @@ export class NgBootstrapComponent implements OnInit {
   getThisPageData(currentPage:any){
     var thisPageData=[];
     if(currentPage==this.pageCount){//假设不能整除，且是最后一页
-      var num=this.pageSize-(currentPage*this.pageSize-this.tableDate.length);//最后一页实际个数
+      var num=this.PageInfo.pageSize-(currentPage*this.PageInfo.pageSize-this.tableDate.length);//最后一页实际个数
       var end=this.tableDate.length;
       var start=end-num;
       for(start;start<=end-1;start++){
@@ -145,8 +143,8 @@ export class NgBootstrapComponent implements OnInit {
       // console.log('pageData push1');
     }
     else{
-      let endIndex=currentPage*this.pageSize;//把本页放进去
-      let s=endIndex-this.pageSize;
+      let endIndex=currentPage*this.PageInfo.pageSize;//把本页放进去
+      let s=endIndex-this.PageInfo.pageSize;
       for(s;s<=endIndex-1;s++){
         // this.selectedtableDate.push(this.tableDate[s].id);
         thisPageData.push(this.tableDate[s].id);
@@ -192,26 +190,8 @@ export class NgBootstrapComponent implements OnInit {
     // console.log(this.currentPages);
   }
 
-  selectAll(ifChecked:boolean){
-    if(ifChecked){
-      this.selectedtableDate=[];
-      this.tableDate.forEach((value)=>{
-        this.selectedtableDate.push(value.id);
-      });
-
-      for(var i=1;i<=this.pageCount;i++){
-        this.currentPages.push(i);
-      }
-
-    }
-    else{
-      this.selectedtableDate=[];
-      this.currentPages=[]
-    }
-    // console.log(this.selectedtableDate);
-  }
   pageChanged(page:any){
-    this.currentPage=page;
+    this.PageInfo.currentPage=page;
   }
 
   toggleSlide(){
