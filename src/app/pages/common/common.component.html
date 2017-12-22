@@ -1,7 +1,10 @@
-<app-common-head></app-common-head>
+<div class="card">
+<app-common-head [List]="headList" [selectedIds]="selectedIds"
+                 [togglebottom]="togglebottom" (selected)="getSelectedId($event)"></app-common-head>
+</div>
+
 <h4>{{DatePipe|date:'y-MM-dd HH:mm:ss a'}}</h4>
 <h4>{{CurrencyPipe|currency:'CNY':true}}</h4>
 <h4>{{decimalPipe|number:'4.0-2'}}</h4>
 <h4>{{slicePipe|slice:-3}}</h4>
 <h4>{{titlePipe|titlecase}}</h4>
-<h4 class="text-warning">@Input的异步值：{{ayncData.name}}</h4>

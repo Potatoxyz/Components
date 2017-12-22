@@ -7,32 +7,32 @@ export const Pages:Array<PagesModel>=[
         {
           name:'Loading',
           pathName:'loading',
-          icon:'fa fa-spinner'
+          icon:'fa fa-right fa-spinner'
         },
         {
           name:'ng-bootstrap',
           pathName:'ngbootstrap',
-          icon:'fa fa-rebel'
+          icon:'fa fa-right fa-rebel'
         },
         {
           name:'sweet-alert',
           pathName:'sweetalert',
-          icon:'fa fa-rebel'
+          icon:'fa fa-right fa-rebel'
         },
         {
           name:'animation',
           pathName:'animation',
-          icon:'fa fa-rebel'
+          icon:'fa fa-right fa-rebel'
         },
         {
           name:'common',
           pathName:'common',
-          icon:'fa fa-rebel'
+          icon:'fa fa-right fa-rebel'
         },
         {
           name:'http',
           pathName:'http',
-          icon:'fa fa-rebel'
+          icon:'fa fa-right fa-rebel'
         },
       ]
     }

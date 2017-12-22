@@ -13,6 +13,7 @@
   <h4 *ngFor="let item of hero | async">{{item.name}}</h4>
 </div>
 <div>
-  <app-common [ayncData]="ayncData">loading...</app-common>
+  <!--<app-common [ayncData]="ayncData">loading...</app-common>-->
+  <app-sweet-alert [ayncData]="ayncData"></app-sweet-alert>
 </div>
 

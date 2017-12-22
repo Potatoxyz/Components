@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {SweetAlert} from "../../../shared/method/sweetAlert";
 import {routerTransition} from "../../../shared/animation/route.animate";
+import {Hero} from "../http/service";
+import {BehaviorSubject} from "rxjs/BehaviorSubject";
 declare var $:any;
 @Component({
   selector: 'app-sweet-alert',
@@ -10,10 +12,22 @@ declare var $:any;
   host: {'[@routerTransition]': ''}
 })
 export class SweetAlertComponent extends SweetAlert implements OnInit {
-
+  private _ayncData=new BehaviorSubject<Hero>(new Hero());
+  @Input() set ayncData(ayncData){
+    this._ayncData.next(ayncData);
+  };
+  get ayncData(){
+    return this._ayncData.getValue();
+  }
   constructor() {super(); }
 
   ngOnInit() {
+    this.getAyncData();
+  }
+  getAyncData(){
+    this._ayncData.subscribe(data=>{
+      // console.log(data);  //会输出两次，一次是初始化的时候未获取值，输出空；值发生改变时又会输出一次
+    })
   }
   showError(){
     this.error('不，不哈哈哈');

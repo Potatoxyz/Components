@@ -24,7 +24,7 @@ import {MydirectiveModule} from "../../shared/directve/mydirective.module";
 import {Select2Module} from "ng2-select2";
 import {AnywereService} from "./anywere.service";
 import {SortPipe} from "../../shared/pipe/sort.pipe";
-import { CommonHeadComponent } from './common-head/common-head.component';
+import { CommonHeadComponent } from './Components/common-head/common-head.component';
 import { NgDatepickerModule } from 'ng2-datepicker'
 
 @NgModule({

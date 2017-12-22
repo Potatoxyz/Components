@@ -28,6 +28,8 @@
       cursor: pointer;
       vertical-align: top;
       padding: 3px;
+
+      //时间选择和搜索相关
       &.option-nobot {
         margin-bottom: 0;
         padding: 0;
@@ -36,7 +38,7 @@
         line-height: 30px;
       }
     }
-    .tag {
+    .selected{
       background: white;
       color: dodgerblue;
       border-radius: 3px;
@@ -46,6 +48,7 @@
       display: flex;
       margin-bottom: 0;
     }
+
   }
 }
 //时间选择

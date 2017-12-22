@@ -17,8 +17,13 @@ p{
   margin-bottom: 0;
 }
 .fa {
-  margin-right: 10px;
   cursor: pointer;
+  &.fa-left{
+    margin-left: 10px;
+  }
+  &.fa-right{
+    margin-right: 10px;
+  }
 }
 .my-pagination /deep/ ul{
   margin-bottom: 0;
@@ -43,4 +48,8 @@ p{
   background-color: rgba(255,255,255,.1);
   border-radius: 5px;
   box-shadow: 0 5px 5px 0 rgba(0,0,0,.2);
+  position: relative;
+}
+.none{
+  display: none!important;
 }

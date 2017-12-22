@@ -1,0 +1,56 @@
+<div *ngIf="List">
+  <div class="select" *ngFor="let items of List;let index=index"
+       [ngClass]="{'bdb':index==0,'none':(clickbottom==0&&togglebottom.toggle==true&&index>=1)}">
+    <div class="part-wrap">
+      <span class="title">{{items.title}}：</span>
+    </div>
+    <div class="option-wrap">
+  <span class="option" *ngFor="let item of items.list" (click)="select(item.id,index)"
+        [ngClass]="{'selected':item.id==selectedIds[index].id}">{{item.text}}</span>
+    </div>
+  </div>
+</div>
+
+<div class="toggle-select" *ngIf="togglebottom.toggle==true">
+  <button *ngIf="clickbottom==0&&clicktop==0" class="btn btn-primary btn-sm" (click)="clickbottom=1">
+    高级筛选<span class="fa fa-left fa-caret-down"></span>
+  </button>
+  <button *ngIf="clickbottom==1&&clicktop==0" class="btn btn-primary btn-sm" (click)="clickbottom=0">
+    收起<span class="fa fa-left fa-caret-up"></span>
+  </button>
+</div>
+
+
+<!--<div class="select">-->
+<!--<div class="part-wrap">-->
+<!--<span class="title">时间筛选：</span>-->
+<!--</div>-->
+<!--<div class="option-wrap">-->
+<!--<span class="option" *ngFor="let item of orderTime" (click)="selectedordertimesearch=item.id"-->
+<!--[ngClass]="{'tag':item.id==selectedordertimesearch}">{{item.text}}</span>-->
+<!--<span class="option option-nobot" *ngIf="selectedordertimesearch==4">-->
+<!--<ng-datepicker   [(ngModel)]="timeSearchStart"-->
+<!--[options]="DatepickerOptions"></ng-datepicker>-->
+<!--</span>-->
+<!--<span class="option timegap option-nobot" *ngIf="selectedordertimesearch==4">~</span>-->
+<!--<span class="option option-nobot" [ngClass]="{'unvisible':selectedordertimesearch!=4}">-->
+<!--<ng-datepicker  [(ngModel)]="timeSearchEnd"-->
+<!--[options]="DatepickerOptions"></ng-datepicker>-->
+<!--</span>-->
+<!--<span class="option option-nobot">-->
+<!--<button *ngIf="selectedordertimesearch==4" class="btn btn-primary"-->
+<!--&gt;确定</button>-->
+<!--</span>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="select">-->
+<!--<div class="part-wrap">-->
+<!--<span class="title">搜索内容：</span>-->
+<!--</div>-->
+<!--<div class="option-wrap">-->
+<!--<div class=" input">-->
+<!--<input type="search" class="form-control">-->
+<!--<button class="btn btn-danger btn-sm">搜索</button>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
