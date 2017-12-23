@@ -27,6 +27,9 @@ import {SortPipe} from "../../shared/pipe/sort.pipe";
 import {CommonHeadComponent} from './Components/common-head/common-head.component';
 import {NgDatepickerModule} from 'ng2-datepicker';
 import {LinechartComponent} from "./Components/highchart/linechart/linechart.component";
+import { HighchartsComponent } from './highcharts/highcharts.component';
+import { SplineComponent } from './Components/highchart/spline/spline.component';
+import { PieComponent } from './Components/highchart/pie/pie.component';
 
 
 @NgModule({
@@ -51,7 +54,7 @@ import {LinechartComponent} from "./Components/highchart/linechart/linechart.com
   providers: [Public_api, AnywereService],
   entryComponents: [ModalComponent],
   declarations: [SortPipe, PagesComponent, SidebarComponent, LoadingComponent,
-    NgBootstrapComponent, ModalComponent, SweetAlertComponent, AnimationComponent, CommonComponent, HttpComponent, CommonHeadComponent, LinechartComponent]
+    NgBootstrapComponent, ModalComponent, SweetAlertComponent, AnimationComponent, CommonComponent, HttpComponent, CommonHeadComponent, LinechartComponent, HighchartsComponent, SplineComponent, PieComponent]
 })
 export class PagesModule {
 }

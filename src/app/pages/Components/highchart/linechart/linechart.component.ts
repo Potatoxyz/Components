@@ -57,7 +57,8 @@ export class LinechartComponent implements OnInit {
         data: [12908, 5948, 8105, 11248, 8989, 11816, 18274, 18111]
       }],
     };
-    Highcharts.setOptions(theme.getPublicChartTheme());
-    Highcharts.chart('container',options);
+    let mytheme=theme.getPublicChartTheme();
+    Highcharts.setOptions(mytheme);
+    Highcharts.chart('linechartContainer',options)
   }
 }

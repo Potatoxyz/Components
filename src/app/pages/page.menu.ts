@@ -34,6 +34,11 @@ export const Pages:Array<PagesModel>=[
           pathName:'http',
           icon:'fa fa-right fa-rebel'
         },
+        {
+          name:'hightcharts',
+          pathName:'hightcharts',
+          icon:'fa fa-right fa-rebel'
+        },
       ]
     }
 ];

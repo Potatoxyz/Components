@@ -7,6 +7,7 @@ import {SweetAlertComponent} from "./sweet-alert/sweet-alert.component";
 import {AnimationComponent} from "./animation/animation.component";
 import {CommonComponent} from "./common/common.component";
 import {HttpComponent} from "./http/http.component";
+import {HighchartsComponent} from "./highcharts/highcharts.component";
 
 export const routes:Routes=[
   {
@@ -18,6 +19,7 @@ export const routes:Routes=[
       {path:'animation',component:AnimationComponent},
       {path:'common',component:CommonComponent},
       {path:'http',component:HttpComponent},
+      {path:'hightcharts',component:HighchartsComponent},
     ]
   }
 ];

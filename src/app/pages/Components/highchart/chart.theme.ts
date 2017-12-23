@@ -8,6 +8,12 @@ export function getPublicChartTheme(){
         color: '#fff'
       }
     },
+    subtitle: {
+      style: {
+        fontSize: '12px',
+        color: '#fff'
+      }
+    },
     chart:{
       backgroundColor: 'transparent',
       height:400,
@@ -20,7 +26,7 @@ export function getPublicChartTheme(){
       enabled: false // 禁用版权信息
     },
     legend: {
-      enabled: false,    //关闭每种颜色代表的数据  --图利
+      enabled: true,    //关闭每种颜色代表的数据  --图利
       itemStyle:{ "color": "#fff", "cursor": "pointer", "fontSize": "12px", "fontWeight": "normal" },//文字的文本样式
       itemHoverStyle:{"color": "#fff"}//hover样式
     },
@@ -42,8 +48,8 @@ export function getPublicChartTheme(){
       line:{
         marker: {
           radius: 4,
-          lineColor: '#666666',
-          lineWidth: 1
+          lineColor: '#fff',
+          lineWidth: 2
         }
       },
       //曲线图
@@ -66,36 +72,29 @@ export function getPublicChartTheme(){
           connectorColor: 'silver'
         }
       },
-      //提示框
-      tooltip: {
-        backgroundColor:'rgba(247,247,247,0.85)',
-      },
-      //X轴字体样式
-      xAxis: {
-        labels: {
-          style: {
-            fontSize: '12px',
-            color: '#fff'
-          },
+    },
+    //提示框
+    tooltip: {
+      backgroundColor:'rgba(247,247,247,0.85)',
+    },
+    //Y轴字体样式
+    yAxis: {
+      title: {
+        style: {
+          fontSize: '14px',
+          color: '#fff',
+          fontWeight:'normal'
         },
       },
-      //Y轴字体样式
-      yAxis: {
-        //Y轴标题
-        title: {
-          style: {
-            fontSize: '14px',
-            color: '#fff'
-          },
-        },
-        labels: {
-          style: {
-            fontSize: '12px',
-            color: '#fff'
-          }
-        }
+      labels: {
+        style:{ "color": "#fff", "cursor": "default", "fontSize": "12px" }
+      }
+    },
+    xAxis: {
+      labels: {
+        style:{ "color": "#fff", "cursor": "default", "fontSize": "12px" }
       },
-    }
+    },
   };
   return Highcharts.theme;
 }
