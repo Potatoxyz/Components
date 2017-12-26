@@ -25,7 +25,6 @@ export class SplineComponent implements OnInit {
   }
 
   initSpLineChart(){
-    console.log(this.Yunit);
     var options={
       chart: {type: 'spline'},
       title: {text: this.title},

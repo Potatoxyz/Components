@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {ChartDataService} from "./chartData.service";
+import {routerTransition} from "../../../shared/animation/route.animate";
 
 @Component({
   selector: 'app-highcharts',
   templateUrl: './highcharts.component.html',
-  styleUrls: ['./highcharts.component.scss']
+  styleUrls: ['./highcharts.component.scss'],
+  host:{'[@routerTransition]': ''},
+  animations: [routerTransition()],
 })
 export class HighchartsComponent implements OnInit {
   lineCharttitle:string='折线图';

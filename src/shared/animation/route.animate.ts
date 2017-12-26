@@ -6,8 +6,8 @@ export function routerTransition() {
 
 function slideToRight() {
   return trigger('routerTransition', [
-    state('void', style({position:'absolute', width:'calc(100% - 30px)',height:'100%'}) ),//左右有padding 15px
-    state('*', style({position:'absolute', width:'calc(100% - 30px)',height:'100%'}) ),
+    state('void', style({position:'absolute', width:'calc(100% - 230px)',minHeight:'calc(100vh - 90px)',marginBottom:'15px'}) ),
+    state('*', style({position:'absolute', width:'calc(100% - 230px)',minHeight:'calc(100vh - 90px)',marginBottom:'15px'}) ),
     transition(':enter', [
       style({transform: 'translateX(-100%)'}),
       animate('0.5s ease-in-out', style({transform: 'translateX(0%)'}))

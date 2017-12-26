@@ -32,6 +32,7 @@ import { SplineComponent } from './Components/highchart/spline/spline.component'
 import { PieComponent } from './Components/highchart/pie/pie.component';
 import { ColumnchartComponent } from './Components/highchart/columnchart/columnchart.component';
 import {ChartDataService} from "./highcharts/chartData.service";
+import { TopbarComponent } from './topbar/topbar.component';
 
 
 @NgModule({
@@ -56,7 +57,7 @@ import {ChartDataService} from "./highcharts/chartData.service";
   providers: [Public_api, AnywereService,ChartDataService],
   entryComponents: [ModalComponent],
   declarations: [SortPipe, PagesComponent, SidebarComponent, LoadingComponent,
-    NgBootstrapComponent, ModalComponent, SweetAlertComponent, AnimationComponent, CommonComponent, HttpComponent, CommonHeadComponent, LinechartComponent, HighchartsComponent, SplineComponent, PieComponent, ColumnchartComponent]
+    NgBootstrapComponent, ModalComponent, SweetAlertComponent, AnimationComponent, CommonComponent, HttpComponent, CommonHeadComponent, LinechartComponent, HighchartsComponent, SplineComponent, PieComponent, ColumnchartComponent, TopbarComponent]
 })
 export class PagesModule {
 }

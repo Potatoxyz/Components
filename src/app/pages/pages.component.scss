@@ -1,16 +1,26 @@
 .frame{
   color: white;
   display: flex;
+  min-height: 100vh;
   >.sidebar{
+    position: fixed;
     width: 200px;
-    min-height: 100vh;
-    background: #191817;
+    left: 0;
+    top:55px;
+    z-index: 1000;
+    height: 100%;
+    background-color: rgba(0,0,0,.8);
+  }
+  >.topbar{
+    position: fixed;
+    top:0;
+    width: 100%;
+    z-index: 1000;
   }
   >.content{
-    box-sizing: border-box;
-    padding:15px;
+    box-sizing: content-box;
+    padding:75px 15px 0 215px;
     position: relative;
-    min-height: 100vh;
     background: url('../../assets/img/sky-bg.jpg') no-repeat;
     background-size: cover;
     width: 100%;
