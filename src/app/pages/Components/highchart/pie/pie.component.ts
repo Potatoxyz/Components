@@ -1,46 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import * as theme from '../chart.theme';
 import * as Highcharts from 'highcharts';
+
 @Component({
   selector: 'app-pie',
   templateUrl: './pie.component.html',
   styleUrls: ['./pie.component.scss']
 })
 export class PieComponent implements OnInit {
-
-  constructor() { }
+  @Input() title: string = '';
+  @Input() Ydata: Array<{name:string,data:Array<any>}> = null;
+  constructor() {
+  }
 
   ngOnInit() {
     this.initPieChart();
   }
-  initPieChart(){
-    let options={
+
+  initPieChart() {
+    let options = {
       //图表所有类型在plotOptions下显示有
       title: {
-        text: '2014年某网站各浏览器的访问量占比'
+        text: this.title
       },
       chart: {type: 'pie'},
-      series: [
-        {type: 'pie',
-      name: '浏览器占比',
-      data: [
-      ['Firefox',   45.0],
-      ['IE',       26.8],
-      {
-        name: 'Chrome',
-        y: 12.8,
-        sliced: true,
-        selected: true
-      },
-      ['Safari',    8.5],
-      ['Opera',     6.2],
-      ['其他',   0.7]
-    ]
-  }
-      ],
+      series: this.Ydata,
     };
-    let mytheme=theme.getPublicChartTheme();
+    options.series[0].data[0].sliced=true;
+    options.series[0].data[0].selected=true;
+    let mytheme = theme.getPublicChartTheme();
     Highcharts.setOptions(mytheme);
-    Highcharts.chart('piechartContainer',options)
+    Highcharts.chart('piechartContainer', options)
   }
 }

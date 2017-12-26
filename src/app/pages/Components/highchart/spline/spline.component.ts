@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import * as theme from '../chart.theme';
 import * as Highcharts from 'highcharts';
 @Component({
@@ -7,32 +7,63 @@ import * as Highcharts from 'highcharts';
   styleUrls: ['./spline.component.scss']
 })
 export class SplineComponent implements OnInit {
+  @Input() title: string = '';
+  @Input() subtitle?: string = '';
+  @Input() Ytitle: string = '';
+  @Input() Yunit?: string = '';
+  @Input() autogrownumber?: boolean = false;
+  @Input() autogrowDate?: boolean = false;
+  @Input() growStartnum?: number = 0;
+  @Input() growStartdate?: number = null;
+  @Input() Ydata: Array<{name:string,list:Array<number>}> = null;
 
   constructor() { }
 
   ngOnInit() {
     this.initSpLineChart();
+
   }
 
   initSpLineChart(){
+    console.log(this.Yunit);
     var options={
       chart: {type: 'spline'},
-      title: {text: `7天走势`},
-      xAxis: {type:'datetime', xDateFormat: '%m-%d', categories:[]},
+      title: {text: this.title},
+      xAxis: {
+        type: 'datetime',
+        dateTimeLabelFormats: {
+          day: '%Y-%m-%d'
+        }
+      },
       yAxis: {
-        title: {text: 'money'},
-        labels: {formatter: function () {return this.value + ' ' +'$';}}
+        title: {text: this.Ytitle},
+        labels: {formatter: function () {return this.value + ' ' +'';}}
+      },
+
+      //通用X轴数据
+      plotOptions: {
+        series: {}
       },
 
       //代表线数据
-      series: [
-        {name: '金额', data:[], color:'#91167a'},
-        {name: '数量', data:[], color:'#ffbb34'},
-        ]
+      series: this.Ydata
     };
-    options.series[0].data=[20,11,15,8,28,14];
-    options.series[1].data=[14,11,8,28,20,15];
-    options.xAxis.categories=['2017/12/22','2017/12/23','2017/12/24','2017/12/25','2017/12/26','2017/12/27'];
+    if (this.autogrownumber) {
+      options.plotOptions.series = {pointStart: this.growStartnum};
+    }
+    if(this.autogrowDate){
+      options.plotOptions.series =
+        {
+          pointStart: this.growStartdate, //开始日期
+          pointInterval: 24 * 3600 * 1000    //间隔天数
+        }
+    }
+    if(this.Yunit){
+      let util=this.Yunit;
+      options.yAxis.labels.formatter=function () {
+        return this.value + ' ' +util;
+      }
+    }
     let mytheme=theme.getPublicChartTheme();
     Highcharts.setOptions(mytheme);
     Highcharts.chart('splinechartContainer',options);

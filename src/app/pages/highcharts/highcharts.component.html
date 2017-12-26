@@ -1,5 +1,15 @@
-<app-linechart></app-linechart>
+<app-linechart [title]="lineCharttitle" [subtitle]="lineCharsubttitle"
+                [Ytitle]="lineCharYtitle" [autogrownumber]="lineCharautogrow"
+               [growStartnum]="lineChargrowStart" [Ydata]="lineCharYdata"
+></app-linechart>
 
-<app-spline></app-spline>
+<app-spline [title]="splineCharttitle" [Ytitle]="splineCharYtitle"
+            [autogrowDate]="splineCharautogrow" [growStartdate]="splineChargrowStart"
+            [Ydata]="splineCharYdata" [Yunit]="splineYunit"
+></app-spline>
 
-<app-pie></app-pie>
+<app-pie [title]="pietitle" [Ydata]="pieYdata"></app-pie>
+
+<app-columnchart [title]="columntitle" [Ytitle]="columnYtitle" [Ydata]="columnYdata"
+                 [Xdata]="columnXdata"
+></app-columnchart>

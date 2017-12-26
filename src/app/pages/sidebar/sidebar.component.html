@@ -1,4 +1,4 @@
-<div>
+<div class="sideBarContainer">
   <ul>
     <li *ngFor="let item of pages[0].children;let index=index;">
         <a routerLink='/page/{{item.pathName}}' routerLinkActive="active"><span class={{item.icon}}></span>{{item.name}}</a>
