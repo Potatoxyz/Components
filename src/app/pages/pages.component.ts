@@ -4,6 +4,7 @@ import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
 import {Public_api} from "../../shared/http/public_api";
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
+import {AnywereService} from "./anywere.service";
 declare let $:any;
 @Component({
   selector: 'app-pages',
@@ -15,7 +16,8 @@ export class PagesComponent implements OnInit {
  process:number=0;
  end:number=0;
   constructor(private route:Router,
-              private api:Public_api) {
+              private api:Public_api,
+              private anywereService:AnywereService) {
     this.time=this.api._time;
   }
   ngOnInit() {
@@ -32,5 +34,16 @@ export class PagesComponent implements OnInit {
           setTimeout(()=>{$('#processBar').css('display','none');},1000);
       }
     });
+
+    this.anywereService.getCollapse().subscribe(mes=>{
+      if(mes){
+        $('.sidebar').css('width','0');
+        $('.content').css({'paddingLeft':'115px'});
+      }
+      else{
+        $('.sidebar').css('width','200px');
+        $('.content').css({'paddingLeft':'215px'});
+      }
+    })
   }
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {AnywereService} from "../anywere.service";
 
 @Component({
   selector: 'app-topbar',
@@ -8,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 export class TopbarComponent implements OnInit {
   title:string='标题';
   auth:boolean=false;
-  constructor() { }
+  toggleSide:boolean=false;
+  constructor(private anywereService:AnywereService) { }
 
   ngOnInit() {
   }
-
+  toggleSideBar(){
+    this.toggleSide=!this.toggleSide;
+    this.anywereService.ToggleCollapse(this.toggleSide);
+  }
 }

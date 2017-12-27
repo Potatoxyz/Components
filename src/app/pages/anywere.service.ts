@@ -1,12 +1,20 @@
 import {Subject} from "rxjs/Subject";
 
 export class AnywereService{
-  ob=new Subject<any>();
+  icon=new Subject<any>();
   constructor(){}
   sendMessage(mes:any){
-    this.ob.next(mes);
+    this.icon.next(mes);
   }
   getMessage(){
-    return this.ob;
+    return this.icon;
+  }
+
+  collapse=new Subject<any>();
+  ToggleCollapse(mes:any){
+    this.collapse.next(mes)
+  }
+  getCollapse(){
+    return this.collapse;
   }
 }
