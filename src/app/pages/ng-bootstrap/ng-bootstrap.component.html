@@ -1,6 +1,3 @@
-<p>
-  ng-bootstrap works!
-</p>
 <div class="firstpart gap">
   <div>
     <button class="btn btn-primary btn-lg" (click)="openModal()">Open Modal</button>
@@ -11,12 +8,12 @@
   <div>
     <form class="form-inline">
       <div class="form-group">
-        <div class="input-group date-wrapper">
+        <div class="input-group" style="width: 100%">
           <input class="form-control" placeholder="yyyy-mm-dd"
                  name="dp" [(ngModel)]="date" ngbDatepicker #d='ngbDatepicker'>
-          <button class="btn btn-primary input-group-addon date" (click)="d.toggle()" type="button">
+          <span class="btn btn-primary input-group-addon" (click)="d.toggle()" type="button">
             <span class="fa fa-calendar"></span>
-          </button>
+          </span>
         </div>
       </div>
     </form>
@@ -24,11 +21,11 @@
   <div>
     <div ngbDropdown class="dropdown-wrap">
       <button class="btn btn-primary btn-lg" id="dropdownBasic1" ngbDropdownToggle>Toggle dropdown</button>
-      <div ngbDropdownMenu>
-        <button class="dropdown-item">Action - 1</button>
-        <button class="dropdown-item">Another Action</button>
-        <button class="dropdown-item">Something else is here</button>
-      </div>
+      <ul ngbDropdownMenu class="text-primary">
+        <li class="dropdown-item">Action - 1</li>
+        <li class="dropdown-item">Another Action</li>
+        <li class="dropdown-item">Something else is here</li>
+      </ul>
     </div>
   </div>
   <div>
@@ -50,7 +47,7 @@
 </div>
 <div class="pageNav gap">
   <div class="po-left">
-    <select class="selectpicker" [(ngModel)]="PageInfo.pageSize">
+    <select class="styleSelect"  [(ngModel)]="PageInfo.pageSize">
       <option value="1">1</option>
       <option value="5">5</option>
       <option value="10">10</option>
@@ -83,7 +80,7 @@
     </th>
     <th>English Name</th>
     <th>Chinese Name</th>
-    <th><span (click)="valueSort=!valueSort">Value<i class="fa fa-caret-down " *ngIf="valueSort"></i><i class="fa fa-caret-up" *ngIf="!valueSort"></i></span></th>
+    <th><span (click)="valueSort=!valueSort">Value<i class="fa fa-left fa-caret-down " *ngIf="valueSort"></i><i class="fa fa-caret-up" *ngIf="!valueSort"></i></span></th>
   </tr>
   </thead>
   <tbody>
@@ -124,7 +121,7 @@
     </div>
     <div class="form-group">
       <label for="name" class="form-title">Name</label>
-      <span class="bg-danger">必填</span>
+      <span class="bg-danger text-danger">必填</span>
       <span *ngIf="n.errors?.minlength" class="form-error text-danger">最少6个字符</span>
       <span *ngIf="n.errors?.required&&n.touched" class="form-error text-danger">不能为空</span>
       <input id="name" name="name" required minlength="6" type="text" class="form-control" #n="ngModel" #na [(ngModel)]="name"/>
@@ -133,14 +130,14 @@
     </div>
     <div class="form-group">
       <label for="password" class="form-title">Password</label>
-      <span class="bg-danger">必填</span>
+      <span class="bg-danger text-danger">必填</span>
       <span *ngIf="p.touched&&p.invalid" class="form-error text-danger">不能为空</span>
       <input id="password" name="password" required type="text" class="form-control" #p="ngModel" [(ngModel)]="password"/>
       <span *ngIf="p.invalid&&p.touched" class="fa fa-2x fa-close text-danger"></span>
     </div>
     <div class="form-group">
       <label for="email" class="form-title">Email</label>
-      <span class="bg-danger">必填</span>
+      <span class="bg-danger text-danger">必填</span>
       <span *ngIf="e.touched&&e.errors?.required" class="form-error text-danger">不能为空</span>
       <span *ngIf="e.errors?.email&&e.value!=''" class="text-danger">缺少@</span>
       <input id="email" name="email" required email type="text" class="form-control" #e="ngModel" [(ngModel)]="email"/>
@@ -162,20 +159,35 @@
       <h4 class="text-center">ReactiveForm</h4>
     </div>
     <div class="form-group">
+      <label for="basic" class="control-label">基础 (option搜索框)</label>
+      <div>
+        <select id="basic" class="selectpicker show-tick form-control" data-live-search="true">
+          <option>cow</option>
+          <option data-subtext="选项说明">bull</option>
+          <option class="get-class" disabled>ox</option>
+          <optgroup label="标签" data-subtext="选项组说明">
+            <option>ASD</option>
+            <option selected>Bla</option>
+            <option>Ble</option>
+          </optgroup>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
       <label for="name2" class="form-title">Name</label>
-      <span class="bg-danger">必填</span>
+      <span class="bg-danger text-danger">必填</span>
       <span *ngIf="myform2.get('name2').errors?.minlength" class="text-danger">最少6个字符</span>
       <input id="name2"  type="text" class="form-control" formControlName="name2"
              [ngClass]="{'invalied':myform2.get('name2').invalid&&myform2.get('name2').touched}"/>
     </div>
     <div class="form-group">
       <label for="password2" class="form-title">Password</label>
-      <span class="bg-danger">必填</span>
+      <span class="bg-danger text-danger">必填</span>
       <input id="password2"  type="text" class="form-control" formControlName="password2"/>
     </div>
     <div class="form-group">
       <label for="email2" class="form-title">Email</label>
-      <span class="bg-danger">必填</span>
+      <span class="bg-danger text-danger">必填</span>
       <input id="email2"  type="text" class="form-control" formControlName="email2"/>
     </div>
     <div class="form-group">
@@ -207,4 +219,4 @@
   </div>
 </ng-template>
 
-<button class="btn btn-lg btn-outline-primary"  (click)="open(content)">Launch demo modal</button>
+<button class="btn btn-lg btn-primary"  (click)="open(content)">Launch demo modal</button>
