@@ -1,0 +1,66 @@
+{
+  "_from": "cuppa-ng2-grid",
+  "_id": "cuppa-ng2-grid@1.0.5",
+  "_inBundle": false,
+  "_integrity": "sha1-3R2OoddeHlZ8EQoWOgIksypQQyY=",
+  "_location": "/cuppa-ng2-grid",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "cuppa-ng2-grid",
+    "name": "cuppa-ng2-grid",
+    "escapedName": "cuppa-ng2-grid",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cuppa-ng2-grid/-/cuppa-ng2-grid-1.0.5.tgz",
+  "_shasum": "dd1d8ea1d75e1e567c110a163a0224b32a504326",
+  "_spec": "cuppa-ng2-grid",
+  "_where": "D:\\Work\\Angular Project\\angularCli",
+  "angular-cli": {},
+  "author": {
+    "name": "Pradeep Kumar Terli",
+    "email": "solomon.terli@gmail.com"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "bootstrap": "*",
+    "font-awesome": "*"
+  },
+  "deprecated": false,
+  "description": "Angular 2 data grid component written in pure angular 2 and typescript",
+  "devDependencies": {},
+  "engines": {
+    "node": ">= 4.2.1",
+    "npm": ">= 3"
+  },
+  "homepage": "",
+  "keywords": [
+    "angular2",
+    "angular2 data grid",
+    "angular2 datatable",
+    "angular2 grid",
+    "ng2 grid"
+  ],
+  "license": "MIT",
+  "name": "cuppa-ng2-grid",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "scripts": {
+    "e2e": "ng e2e",
+    "lint": "ng lint",
+    "ng": "ng",
+    "start": "ng serve",
+    "test": "ng test"
+  },
+  "version": "1.0.5"
+}

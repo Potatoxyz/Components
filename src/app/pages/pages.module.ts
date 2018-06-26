@@ -33,6 +33,8 @@ import { PieComponent } from './Components/highchart/pie/pie.component';
 import { ColumnchartComponent } from './Components/highchart/columnchart/columnchart.component';
 import {ChartDataService} from "./highcharts/chartData.service";
 import { TopbarComponent } from './topbar/topbar.component';
+import { DataTableComponent } from './data-table/data-table.component';
+import { CuppaDataGridModule } from '../../shared/modules/cuppa-ng2-grid/cuppa-ng2-dataGrid';
 
 
 @NgModule({
@@ -52,12 +54,13 @@ import { TopbarComponent } from './topbar/topbar.component';
       InMemoryDataService, {dataEncapsulation: false}
     ),
     MydirectiveModule,
+    CuppaDataGridModule,
     routing
   ],
   providers: [Public_api, AnywereService,ChartDataService],
   entryComponents: [ModalComponent],
   declarations: [SortPipe, PagesComponent, SidebarComponent, LoadingComponent,
-    NgBootstrapComponent, ModalComponent, SweetAlertComponent, AnimationComponent, CommonComponent, HttpComponent, CommonHeadComponent, LinechartComponent, HighchartsComponent, SplineComponent, PieComponent, ColumnchartComponent, TopbarComponent]
+    NgBootstrapComponent, ModalComponent, SweetAlertComponent, AnimationComponent, CommonComponent, HttpComponent, CommonHeadComponent, LinechartComponent, HighchartsComponent, SplineComponent, PieComponent, ColumnchartComponent, TopbarComponent, DataTableComponent]
 })
 export class PagesModule {
 }
