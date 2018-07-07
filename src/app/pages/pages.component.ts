@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit} from '@angular/core';
 import {ActivatedRoute, NavigationEnd, NavigationStart, Router} from "@angular/router";
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
@@ -11,13 +11,14 @@ declare let $:any;
   templateUrl: './pages.component.html',
   styleUrls: ['./pages.component.scss'],
 })
-export class PagesComponent implements OnInit {
+export class PagesComponent implements OnInit,AfterViewInit {
  time:any=0;
  process:number=0;
  end:number=0;
   constructor(private route:Router,
               private api:Public_api,
-              private anywereService:AnywereService) {
+              private anywereService:AnywereService,
+              private elementRef:ElementRef) {
     this.time=this.api._time;
   }
   ngOnInit() {
@@ -45,5 +46,11 @@ export class PagesComponent implements OnInit {
         $('.content').css({'paddingLeft':'215px'});
       }
     })
+  }
+  ngAfterViewInit(){
+    //使用第二个sideBar时，调整页面容器的边距
+    let containerDom=this.elementRef.nativeElement.querySelectorAll('div#content');
+    console.log(containerDom);
+    $(containerDom).css({'padding':'75px 5% 0'});
   }
 }

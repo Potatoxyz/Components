@@ -13,6 +13,8 @@ export class TopbarComponent implements OnInit {
   constructor(private anywereService:AnywereService) { }
 
   ngOnInit() {
+    //先关闭sideBar,使用第二个菜单
+    this.toggleSideBar();
   }
   toggleSideBar(){
     this.toggleSide=!this.toggleSide;

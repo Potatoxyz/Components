@@ -35,6 +35,8 @@ import {ChartDataService} from "./highcharts/chartData.service";
 import { TopbarComponent } from './topbar/topbar.component';
 import { DataTableComponent } from './data-table/data-table.component';
 import { CuppaDataGridModule } from '../../shared/modules/cuppa-ng2-grid/cuppa-ng2-dataGrid';
+import {CustomPageTopComponent} from "./customPageTop/customPageTop.component";
+import {SlideMenuModule} from "cuppa-ng2-slidemenu";
 
 
 @NgModule({
@@ -50,6 +52,7 @@ import { CuppaDataGridModule } from '../../shared/modules/cuppa-ng2-grid/cuppa-n
     BrowserAnimationsModule,
     HttpClientModule,
     NgDatepickerModule,
+    SlideMenuModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, {dataEncapsulation: false}
     ),
@@ -60,7 +63,11 @@ import { CuppaDataGridModule } from '../../shared/modules/cuppa-ng2-grid/cuppa-n
   providers: [Public_api, AnywereService,ChartDataService],
   entryComponents: [ModalComponent],
   declarations: [SortPipe, PagesComponent, SidebarComponent, LoadingComponent,
-    NgBootstrapComponent, ModalComponent, SweetAlertComponent, AnimationComponent, CommonComponent, HttpComponent, CommonHeadComponent, LinechartComponent, HighchartsComponent, SplineComponent, PieComponent, ColumnchartComponent, TopbarComponent, DataTableComponent]
+    NgBootstrapComponent, ModalComponent, SweetAlertComponent,
+    AnimationComponent, CommonComponent, HttpComponent, CommonHeadComponent,
+    LinechartComponent, HighchartsComponent, SplineComponent, PieComponent,
+    ColumnchartComponent, TopbarComponent, DataTableComponent,
+    CustomPageTopComponent]
 })
 export class PagesModule {
 }
