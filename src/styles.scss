@@ -16,6 +16,35 @@ a {
 p{
   margin-bottom: 0;
 }
+.display-block {
+  display: block;
+  margin: 5px auto;
+}
+.must,
+.explain,
+.caption {
+  display: inline-block;
+  width: auto;
+  height: 20px;
+  padding: 0 3px;
+  margin: 0 5px;
+  text-align: center;
+  font-size: 12px;
+  color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+.must {
+  background: #F84471;
+}
+
+.explain {
+  background: #E7BA08;
+}
+
+.caption {
+  background: #209e91;
+}
 .fa {
   cursor: pointer;
   &.fa-left{
@@ -64,4 +93,34 @@ p{
 }
 .modal-dialog{
   top:100px;
+}
+$bgUrl:'./assets/img/sky-bg.jpg';
+.pop-content {
+  height: auto;
+  background: url($bgUrl) no-repeat;
+  background-size: 100% 100%;
+  font-size: 12px;
+  color:#fff;
+  margin: -5px;
+  border-radius: 5px;
+  .modal-body{
+    width: 100%;
+  }
+  .modal-header {
+    width: 100%;
+    height: 40px;
+    margin: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, .2);
+  }
+  .modal-title {
+    font-size: 16px;
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .modal-footer {
+    width: 100%;
+    height: auto;
+    border-top: 1px solid rgba(255, 255, 255, .4);
+  }
 }

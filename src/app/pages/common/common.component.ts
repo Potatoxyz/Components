@@ -1,17 +1,17 @@
-import {HashLocationStrategy, Location, LocationStrategy} from '@angular/common';
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, ElementRef, Input, OnInit} from '@angular/core';
 import {routerTransition} from "../../../shared/animation/route.animate";
-import {Hero} from "../http/service";
-import {BehaviorSubject} from "rxjs/BehaviorSubject";
-import {SearchHeadService, HeadList} from "./searchHead.service";
-
+import {CommonService, HeadList} from "./common.service";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {ImgPreviewModalComponent} from "../Components/img-preview-modal/img-preview-modal.component";
+declare var $:any;
+var Raty=require('assets/plugin/raty/jquery.raty.js');
 @Component({
   selector: 'app-common',
   templateUrl: './common.component.html',
   styleUrls: ['./common.component.scss'],
   animations: [routerTransition()],
   host: {'[@routerTransition]': ''},
-  providers:[SearchHeadService]
+  providers:[CommonService]
 })
 export class CommonComponent implements OnInit {
   DatePipe=new Date();
@@ -24,16 +24,42 @@ export class CommonComponent implements OnInit {
   headList:Array<HeadList>=[];
   selectedIds:Array<any>=[];
   togglebottom:{toggle:boolean,fromindex:number}={toggle:true,fromindex:1};
-  constructor(private searchHeadService:SearchHeadService) {
-    this.headList=this.searchHeadService.headList;
+  itemData=[];
+  constructor(private commonService:CommonService,
+              private modalService:NgbModal,
+              private Ele:ElementRef) {
+    this.headList=this.commonService.headList;
+    this.itemData=this.commonService.data;
+    new Raty($);
   }
   ngOnInit() {
     this.headList.forEach(value => {
       this.selectedIds.push({title:value.title,id:value.list[0].id});
     })
   }
-
+  ngAfterViewInit(){
+    let ratyDom=this.Ele.nativeElement.querySelectorAll('.ratyBox');
+    $(ratyDom).raty({
+      starHalf: 'assets/plugin/raty/images/star-half.png',
+      starOff: 'assets/plugin/raty/images/star-off.png',
+      starOn: 'assets/plugin/raty/images/star-on.png',
+      readOnly:true,
+      score:3.5
+    });
+  }
   getSelectedId(val:any){
     console.log(val);
+  }
+  toggleHover(el,isOpen){
+    if(isOpen){
+      $(el).children('.hover-box').fadeIn();
+    }
+    else{
+      $(el).children('.hover-box').hide()
+    }
+  }
+  imgPreview() {
+    const modal = this.modalService.open(ImgPreviewModalComponent);
+    modal.result.then(result => { }, reject => { });
   }
 }

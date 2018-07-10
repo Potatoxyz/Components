@@ -1,4 +1,4 @@
-export class SearchHeadService{
+export class CommonService{
   headList:Array<HeadList>=[
     {title:'帐号',list:[
       {id:1,text:'accountA'},
@@ -21,6 +21,7 @@ export class SearchHeadService{
       {id:4,text:'30天内'},
     ]},
   ]
+  data=new Array(6)
 }
 export class HeadList{
   title:string;

@@ -37,6 +37,7 @@ import { DataTableComponent } from './data-table/data-table.component';
 import { CuppaDataGridModule } from '../../shared/modules/cuppa-ng2-grid/cuppa-ng2-dataGrid';
 import {CustomPageTopComponent} from "./customPageTop/customPageTop.component";
 import {SlideMenuModule} from "cuppa-ng2-slidemenu";
+import {ImgPreviewModalComponent} from "./Components/img-preview-modal/img-preview-modal.component";
 
 
 @NgModule({
@@ -61,13 +62,13 @@ import {SlideMenuModule} from "cuppa-ng2-slidemenu";
     routing
   ],
   providers: [Public_api, AnywereService,ChartDataService],
-  entryComponents: [ModalComponent],
+  entryComponents: [ModalComponent,ImgPreviewModalComponent],
   declarations: [SortPipe, PagesComponent, SidebarComponent, LoadingComponent,
     NgBootstrapComponent, ModalComponent, SweetAlertComponent,
     AnimationComponent, CommonComponent, HttpComponent, CommonHeadComponent,
     LinechartComponent, HighchartsComponent, SplineComponent, PieComponent,
     ColumnchartComponent, TopbarComponent, DataTableComponent,
-    CustomPageTopComponent]
+    CustomPageTopComponent,ImgPreviewModalComponent]
 })
 export class PagesModule {
 }
