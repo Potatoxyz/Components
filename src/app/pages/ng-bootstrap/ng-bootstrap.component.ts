@@ -16,6 +16,7 @@ declare var $:any;
   host: {'[@routerTransition]': ''}
 })
 export class NgBootstrapComponent implements OnInit {
+  loading=false;
   close:boolean=false;
   valueSort:boolean=true;
   tableDate=[
@@ -214,5 +215,9 @@ export class NgBootstrapComponent implements OnInit {
   }
   onSubmit2(value:any){
     console.log(value);
+  }
+  Loading(){
+    this.loading=true;
+    setTimeout(()=>{this.loading=false},1500)
   }
 }

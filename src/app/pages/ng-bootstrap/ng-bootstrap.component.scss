@@ -100,6 +100,7 @@ button.input-group-addon{
   @include basicflex;
   .myform,.myform2{
     width: 50%;
+    position: relative;
   }
   .myform{margin-right: 100px;}
 }

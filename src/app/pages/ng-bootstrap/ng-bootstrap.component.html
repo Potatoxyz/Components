@@ -155,6 +155,7 @@
 
 
   <form class="myform2" [formGroup]="myform2" (ngSubmit)="onSubmit2(myform2.controls.decimals.valid)">
+    <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '10px' }"></ngx-loading>
     <div class="form-group">
       <h4 class="text-center">ReactiveForm</h4>
     </div>
@@ -200,6 +201,7 @@
       <input id="decimals"  type="text" class="form-control" formControlName="decimals"/>
     </div>
     <div>
+      <button class="btn btn-warning pull-right" (click)="Loading()">Loading</button>
       <button class="btn btn-primary pull-right" [disabled]="myform2.invalid">提交</button>
     </div>
   </form>

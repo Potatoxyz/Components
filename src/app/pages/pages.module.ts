@@ -38,6 +38,7 @@ import { CuppaDataGridModule } from '../../shared/modules/cuppa-ng2-grid/cuppa-n
 import {CustomPageTopComponent} from "./customPageTop/customPageTop.component";
 import {SlideMenuModule} from "cuppa-ng2-slidemenu";
 import {ImgPreviewModalComponent} from "./Components/img-preview-modal/img-preview-modal.component";
+import {LoadingModule} from "ngx-loading";
 
 
 @NgModule({
@@ -59,6 +60,7 @@ import {ImgPreviewModalComponent} from "./Components/img-preview-modal/img-previ
     ),
     MydirectiveModule,
     CuppaDataGridModule,
+    LoadingModule,
     routing
   ],
   providers: [Public_api, AnywereService,ChartDataService],
