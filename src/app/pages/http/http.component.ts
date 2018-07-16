@@ -14,6 +14,40 @@ export class HttpComponent implements OnInit {
   hero:Observable<Hero[]>;
   ayncData:any={};
   valueIndex=0;
+
+  public options = {
+    spinable: true,
+    buttonWidth: 40,
+  };
+
+  public wings = [
+    {
+      'title': 'iPad',
+      'color': '#ea2a29',
+      'icon': {'name': 'fa fa-tablet'}
+    }, {
+      'title': 'iMac',
+      'color': '#f16729',
+      'icon': {'name': 'fa fa-laptop'}
+    }, {
+      'title': 'iPhone',
+      'color': '#f89322',
+      'icon': {'name': 'fa fa-mobile'}
+    }, {
+      'title': 'iWatch',
+      'color': '#ffcf14',
+      'icon': {'name': 'fa fa-clock-o'}
+    }
+  ];
+
+  public gutter = {
+    bottom: 30,
+    left: 30
+  };
+
+  public startAngles = {
+    topLeft: -20,
+  }
   constructor(private dataService:Service) {
     this.HeroData=this.dataService.getHeroes();
     this.hero=this.dataService.getHeroById(11);
@@ -34,4 +68,6 @@ export class HttpComponent implements OnInit {
     this.valueIndex++;
     this.getAnycData();
   }
+
+
 }
