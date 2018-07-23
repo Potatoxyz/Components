@@ -55,6 +55,7 @@
     </select>
     <div class="pageAddon">条/页</div>
     <div class="pageAddon radius">共<span class="total">{{PageInfo.totalCount}}</span>条数据</div>
+    <div class="pageAddon radius export" (click)="doExport()">导出</div>
   </div>
   <pagination-controls class="my-pagination"
                        id="table"

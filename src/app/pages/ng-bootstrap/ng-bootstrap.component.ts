@@ -7,6 +7,7 @@ import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {routerTransition} from "../../../shared/animation/route.animate";
+var FileSaver = require('file-saver');
 declare var $:any;
 @Component({
   selector: 'app-ng-bootstrap',
@@ -19,7 +20,7 @@ export class NgBootstrapComponent implements OnInit {
   loading=false;
   close:boolean=false;
   valueSort:boolean=true;
-  tableDate=[
+  tableDate:Array<any>=[
     {id:1,eName:'1',cName:'2',value:1},
     {id:2,eName:'2',cName:'2',value:8},
     {id:3,eName:'3',cName:'2',value:4},
@@ -98,7 +99,42 @@ export class NgBootstrapComponent implements OnInit {
     this.selectedprovinceList=e.value;
     console.log(this.selectedprovinceList);
   }
+  //导出
+  doExport(){
+    //换行用  \n , 每个格子的数据用 , 隔开
+    var excelHeader="id,skuId,skuName,skuCode,warehouseName,currentInventory,availableInventory,waitReceiveQuantity,avaiableSaleDays,purchasingQuantity,forecastInNumber,statusShow,unitPrice \n";
+    var excelContent;
+    var exportPrefix = '\uFEFF';
 
+    var colunm=['id','skuId','skuName','skuCode','warehouseName','currentInventory','availableInventory','waitReceiveQuantity','avaiableSaleDays','purchasingQuantity','forecastInNumber','statusShow','unitPrice'];
+
+    excelContent=exportPrefix+excelHeader;
+
+    //使用dataTable的数据测试导出
+    $.getJSON('/assets/mock/data.json',data=>{
+      var content=data.content.items;
+      for(var i=0;i<10;i++){
+        content.forEach(v=>{
+          colunm.forEach(v1=>{
+            excelContent+=v[v1]+',';
+          });
+          excelContent+='\n';
+        });
+      }
+      var file = new File([excelContent], "table.xls", {type: "text/plain;charset=utf-8"});
+      FileSaver.saveAs(file);
+    });
+
+    // this.tableDate.forEach(v=>{
+    //   colunm.forEach(v1=>{
+    //     excelContent+=v[v1]+',';
+    //   });
+    //   excelContent+='\n';
+    // });
+
+
+
+  }
   openModal(){
     const ngbModalRef:NgbModalRef=this.modalservice.open(ModalComponent,
       {backdrop:'static',size:'lg',windowClass:'animated slideInLeft'});

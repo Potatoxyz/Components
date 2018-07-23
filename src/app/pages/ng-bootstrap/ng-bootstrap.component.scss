@@ -52,6 +52,12 @@
       height: 30px;
       line-height: 30px;
       padding:0 5px;
+      &.export{
+        background:#337ab7;
+        border-left: none;
+        cursor: pointer;
+        color:white;
+      }
       .total{
         display: inline-block;
         width: 30px;

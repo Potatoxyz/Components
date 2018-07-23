@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {CuppaDataGrid} from "../../../shared/modules/cuppa-ng2-grid/src/app/angular2-dataGrid/angular2-dataGrid";
-var data=require('./data.json');
+var data=require('../../../assets/mock/data.json');
 declare var $:any;
 @Component({
   selector: 'app-data-table',
