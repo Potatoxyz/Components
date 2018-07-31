@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {PageInfoModel} from "../../../../shared/Models/page-list.model";
+import {PageInfoModel} from "../../../shared/Models/page-list.model";
 
 @Component({
   selector: 'app-ngx-pagination',

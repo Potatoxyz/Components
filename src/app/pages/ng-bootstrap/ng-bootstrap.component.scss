@@ -27,48 +27,7 @@
   }
 }
 .gap{margin-bottom: 15px;}
-.pageNav{
-  @include basicflex;
-  position: relative;
-  height: 30px;
-  margin-bottom: 15px;
-  .po-left{
-    position: absolute;
-    left: 0;
-    display: flex;
-    align-items: center;
-    top: 0;
-    >select{
-      height: 30px;
-      color: white;
-      width: 60px;
-      border:1px solid white;
-      border-radius: 3px 0 0 3px;
-      background: rgba(0,0,0,.3);
-    }
-    >.pageAddon{
-      border: 1px solid white;
-      border-left: none;
-      height: 30px;
-      line-height: 30px;
-      padding:0 5px;
-      &.export{
-        background:#337ab7;
-        border-left: none;
-        cursor: pointer;
-        color:white;
-      }
-      .total{
-        display: inline-block;
-        width: 30px;
-        text-align: center;
-      }
-    }
-    >.radius{
-      border-radius: 0 3px 3px 0;
-    }
-  }
-}
+
 #collapseExample{
   overflow: hidden;
 }

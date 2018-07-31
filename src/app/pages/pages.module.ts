@@ -40,6 +40,7 @@ import {SlideMenuModule} from "cuppa-ng2-slidemenu";
 import {ImgPreviewModalComponent} from "./Components/img-preview-modal/img-preview-modal.component";
 import {LoadingModule} from "ngx-loading";
 import {FanMenuModule} from "ng2-fan-menu";
+import {ThemeModule} from "../../theme/theme.module";
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import {FanMenuModule} from "ng2-fan-menu";
     FormsModule,
     ReactiveFormsModule,
     NgbModule.forRoot(),
+    ThemeModule.forRoot(),
     Select2Module,
     NgxPaginationModule,
     BrowserModule,

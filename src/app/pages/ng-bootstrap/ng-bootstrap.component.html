@@ -45,28 +45,29 @@
     <p class="text-center text-danger fa-3x">This is a example collapse!</p>
   </div>
 </div>
-<div class="pageNav gap">
-  <div class="po-left">
-    <select class="styleSelect"  [(ngModel)]="PageInfo.pageSize">
-      <option value="1">1</option>
-      <option value="5">5</option>
-      <option value="10">10</option>
-      <option value="20">20</option>
-    </select>
-    <div class="pageAddon">条/页</div>
-    <div class="pageAddon radius">共<span class="total">{{PageInfo.totalCount}}</span>条数据</div>
-    <div class="pageAddon radius export" (click)="doExport()">导出</div>
-  </div>
-  <pagination-controls class="my-pagination"
-                       id="table"
-                       (pageChange)="pageChanged($event)"
-                       maxSize="9"
-                       directionLinks="true"
-                       autoHide="true"
-                       previousLabel="上一页"
-                       nextLabel="下一页">
-  </pagination-controls>
-</div>
+<app-ngx-pagination [PageInfo]="PageInfo" (Load)="pageChanged($event)"></app-ngx-pagination>
+<!--<div class="pageNav gap">-->
+  <!--<div class="po-left">-->
+    <!--<select class="styleSelect"  [(ngModel)]="PageInfo.pageSize">-->
+      <!--<option value="1">1</option>-->
+      <!--<option value="5">5</option>-->
+      <!--<option value="10">10</option>-->
+      <!--<option value="20">20</option>-->
+    <!--</select>-->
+    <!--<div class="pageAddon">条/页</div>-->
+    <!--<div class="pageAddon radius">共<span class="total">{{PageInfo.totalCount}}</span>条数据</div>-->
+    <!--<div class="pageAddon radius export" (click)="doExport()">导出</div>-->
+  <!--</div>-->
+  <!--<pagination-controls class="my-pagination"-->
+                       <!--id="table"-->
+                       <!--(pageChange)="pageChanged($event)"-->
+                       <!--maxSize="9"-->
+                       <!--directionLinks="true"-->
+                       <!--autoHide="true"-->
+                       <!--previousLabel="上一页"-->
+                       <!--nextLabel="下一页">-->
+  <!--</pagination-controls>-->
+<!--</div>-->
 <table class="table-bordered gap">
   <thead>
   <tr class="black-hover-bg">

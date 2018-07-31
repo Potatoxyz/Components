@@ -1,4 +1,4 @@
-import { CKEditorModule } from './ck-editor.module';
+import { CKEditorModule } from './src/ck-editor.module';
 
 export {
   CKEditorModule
