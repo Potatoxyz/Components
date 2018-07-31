@@ -1,0 +1,9 @@
+@mixin basicflex{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin size($width,$height){
+  width:$width;
+  height:$height;
+}
