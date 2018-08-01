@@ -8,7 +8,7 @@ import {LoadingComponent} from './loading/loading.component';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {NgBootstrapComponent} from './ng-bootstrap/ng-bootstrap.component';
 import {ModalComponent} from './ng-bootstrap/modal/modal.component';
-import {NgxPaginationModule} from "ngx-pagination";
+import {NgxPaginationModule, PaginatePipe} from "ngx-pagination";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {SweetAlertComponent} from './sweet-alert/sweet-alert.component';
 import {AnimationComponent} from './animation/animation.component';
@@ -25,11 +25,7 @@ import {Select2Module} from "ng2-select2";
 import {AnywereService} from "./anywere.service";
 import {SortPipe} from "../../shared/pipe/sort.pipe";
 import {NgDatepickerModule} from 'ng2-datepicker';
-import {LinechartComponent} from "./Components/highchart/linechart/linechart.component";
 import { HighchartsComponent } from './highcharts/highcharts.component';
-import { SplineComponent } from './Components/highchart/spline/spline.component';
-import { PieComponent } from './Components/highchart/pie/pie.component';
-import { ColumnchartComponent } from './Components/highchart/columnchart/columnchart.component';
 import {ChartDataService} from "./highcharts/chartData.service";
 import { TopbarComponent } from './topbar/topbar.component';
 import { DataTableComponent } from './data-table/data-table.component';
@@ -40,6 +36,7 @@ import {ImgPreviewModalComponent} from "./Components/img-preview-modal/img-previ
 import {LoadingModule} from "ngx-loading";
 import {FanMenuModule} from "ng2-fan-menu";
 import {ThemeModule} from "../../theme/theme.module";
+import {HighchartsModule} from "../../theme/highcharts.module";
 
 
 @NgModule({
@@ -50,8 +47,9 @@ import {ThemeModule} from "../../theme/theme.module";
     ReactiveFormsModule,
     NgbModule.forRoot(),
     ThemeModule.forRoot(),
-    Select2Module,
+    HighchartsModule.forRoot(),
     NgxPaginationModule,
+    Select2Module,
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
@@ -71,8 +69,7 @@ import {ThemeModule} from "../../theme/theme.module";
   declarations: [SortPipe, PagesComponent, SidebarComponent, LoadingComponent,
     NgBootstrapComponent, ModalComponent, SweetAlertComponent,
     AnimationComponent, CommonComponent, HttpComponent,
-    LinechartComponent, HighchartsComponent, SplineComponent, PieComponent,
-    ColumnchartComponent, TopbarComponent, DataTableComponent,
+     HighchartsComponent, TopbarComponent, DataTableComponent,
     CustomPageTopComponent,ImgPreviewModalComponent]
 })
 export class PagesModule {
