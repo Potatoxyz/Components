@@ -10,7 +10,7 @@ export class AppComponent implements OnInit,AfterViewInit {
   ngOnInit() {}
   ngAfterViewInit(){
     setTimeout(()=>{
-      document.getElementById('preloader').classList.add('loaded');
+      document.getElementById('preloader').classList.add('none');
     },2000);
   }
 }
