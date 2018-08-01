@@ -5,6 +5,7 @@ import 'rxjs/add/operator/map';
 import {Public_api} from "../../shared/http/public_api";
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
 import {AnywereService} from "./anywere.service";
+import {CUSTOM_MENU} from "./custom.menu";
 declare let $:any;
 @Component({
   selector: 'app-pages',
@@ -15,11 +16,14 @@ export class PagesComponent implements OnInit,AfterViewInit {
  time:any=0;
  process:number=0;
  end:number=0;
+ CUSTOM_MENU;
+ ActiveLinks=[];
   constructor(private route:Router,
               private api:Public_api,
               private anywereService:AnywereService,
               private elementRef:ElementRef) {
     this.time=this.api._time;
+    this.CUSTOM_MENU=CUSTOM_MENU;
   }
   ngOnInit() {
     this.time.subscribe(time=>{

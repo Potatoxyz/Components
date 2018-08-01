@@ -3,15 +3,19 @@ import { CommonModule } from '@angular/common';
 import {NgxPaginationComponent} from "./components/ngx-pagination/ngx-pagination.component";
 import {NgxPaginationModule} from "ngx-pagination";
 import {FormsModule} from "@angular/forms";
+import {QuickLinkComponent} from "./components/quick-link/quick-link.component";
+import {RouterModule} from "@angular/router";
 
 const components=[
-  NgxPaginationComponent
+  NgxPaginationComponent,
+  QuickLinkComponent
 ];
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+    RouterModule,
     NgxPaginationModule
   ],
   declarations: [

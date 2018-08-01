@@ -1,0 +1,7 @@
+<div class="link-wrap" *ngIf="ActiveLinks.length>0">
+  <a class="clean" (click)="clearLink(0)">清空</a>
+  <a class="link-item" *ngFor="let item of ActiveLinks">
+    <span class="del glyphicon glyphicon-remove" (click)="clearLink(item)"></span>
+    <span routerLink="{{item.link}}">{{item.title}}</span>
+  </a>
+</div>

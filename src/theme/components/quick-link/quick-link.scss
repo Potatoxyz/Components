@@ -1,0 +1,42 @@
+.link-wrap{
+  height: 30px;
+  display: flex;
+  border-bottom:1px solid white;
+  margin-bottom: 10px;
+  .link-item{
+    font-size: 14px;
+    color: white;
+    margin-right: 10px;
+    padding-left: 15px;
+    line-height: 30px;
+    transition: all ease 0.3s;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    position: relative;
+    .del{
+      position: absolute;
+      left: 0;
+      font-size: 12px;
+      color: red;
+      margin-right: 5px;
+      visibility: hidden;
+      top:50%;
+      cursor: pointer;
+      transform: translateY(-50%);
+    }
+    &:hover{
+      border-color: dodgerblue;
+      >.del{
+        visibility: visible;
+      }
+    }
+  }
+}
+.link-wrap .clean{
+  background: #dbae00;
+  cursor: pointer;
+  border:none;
+  line-height: 30px;
+  padding:0 5px;
+  margin-right: 10px;
+}
