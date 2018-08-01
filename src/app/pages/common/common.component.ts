@@ -1,8 +1,9 @@
 import {Component, ElementRef, Input, OnInit} from '@angular/core';
 import {routerTransition} from "../../../shared/animation/route.animate";
-import {CommonService, HeadList} from "./common.service";
+import {CommonService} from "./common.service";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {ImgPreviewModalComponent} from "../Components/img-preview-modal/img-preview-modal.component";
+import {HeadList} from "../../../shared/Models/head-list.model";
 declare var $:any;
 var Raty=require('assets/plugin/raty/jquery.raty.js');
 @Component({

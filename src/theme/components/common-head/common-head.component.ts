@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {HeadList} from "../../common/common.service";
+import {HeadList} from "../../../shared/Models/head-list.model";
 
 @Component({
   selector: 'app-common-head',

@@ -5,10 +5,12 @@ import {NgxPaginationModule} from "ngx-pagination";
 import {FormsModule} from "@angular/forms";
 import {QuickLinkComponent} from "./components/quick-link/quick-link.component";
 import {RouterModule} from "@angular/router";
+import {CommonHeadComponent} from "./components/common-head/common-head.component";
 
 const components=[
   NgxPaginationComponent,
-  QuickLinkComponent
+  QuickLinkComponent,
+  CommonHeadComponent
 ];
 
 @NgModule({

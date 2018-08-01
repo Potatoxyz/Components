@@ -1,3 +1,5 @@
+import {HeadList} from "../../../shared/Models/head-list.model";
+
 export class CommonService{
   headList:Array<HeadList>=[
     {title:'帐号',list:[
@@ -23,11 +25,4 @@ export class CommonService{
   ]
   data=new Array(6)
 }
-export class HeadList{
-  title:string;
-  list:HeadListItem[];
-}
-export class HeadListItem{
-  id:number;
-  text:string;
-}
+
