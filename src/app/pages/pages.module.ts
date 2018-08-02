@@ -37,6 +37,7 @@ import {LoadingModule} from "ngx-loading";
 import {FanMenuModule} from "ng2-fan-menu";
 import {ThemeModule} from "../../theme/theme.module";
 import {HighchartsModule} from "../../theme/highcharts.module";
+import {JsonpModule} from "@angular/http";
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import {HighchartsModule} from "../../theme/highcharts.module";
     HighchartsModule.forRoot(),
     NgxPaginationModule,
     Select2Module,
+    JsonpModule,
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,

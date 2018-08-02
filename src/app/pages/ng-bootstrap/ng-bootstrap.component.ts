@@ -7,6 +7,7 @@ import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {routerTransition} from "../../../shared/animation/route.animate";
+import {TranslateService} from "../../../shared/service/translate/translate.service";
 var FileSaver = require('file-saver');
 declare var $:any;
 @Component({
@@ -14,7 +15,8 @@ declare var $:any;
   templateUrl: './ng-bootstrap.component.html',
   styleUrls: ['./ng-bootstrap.component.scss'],
   animations: [routerTransition()],
-  host: {'[@routerTransition]': ''}
+  host: {'[@routerTransition]': ''},
+  providers:[TranslateService]
 })
 export class NgBootstrapComponent implements OnInit {
   loading=false;
@@ -72,7 +74,8 @@ export class NgBootstrapComponent implements OnInit {
           return cname;
           }});
   constructor(private modalservice:NgbModal,
-              private fb:FormBuilder) {
+              private fb:FormBuilder,
+              private translateService:TranslateService) {
   }
   open(content) {
     this.modalservice.open(content).result.then((result) => {
@@ -255,5 +258,16 @@ export class NgBootstrapComponent implements OnInit {
   Loading(){
     this.loading=true;
     setTimeout(()=>{this.loading=false},1500)
+  }
+  _doTranslate(str:string){
+    var from='zh';
+    var toLang='en';
+    this.translateService.doTranslate(str,from,toLang).map(r=>r.json()).subscribe(result=>{
+      if(result['trans_result']){
+        let res=result.trans_result[0].dst;
+        console.log(res);
+        this.myform2.patchValue({name2:res})
+      }
+    })
   }
 }
