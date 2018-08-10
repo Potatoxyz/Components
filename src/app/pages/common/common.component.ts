@@ -4,6 +4,7 @@ import {CommonService} from "./common.service";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {ImgPreviewModalComponent} from "../Components/img-preview-modal/img-preview-modal.component";
 import {HeadList} from "../../../shared/Models/head-list.model";
+import {SweetAlert} from "../../../shared/method/sweetAlert";
 declare var $:any;
 var Raty=require('assets/plugin/raty/jquery.raty.js');
 @Component({
@@ -14,7 +15,7 @@ var Raty=require('assets/plugin/raty/jquery.raty.js');
   host: {'[@routerTransition]': ''},
   providers:[CommonService]
 })
-export class CommonComponent implements OnInit {
+export class CommonComponent extends SweetAlert implements OnInit {
   DatePipe=new Date();
   CurrencyPipe:number=1.26;  // 默认使用USD，保留小数点后两位
   decimalPipe:number=1.926; //  整数位数(默认1) . 最小分数位数(默认0) - 最大分数位数(默认3) 1.0-3
@@ -26,9 +27,14 @@ export class CommonComponent implements OnInit {
   selectedIds:Array<any>=[];
   togglebottom:{toggle:boolean,fromindex:number}={toggle:true,fromindex:1};
   itemData=[];
+
+  ngModelValue='123';
+
+  ckeditorValue='<div style="color:red;font-size: 20px;">123</div>';
   constructor(private commonService:CommonService,
               private modalService:NgbModal,
               private Ele:ElementRef) {
+    super();
     this.headList=this.commonService.headList;
     this.itemData=this.commonService.data;
     new Raty($);
@@ -62,5 +68,8 @@ export class CommonComponent implements OnInit {
   imgPreview() {
     const modal = this.modalService.open(ImgPreviewModalComponent);
     modal.result.then(result => { }, reject => { });
+  }
+  openNgModel(){
+    this.success(this.ckeditorValue);
   }
 }

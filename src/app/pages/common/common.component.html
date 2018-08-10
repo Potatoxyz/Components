@@ -8,3 +8,8 @@
 <h4>{{decimalPipe|number:'4.0-2'}}</h4>
 <h4>{{slicePipe|slice:-3}}</h4>
 <h4>{{titlePipe|titlecase}}</h4>
+<app-ng-model-test [(ngModel)]="ngModelValue"></app-ng-model-test>
+<p><button class="btn btn-primary" (click)="openNgModel()">检查ngModel更新</button></p>
+<div>
+  <app-ck-editor [(ngModel)]="ckeditorValue"></app-ck-editor>
+</div>

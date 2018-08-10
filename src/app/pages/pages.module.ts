@@ -38,6 +38,7 @@ import {FanMenuModule} from "ng2-fan-menu";
 import {ThemeModule} from "../../theme/theme.module";
 import {HighchartsModule} from "../../theme/highcharts.module";
 import {JsonpModule} from "@angular/http";
+import { NgModelTestComponent } from './common/ng-model-test/ng-model-test.component';
 
 
 @NgModule({
@@ -72,7 +73,7 @@ import {JsonpModule} from "@angular/http";
     NgBootstrapComponent, ModalComponent, SweetAlertComponent,
     AnimationComponent, CommonComponent, HttpComponent,
      HighchartsComponent, TopbarComponent, DataTableComponent,
-    CustomPageTopComponent,ImgPreviewModalComponent]
+    CustomPageTopComponent,ImgPreviewModalComponent, NgModelTestComponent]
 })
 export class PagesModule {
 }
