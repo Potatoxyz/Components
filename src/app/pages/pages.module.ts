@@ -4,7 +4,6 @@ import {PagesComponent} from "./pages.component";
 import {routing} from "./pages.routing";
 import {SidebarComponent} from './sidebar/sidebar.component';
 import {RouterModule} from "@angular/router";
-import {LoadingComponent} from './loading/loading.component';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {NgBootstrapComponent} from './ng-bootstrap/ng-bootstrap.component';
 import {ModalComponent} from './ng-bootstrap/modal/modal.component';
@@ -69,7 +68,7 @@ import { NgModelTestComponent } from './common/ng-model-test/ng-model-test.compo
   ],
   providers: [Public_api, AnywereService,ChartDataService],
   entryComponents: [ModalComponent,ImgPreviewModalComponent],
-  declarations: [SortPipe, PagesComponent, SidebarComponent, LoadingComponent,
+  declarations: [SortPipe, PagesComponent, SidebarComponent,
     NgBootstrapComponent, ModalComponent, SweetAlertComponent,
     AnimationComponent, CommonComponent, HttpComponent,
      HighchartsComponent, TopbarComponent, DataTableComponent,

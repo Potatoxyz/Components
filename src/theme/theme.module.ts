@@ -7,12 +7,14 @@ import {QuickLinkComponent} from "./components/quick-link/quick-link.component";
 import {RouterModule} from "@angular/router";
 import {CommonHeadComponent} from "./components/common-head/common-head.component";
 import {CkEditorComponent} from "./components/ck-editor/ck-editor.component";
+import {LoadingComponent} from "./components/loading/loading.component";
 
 const components=[
   NgxPaginationComponent,
   QuickLinkComponent,
   CommonHeadComponent,
-  CkEditorComponent
+  CkEditorComponent,
+  LoadingComponent
 ];
 
 @NgModule({

@@ -1,0 +1,29 @@
+<div class="loading-container animated" [ngClass]="{'fadeIn':showLoading}" [style.display]="showLoading?'':'none'">
+
+  <div class="load-1" *ngIf="loadType==1">
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+  </div>
+
+  <div class="load-2" *ngIf="loadType==2">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
+
+  <div class="load-3" *ngIf="loadType==3">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
+
+  <div class="load-4" *ngIf="loadType==4">
+    <div class="ring">
+      <div class="ball-holder">
+        <div class="ball"></div>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -36,9 +36,15 @@
   <div>
     <button class="btn btn-lg btn-primary" (click)="closeAlert()">Create Alert</button>
   </div>
-  <ngb-alert class="animated fadeInDown" id="myalert" *ngIf="close" [dismissible]="true" [type]="'danger'"
-             (close)="closeAlert()">This Is A Example Alert
-  </ngb-alert>
+  <div class="alert-wrap">
+    <ngb-alert class="animated fadeInDown" id="myalert" *ngIf="close" [dismissible]="true" [type]="'danger'"
+               (close)="closeAlert()">This Is A Example Alert
+    </ngb-alert>
+  </div>
+  <div>
+    <button class="btn btn-lg btn-primary" (click)="showLoad()">show loading</button>
+    <app-loading [showLoading]="showLoading" [loadType]="4"></app-loading>
+  </div>
 </div>
 <div>
   <div id="collapseExample" [ngbCollapse]="isCollapsed">

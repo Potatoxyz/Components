@@ -1,4 +1,4 @@
-@import "../../../theme/theme";
+@import "../../../theme/sass/publicMixin";
 #myalert{height: 48px;}
 #myalert /deep/ div.alert{margin-bottom: 0;}
 .firstpart{
@@ -107,7 +107,11 @@ button.input-group-addon{
     color:white;
   }
 }
-
+.alert-wrap{
+  position: fixed;
+  top:50px;
+  @include transformCenter;
+}
 @media screen and(max-width: 1000px){
   .firstpart div{
     button{

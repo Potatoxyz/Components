@@ -7,3 +7,7 @@
   width:$width;
   height:$height;
 }
+@mixin transformCenter{
+  left: 50%;
+  transform:translateX(-50%);
+}

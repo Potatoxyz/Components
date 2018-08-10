@@ -24,6 +24,7 @@
     "@ng-bootstrap/ng-bootstrap": "1.0.0-alpha.26",
     "angular-in-memory-web-api": "^0.5.1",
     "animate.css": "^3.5.2",
+    "blueimp-file-upload": "^9.22.0",
     "bootstrap-select": "^1.12.4",
     "ckeditor": "^4.10.0",
     "core-js": "^2.4.1",

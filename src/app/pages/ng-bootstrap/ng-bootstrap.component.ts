@@ -73,6 +73,7 @@ export class NgBootstrapComponent implements OnInit {
           objarr.forEach(value => {cname.push(value.cname)});
           return cname;
           }});
+  showLoading:boolean=false;
   constructor(private modalservice:NgbModal,
               private fb:FormBuilder,
               private translateService:TranslateService) {
@@ -269,5 +270,11 @@ export class NgBootstrapComponent implements OnInit {
         this.myform2.patchValue({name2:res})
       }
     })
+  }
+  showLoad(){
+    this.showLoading=true;
+    setTimeout(()=>{
+      this.showLoading=false;
+    },100000)
   }
 }
