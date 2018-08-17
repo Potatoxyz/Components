@@ -7,6 +7,7 @@ import {HeadList} from "../../../shared/Models/head-list.model";
 import {SweetAlert} from "../../../shared/method/sweetAlert";
 declare var $:any;
 var Raty=require('assets/plugin/raty/jquery.raty.js');
+var MenuList=require('../page.menu');
 @Component({
   selector: 'app-common',
   templateUrl: './common.component.html',
@@ -31,6 +32,8 @@ export class CommonComponent extends SweetAlert implements OnInit {
   ngModelValue='123';
 
   ckeditorValue='<div style="color:red;font-size: 20px;">123</div>';
+
+  MenuItem;
   constructor(private commonService:CommonService,
               private modalService:NgbModal,
               private Ele:ElementRef) {
@@ -38,6 +41,7 @@ export class CommonComponent extends SweetAlert implements OnInit {
     this.headList=this.commonService.headList;
     this.itemData=this.commonService.data;
     new Raty($);
+    this.MenuItem=MenuList[0];
   }
   ngOnInit() {
     this.headList.forEach(value => {

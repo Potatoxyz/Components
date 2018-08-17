@@ -1,0 +1,10 @@
+<li>
+<a class="sidebarItem" *ngIf="!MenuItem?.children&&MenuItem.pathName">
+  {{MenuItem.name}}
+</a>
+</li>
+
+<ul *ngIf="MenuItem?.children">
+  <app-sideBarItem [MenuItem]="MenuItem"></app-sideBarItem>
+</ul>
+

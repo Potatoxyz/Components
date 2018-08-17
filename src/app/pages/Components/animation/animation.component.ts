@@ -4,7 +4,7 @@ import {
   animate, group, keyframes, query, sequence, stagger, state, style, transition,
   trigger
 } from "@angular/animations";
-import {routerTransition} from "../../../shared/animation/route.animate";
+import {routerTransition} from "../../../../shared/animation/route.animate";
 
 @Component({
   selector: 'app-animation',

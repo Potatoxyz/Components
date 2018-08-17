@@ -8,13 +8,17 @@ import {RouterModule} from "@angular/router";
 import {CommonHeadComponent} from "./components/common-head/common-head.component";
 import {CkEditorComponent} from "./components/ck-editor/ck-editor.component";
 import {LoadingComponent} from "./components/loading/loading.component";
+import {SideBarComponent} from "./components/sideBar/sideBar.component";
+import {SideBarItemComponent} from "./components/sideBar/sideBarItem/sideBarItem.component";
 
 const components=[
   NgxPaginationComponent,
   QuickLinkComponent,
   CommonHeadComponent,
   CkEditorComponent,
-  LoadingComponent
+  LoadingComponent,
+  SideBarComponent,
+  SideBarItemComponent
 ];
 
 @NgModule({

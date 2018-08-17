@@ -3,7 +3,7 @@ import {PagesComponent} from "./pages.component";
 import {ModuleWithProviders} from "@angular/core";
 import {NgBootstrapComponent} from "./ng-bootstrap/ng-bootstrap.component";
 import {SweetAlertComponent} from "./sweet-alert/sweet-alert.component";
-import {AnimationComponent} from "./animation/animation.component";
+import {AnimationComponent} from "./Components/animation/animation.component";
 import {CommonComponent} from "./common/common.component";
 import {HttpComponent} from "./http/http.component";
 import {HighchartsComponent} from "./highcharts/highcharts.component";

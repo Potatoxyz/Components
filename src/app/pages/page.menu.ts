@@ -47,7 +47,7 @@ export const Pages:Array<PagesModel>=[
       ]
     }
 ];
-export interface PagesModel{
+export class PagesModel{
   name:string;
   pathName:string;
   icon:string;
