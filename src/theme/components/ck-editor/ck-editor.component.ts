@@ -6,8 +6,8 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR, NgModel} from "@angular/forms";
 
 
 declare var CKEDITOR:any;
-import 'assets/plugin/ckeditor/ckeditor.js';
 import './ckeditor.loader.ts';
+import 'assets/plugin/ckeditor/ckeditor.js';
 export const CustomValueAccessor={
   provide:NG_VALUE_ACCESSOR,
   useExisting:forwardRef(()=>CkEditorComponent),
@@ -34,7 +34,8 @@ export class CkEditorComponent implements OnInit,AfterViewInit,ControlValueAcces
       { name: 'document', groups: [ 'mode', 'document', 'doctools' ] },
       { name: 'tools', groups: [ 'tools' ] },
     ],
-    removeButtons : 'Subscript,Superscript,BGColor,Styles,Format,Font'
+    removeButtons : 'Subscript,Superscript,BGColor,Styles,Format,Font',
+    skin:'moono-lisa'
   };
   @Input() config?:any={};
   onChange=(v:any)=>{};

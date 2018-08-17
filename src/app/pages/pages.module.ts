@@ -33,7 +33,6 @@ import {CustomPageTopComponent} from "./customPageTop/customPageTop.component";
 import {SlideMenuModule} from "cuppa-ng2-slidemenu";
 import {ImgPreviewModalComponent} from "./Components/img-preview-modal/img-preview-modal.component";
 import {LoadingModule} from "ngx-loading";
-import {FanMenuModule} from "ng2-fan-menu";
 import {ThemeModule} from "../../theme/theme.module";
 import {HighchartsModule} from "../../theme/highcharts.module";
 import {JsonpModule} from "@angular/http";
@@ -63,7 +62,6 @@ import { NgModelTestComponent } from './common/ng-model-test/ng-model-test.compo
     MydirectiveModule,
     CuppaDataGridModule,
     LoadingModule,
-    FanMenuModule,
     routing
   ],
   providers: [Public_api, AnywereService,ChartDataService],
