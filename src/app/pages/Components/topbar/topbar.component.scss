@@ -1,0 +1,32 @@
+.topbarContainer{
+  height: 55px;
+  background-color: rgba(0,0,0,.8);
+  .title{
+    display: inline-block;
+    margin-left: 100px;
+  }
+  .fuc{
+    float: right;
+    height: 55px;
+    margin-right: 20px;
+    .fuc-btn{
+      height: 100%;
+      display: flex;
+      align-items: center;
+      >.item{
+        margin: 15px;
+      }
+      img{
+        clip-path: circle(22.5px at 22.5px 22.5px);
+      }
+      .fa-bell{
+        position: relative;
+        .badge{
+          position: absolute;
+          top:-12px;
+          right: -17px;
+        }
+      }
+    }
+  }
+}

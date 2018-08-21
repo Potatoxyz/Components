@@ -2,17 +2,34 @@
 <app-common-head [List]="headList" [selectedIds]="selectedIds"
                  [togglebottom]="togglebottom" (selected)="getSelectedId($event)"></app-common-head>
 </div>
+<div class="card">
+  <div class="label-wrap">
+    <label>日期格式化：</label>
+    <h4>{{DatePipe|date:'y-MM-dd HH:mm:ss a'}}</h4>
+  </div>
+  <div class="label-wrap">
+    <label>货币格式化：</label>
+    <h4>{{CurrencyPipe|currency:'CNY':true}}</h4>
+  </div>
+  <div class="label-wrap">
+    <label>小数点格式化：</label>
+    <h4>{{decimalPipe|number:'2.1-3'}}</h4>
+  </div>
+  <div class="label-wrap">
+    <label>数组截取：</label>
+    <h4>{{slicePipe|slice:-3}}</h4>
+  </div>
 
-<h4>{{DatePipe|date:'y-MM-dd HH:mm:ss a'}}</h4>
-<h4>{{CurrencyPipe|currency:'CNY':true}}</h4>
-<h4>{{decimalPipe|number:'4.0-2'}}</h4>
-<h4>{{slicePipe|slice:-3}}</h4>
-<h4>{{titlePipe|titlecase}}</h4>
-<app-ng-model-test [(ngModel)]="ngModelValue"></app-ng-model-test>
-<p><button class="btn  btn-primary" (click)="openNgModel()">检查ngModel更新</button></p>
-<div>
-  <app-animation></app-animation>
+  <div class="label-wrap">
+    <label>首字母大写：</label>
+    <h4>{{titlePipe|titlecase}}</h4>
+  </div>
 </div>
-<div>
-  <app-sideBar [MenuItem]=""></app-sideBar>
+<div class="card">
+  <app-ng-model-test [(ngModel)]="ngModelValue"></app-ng-model-test>
+
+  <p><button class="btn  btn-primary" (click)="openNgModel()">检查ngModel更新</button></p>
+</div>
+<div class="card">
+  <app-animation></app-animation>
 </div>

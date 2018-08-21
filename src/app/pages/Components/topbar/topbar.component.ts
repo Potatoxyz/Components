@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AnywereService} from "../anywere.service";
+import {AnywereService} from "../../anywere.service";
 
 @Component({
   selector: 'app-topbar',

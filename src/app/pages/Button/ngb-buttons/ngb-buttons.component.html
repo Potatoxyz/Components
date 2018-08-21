@@ -32,13 +32,17 @@
   <button class="btn btn-lg btn-primary" (click)="showLoad()">show loading</button>
   <app-loading [showLoading]="showLoading" [loadType]="4"></app-loading>
 </div>
+<div>
+  <div id="collapseExample" [ngbCollapse]="isCollapsed">
+    <p class="text-center text-danger fa-3x">This is a example collapse!</p>
+  </div>
+</div>
 
 
-
-<ng-template #modal>
+<ng-template #modal let-c="close">
   <div class="modal-header">
     <h4 class="modal-title">{{title}}</h4>
-    <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+    <button type="button" class="close" aria-label="Close" (click)="closeModal(c)">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
@@ -47,6 +51,6 @@
     <p><button class="btn btn-primary btn-sm" (click)="send()">Send</button></p>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="close()">Close</button>
+    <button type="button" class="btn btn-outline-dark" (click)="closeModal(c)">Close</button>
   </div>
 </ng-template>

@@ -28,12 +28,8 @@
 }
 .gap{margin-bottom: 15px;}
 
-#collapseExample{
-  overflow: hidden;
-}
-.myslideIn{
-  animation: in 0.5s ease;
-}
+
+
 @keyframes in {  //注意要写死高度
   0%{height: 0;}
   100%{height: 72px;}

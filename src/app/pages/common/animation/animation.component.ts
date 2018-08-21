@@ -11,7 +11,7 @@ import {routerTransition} from "../../../../shared/animation/route.animate";
   templateUrl: './animation.component.html',
   styleUrls: ['./animation.component.scss'],
   providers: [DataService],
-  host: {'[@routerTransition]': ''}, //给属性赋值,激活动画
+  //host: {'[@routerTransition]': ''}, //给属性赋值,激活动画
   animations: [routerTransition(),
     // trigger('initShow', [       //初始化动画，只要[@initShow]='**',初始化有值就能触发
     //   transition('void=>*',

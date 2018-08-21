@@ -1,8 +1,4 @@
-<div>
-  <div id="collapseExample" [ngbCollapse]="isCollapsed">
-    <p class="text-center text-danger fa-3x">This is a example collapse!</p>
-  </div>
-</div>
+
 <app-ngx-pagination [PageInfo]="PageInfo" (Load)="pageChanged($event)"></app-ngx-pagination>
 <table class="table-bordered gap">
   <thead>
@@ -59,28 +55,28 @@
     </div>
     <div class="form-group">
       <label for="name" class="form-title">Name</label>
-      <span class="bg-danger text-danger">必填</span>
-      <span *ngIf="n.errors?.minlength" class="form-error text-danger">最少6个字符</span>
-      <span *ngIf="n.errors?.required&&n.touched" class="form-error text-danger">不能为空</span>
+      <span class="bg-danger text-white">必填</span>
+      <span *ngIf="n.errors?.minlength" class="form-error text-white">最少6个字符</span>
+      <span *ngIf="n.errors?.required&&n.touched" class="form-error text-white">不能为空</span>
       <input id="name" name="name" required minlength="6" type="text" class="form-control" #n="ngModel" #na [(ngModel)]="name"/>
       <span *ngIf="n.valid&&n.dirty" class="fa fa-2x fa-check-circle text-success"></span>
-      <span *ngIf="n.invalid&&n.touched" class="fa fa-2x fa-close text-danger"></span>
+      <span *ngIf="n.invalid&&n.touched" class="fa fa-2x fa-close text-white"></span>
     </div>
     <div class="form-group">
       <label for="password" class="form-title">Password</label>
-      <span class="bg-danger text-danger">必填</span>
-      <span *ngIf="p.touched&&p.invalid" class="form-error text-danger">不能为空</span>
+      <span class="bg-danger text-white">必填</span>
+      <span *ngIf="p.touched&&p.invalid" class="form-error text-white">不能为空</span>
       <input id="password" name="password" required type="text" class="form-control" #p="ngModel" [(ngModel)]="password"/>
-      <span *ngIf="p.invalid&&p.touched" class="fa fa-2x fa-close text-danger"></span>
+      <span *ngIf="p.invalid&&p.touched" class="fa fa-2x fa-close text-white"></span>
     </div>
     <div class="form-group">
       <label for="email" class="form-title">Email</label>
-      <span class="bg-danger text-danger">必填</span>
-      <span *ngIf="e.touched&&e.errors?.required" class="form-error text-danger">不能为空</span>
-      <span *ngIf="e.errors?.email&&e.value!=''" class="text-danger">缺少@</span>
+      <span class="bg-danger text-white">必填</span>
+      <span *ngIf="e.touched&&e.errors?.required" class="form-error text-white">不能为空</span>
+      <span *ngIf="e.errors?.email&&e.value!=''" class="text-white">缺少@</span>
       <input id="email" name="email" required email type="text" class="form-control" #e="ngModel" [(ngModel)]="email"/>
       <span *ngIf="e.valid&&e.dirty" class="fa fa-2x fa-check-circle text-success"></span>
-      <span *ngIf="e.invalid&&e.touched" class="fa fa-2x fa-close text-danger"></span>
+      <span *ngIf="e.invalid&&e.touched" class="fa fa-2x fa-close text-white"></span>
     </div>
     <div class="form-group">
       <label for="tel" class="form-title">Tel</label>
@@ -114,19 +110,19 @@
     </div>
     <div class="form-group">
       <label for="name2" class="form-title">Name</label>
-      <span class="bg-danger text-danger">必填</span>
-      <span *ngIf="myform2.get('name2').errors?.minlength" class="text-danger">最少6个字符</span>
+      <span class="bg-danger text-white">必填</span>
+      <span *ngIf="myform2.get('name2').errors?.minlength" class="text-white">最少6个字符</span>
       <input id="name2"  type="text" class="form-control" formControlName="name2"
              [ngClass]="{'invalied':myform2.get('name2').invalid&&myform2.get('name2').touched}"/>
     </div>
     <div class="form-group">
       <label for="password2" class="form-title">Password</label>
-      <span class="bg-danger text-danger">必填</span>
+      <span class="bg-danger text-white">必填</span>
       <input id="password2"  type="text" class="form-control" formControlName="password2"/>
     </div>
     <div class="form-group">
       <label for="email2" class="form-title">Email</label>
-      <span class="bg-danger text-danger">必填</span>
+      <span class="bg-danger text-white">必填</span>
       <input id="email2"  type="text" class="form-control" formControlName="email2"/>
     </div>
     <div class="form-group">

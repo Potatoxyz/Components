@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {NgbActiveModal, NgbModal, NgbModalRef} from "@ng-bootstrap/ng-bootstrap";
 import {AnywereService} from "../../anywere.service";
 declare var $:any;
@@ -31,29 +31,17 @@ export class NgbButtonsComponent implements OnInit {
 
     });
   }
-  closeModal(){
+  closeModal(closeFunc){
     $('.modal').removeClass('slideInLeft').addClass('slideOutRight');
     setTimeout(()=>{
-      this.activeModal.close();
-    },700);
+      closeFunc();
+    },1000);
   }
   send(){
     this.anywereService.sendMessage('this message is send to http!');
   }
   toggleSlide(){
-    if(this.isCollapsed){
-      $('#collapseExample').removeClass('myslideUp').addClass('myslideIn');
-      this.isCollapsed=!this.isCollapsed;
-      // console.log('开');
-    }
-    else{
-      $('#collapseExample').removeClass('myslideIn').addClass('myslideUp');
-      // console.log('关');
-      setTimeout(()=>{
-        this.isCollapsed=!this.isCollapsed;
-      },500);
-
-    }
+    this.isCollapsed=!this.isCollapsed;
   }
   closeAlert(){
     if(!this.close){

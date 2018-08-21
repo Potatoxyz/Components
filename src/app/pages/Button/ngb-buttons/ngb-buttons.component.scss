@@ -13,3 +13,9 @@
   left:50%;
   transform:translateX(-50%);
 }
+#collapseExample{
+  overflow: hidden;
+}
+.myslideIn{
+  animation: in 0.5s ease;
+}

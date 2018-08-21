@@ -6,10 +6,9 @@ import {SidebarComponent} from './sidebar/sidebar.component';
 import {RouterModule} from "@angular/router";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {NgBootstrapComponent} from './ng-bootstrap/ng-bootstrap.component';
-import {ModalComponent} from './ng-bootstrap/modal/modal.component';
 import {NgxPaginationModule, PaginatePipe} from "ngx-pagination";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {AnimationComponent} from './Components/animation/animation.component';
+import {AnimationComponent} from './common/animation/animation.component';
 import {BrowserModule} from "@angular/platform-browser";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {CommonComponent} from './common/common.component';
@@ -24,8 +23,8 @@ import {AnywereService} from "./anywere.service";
 import {NgDatepickerModule} from 'ng2-datepicker';
 import { HighchartsComponent } from './highcharts/highcharts.component';
 import {ChartDataService} from "./highcharts/chartData.service";
-import { TopbarComponent } from './topbar/topbar.component';
-import {CustomPageTopComponent} from "./customPageTop/customPageTop.component";
+import { TopbarComponent } from './Components/topbar/topbar.component';
+import {CustomPageTopComponent} from "./Components/customPageTop/customPageTop.component";
 import {SlideMenuModule} from "cuppa-ng2-slidemenu";
 import {ImgPreviewModalComponent} from "./Components/img-preview-modal/img-preview-modal.component";
 import {LoadingModule} from "ngx-loading";
@@ -60,9 +59,9 @@ import {PipesModule} from "../../shared/pipe/pipes.module";
     PipesModule
   ],
   providers: [Public_api, AnywereService,ChartDataService],
-  entryComponents: [ModalComponent,ImgPreviewModalComponent],
+  entryComponents: [ImgPreviewModalComponent],
   declarations: [PagesComponent, SidebarComponent,
-    NgBootstrapComponent, ModalComponent,
+    NgBootstrapComponent,
     AnimationComponent, CommonComponent, HttpComponent,
      HighchartsComponent, TopbarComponent,
     CustomPageTopComponent,ImgPreviewModalComponent, NgModelTestComponent]

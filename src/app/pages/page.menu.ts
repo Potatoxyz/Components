@@ -51,6 +51,6 @@ export class PagesModel{
   name:string;
   pathName:string;
   icon:string;
-  children?:Array<PagesModel>;
+  children?:PagesModel[];
 }
 
