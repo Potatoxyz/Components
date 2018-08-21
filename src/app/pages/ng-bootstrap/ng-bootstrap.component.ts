@@ -73,7 +73,7 @@ export class NgBootstrapComponent implements OnInit {
           objarr.forEach(value => {cname.push(value.cname)});
           return cname;
           }});
-  showLoading:boolean=false;
+
   constructor(private modalservice:NgbModal,
               private fb:FormBuilder,
               private translateService:TranslateService) {
@@ -139,27 +139,7 @@ export class NgBootstrapComponent implements OnInit {
 
 
   }
-  openModal(){
-    const ngbModalRef:NgbModalRef=this.modalservice.open(ModalComponent,
-      {backdrop:'static',size:'lg',windowClass:'animated slideInLeft'});
-    ngbModalRef.componentInstance.title='Example Title';
-    ngbModalRef.result.then((result)=>{
 
-    },(reason)=>{
-
-    });
-  }
-  closeAlert(){
-    if(!this.close){
-      this.close=!this.close;
-    }
-    else{
-      $('#myalert').removeClass('fadeInDown').addClass('fadeOutUp');
-      setTimeout( () =>{
-        this.close=!this.close;
-      },700);
-    }
-  }
   selectSingle(ifChecked:boolean,id:any){
     let index=this.selectedtableDate.indexOf(id);
     if(ifChecked&&index==-1){
@@ -235,21 +215,6 @@ export class NgBootstrapComponent implements OnInit {
     this.PageInfo.currentPage=page;
   }
 
-  toggleSlide(){
-    if(this.isCollapsed){
-      $('#collapseExample').removeClass('myslideUp').addClass('myslideIn');
-      this.isCollapsed=!this.isCollapsed;
-      // console.log('开');
-    }
-    else{
-      $('#collapseExample').removeClass('myslideIn').addClass('myslideUp');
-      // console.log('关');
-      setTimeout(()=>{
-        this.isCollapsed=!this.isCollapsed;
-      },500);
-
-    }
-  }
   onSubmit(value:any){
     console.log(value);
   }
@@ -270,11 +235,5 @@ export class NgBootstrapComponent implements OnInit {
         this.myform2.patchValue({name2:res})
       }
     })
-  }
-  showLoad(){
-    this.showLoading=true;
-    setTimeout(()=>{
-      this.showLoading=false;
-    },100000)
   }
 }

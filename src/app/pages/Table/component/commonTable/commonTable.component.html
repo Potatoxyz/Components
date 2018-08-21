@@ -1,0 +1,38 @@
+<app-ngx-pagination [PageInfo]="PageInfo" (Load)="pageChanged($event)"></app-ngx-pagination>
+<table class="table-bordered gap">
+  <thead>
+  <tr class="black-hover-bg">
+    <th>
+      <div class="check-box-wrap">
+        <label class="checkbox">
+          <input type="checkbox" (click)="selectThisPage($event.target.checked,PageInfo.pageIndex)"
+                 [checked]="currentPages.indexOf(PageInfo.pageIndex)!=-1">
+          <i class="fa fa-check"></i>
+        </label>
+      </div>
+    </th>
+    <th>English Name</th>
+    <th>Chinese Name</th>
+    <th><span (click)="valueSort=!valueSort">Value<i class="fa fa-left fa-caret-down " *ngIf="valueSort"></i><i class="fa fa-caret-up" *ngIf="!valueSort"></i></span></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of tableDate | paginate: { id: 'table',
+                                                      itemsPerPage: PageInfo.pageSize,
+                                                      currentPage: PageInfo.pageIndex,
+                                                      totalItems: PageInfo.totalCount}|sort:valueSort">
+    <td>
+      <div class="check-box-wrap">
+        <label class="checkbox">
+          <input type="checkbox" (click)="selectSingle($event.target.checked,item.id)"
+                 [checked]="selectedTableDateItems.has(item.id)">
+          <i class="fa fa-check"></i>
+        </label>
+      </div>
+    </td>
+    <td>{{item.eName}}</td>
+    <td>{{item.cName}}</td>
+    <td>{{item.value}}</td>
+  </tr>
+  </tbody>
+</table>

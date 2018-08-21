@@ -19,16 +19,18 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "assets/bootstrap3.37/bootstrap.min.css",
+        "../node_modules/bootstrap/scss/bootstrap.scss",
         "assets/bootstrap-select/bootstrap-select.min.css",
         "../node_modules/font-awesome/css/font-awesome.min.css",
+        "../node_modules/select2/dist/css/select2.css",
         "../node_modules/animate.css/animate.css",
         "theme/theme.scss",
         "styles.scss"
       ],
       "scripts": [
         "assets/jquery3.21/jquery-3.2.1.min.js",
-        "assets/bootstrap3.37/bootstrap.min.js",
+        "../node_modules/popper.js/dist/umd/popper.js",
+        "../node_modules/bootstrap/dist/js/bootstrap.js",
         "assets/bootstrap-select/bootstrap-select.js",
         "../node_modules/select2/dist/js/select2.full.js"
       ],

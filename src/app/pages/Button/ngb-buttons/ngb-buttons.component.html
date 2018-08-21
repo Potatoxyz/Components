@@ -1,0 +1,52 @@
+<div class="button-wrap">
+  <button class="btn btn-primary btn-lg" (click)="openModal(modal)">Open Modal</button>
+  <button class="btn btn-primary btn-lg" (click)=toggleSlide()>Open Collapse</button>
+  <form class="form-inline">
+    <div class="form-group">
+      <div class="input-group" style="width: 100%">
+        <input class="form-control" placeholder="yyyy-mm-dd"
+               name="dp" [(ngModel)]="date" ngbDatepicker #d='ngbDatepicker'>
+        <span class="btn btn-primary input-group-addon" (click)="d.toggle()" type="button">
+            <span class="fa fa-calendar"></span>
+          </span>
+      </div>
+    </div>
+  </form>
+  <div ngbDropdown class="dropdown-wrap">
+    <button class="btn btn-primary btn-lg" ngbDropdownToggle>Toggle dropdown</button>
+    <ul class="text-primary" ngbDropdownMenu>
+      <li class="dropdown-item">Action - 1</li>
+      <li class="dropdown-item">Another Action</li>
+      <li class="dropdown-item">Something else is here</li>
+    </ul>
+  </div>
+  <button type="button" class="btn btn-primary btn-lg" ngbTooltip="You see, I show up on click!">
+    Hover me!
+  </button>
+  <button class="btn btn-lg btn-primary" (click)="closeAlert()">Create Alert</button>
+  <div class="alert-wrap">
+    <ngb-alert class="animated fadeInDown" id="myalert" *ngIf="close" [dismissible]="true" [type]="'danger'"
+               (close)="closeAlert()">This Is A Example Alert
+    </ngb-alert>
+  </div>
+  <button class="btn btn-lg btn-primary" (click)="showLoad()">show loading</button>
+  <app-loading [showLoading]="showLoading" [loadType]="4"></app-loading>
+</div>
+
+
+
+<ng-template #modal>
+  <div class="modal-header">
+    <h4 class="modal-title">{{title}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Send Message to Http Page</p>
+    <p><button class="btn btn-primary btn-sm" (click)="send()">Send</button></p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="close()">Close</button>
+  </div>
+</ng-template>
