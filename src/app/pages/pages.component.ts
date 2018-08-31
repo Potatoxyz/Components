@@ -30,13 +30,19 @@ export class PagesComponent implements OnInit,AfterViewInit {
       // console.log('pageGetTime:  '+time.time+' '+time.timeKind);
       switch (time.timeKind){
         case 'start':
-          this.process=0;
           this.end=time.time;
           $('#processBar').css('display','block');
+          /**
+            假滚动条90%
+          */
+          this.process=time.time*0.9;
+          console.log('90%')
           break;
         case 'end':
-          setTimeout(()=>{ this.process=time.time;},200);
-          setTimeout(()=>{$('#processBar').css('display','none');},1000);
+          this.process=time.time;
+          console.log('100%')
+          // setTimeout(()=>{ this.process=time.time;},200);
+          setTimeout(()=>{$('#processBar').css('display','none');},500);
       }
     });
 

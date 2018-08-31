@@ -7,7 +7,7 @@ import {Public_api} from "../../../shared/http/public_api";
 
 @Injectable()
 export class Service{
-  private heroesUrl = 'api/heroes';// URL to web api
+  private heroesUrl = 'api/heroes';// shared http
   constructor(private http: HttpClient,
               private api:Public_api) {
 

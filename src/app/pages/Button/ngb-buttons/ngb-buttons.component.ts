@@ -1,12 +1,13 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {NgbActiveModal, NgbModal, NgbModalRef} from "@ng-bootstrap/ng-bootstrap";
 import {AnywereService} from "../../anywere.service";
+import {SaleCalendarTest} from "../sale-calendar.test";
 declare var $:any;
 @Component({
   selector: 'app-ngb-buttons',
   templateUrl: './ngb-buttons.component.html',
   styleUrls:['./ngb-buttons.component.scss','../style.scss'],
-  providers:[NgbActiveModal]
+  providers:[NgbActiveModal,SaleCalendarTest]
 })
 export class NgbButtonsComponent implements OnInit {
   isCollapsed:boolean=true;
@@ -14,10 +15,13 @@ export class NgbButtonsComponent implements OnInit {
   title:any;
   close:boolean=false;
   showLoading:boolean=false;
+  calendarTestData=[];
+  isShowCalendar:boolean=false;
   constructor(private modalservice:NgbModal,
               public activeModal:NgbActiveModal,
-              private anywereService:AnywereService) {
-
+              private anywereService:AnywereService,
+              private saleCalendarTest:SaleCalendarTest) {
+    this.calendarTestData=saleCalendarTest.calculateStorges;
   }
   ngOnInit() {}
   openModal(template){

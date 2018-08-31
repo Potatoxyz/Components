@@ -1,8 +1,5 @@
-<p>
-  http works!
-</p>
 <ul>
-  <li *ngFor="let item of HeroData | async">
+  <li *ngFor="let item of HeroDataOb | async">
     <span class="text" appInputable>{{item.name}}</span>
     <span class="fa fa-close pull-right text-danger"></span>
   </li>
@@ -10,6 +7,6 @@
 <div class="part1">
   <button (click)="changeValue()" class="btn btn-primary">change ayncValue</button>
   <h4>Get Hero By Id：</h4>
-  <h4 *ngFor="let item of hero | async">{{item.name}}</h4>
+  <h4 *ngFor="let item of heroOb | async">{{item.name}}</h4>
 </div>
 

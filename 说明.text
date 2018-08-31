@@ -1,0 +1,43 @@
+一、Button模块
+  1.ngb 弹窗
+  2.ngb 折叠
+  3.ngb 日期选择输入框
+  4.ngb 下拉按钮组
+  5.ngb hover tooltip提示框
+  6.ngb 全局提示
+  7.自定义圆圈loading遮罩
+  8.自定义月统计日历
+
+  8.sweet-alert 对话提示框
+  9.ckeditor 文本编辑组件
+
+二、Common模块
+  1.常用筛选头部
+  2.常用内置pipe  (date、currency、number、slice、titlecase)
+  3.自定义ngModel
+  4.animation模块
+
+三、Components
+  1.菜单
+  2.多图预览
+  3.顶部导航
+
+四、highcharts图表
+
+五、httpClient
+  1.自定义双击编辑指令
+  2.利用angular-in-memory-web-api创建假数据,模拟http请求
+
+  3.再public-api中使用了Observable的pipe处理数据流，其中的tap来实现请求开始和结束
+  但是这里结束时间是未知的，所以processbar是不准确的
+  解决方法是开始时直接设置90%
+
+六、ng-bootstrap
+  1.  翻页组件
+  2.ngForm和reactiveForm验证
+  3.ngb 搜索框  输入两个字符之后出提示
+  4.select2 下拉搜索框，出现全部选项并可以搜索
+  5.翻译api
+
+七、Table
+  2.普通table (导出)

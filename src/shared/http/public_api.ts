@@ -8,7 +8,7 @@ import {BehaviorSubject} from "rxjs/BehaviorSubject";
 declare let $:any;
 @Injectable()
 export class Public_api{
-  _time=new BehaviorSubject({time:0,timeKind:''});
+  _time=new BehaviorSubject<HttpTimeModel>({time:0,timeKind:''});
   startTime:number;
   endTime:number;
   constructor(private http:HttpClient){
@@ -19,11 +19,13 @@ export class Public_api{
       tap(()=>{
         this.startTime=new Date().getTime();
         // console.log('start: '+this.startTime);
-        this._time.next({time:this.startTime,timeKind:'start'});
+        let startTime:HttpTimeModel={time:this.startTime,timeKind:'start'};
+        this._time.next(startTime);
       },()=>{},()=>{
         this.endTime=new Date().getTime();
         // console.log('end: '+this.endTime);
-        this._time.next({time:this.endTime,timeKind:'end'});
+        let endTime:HttpTimeModel={time:this.endTime,timeKind:'end'};
+        this._time.next(endTime);
       }),
       map((value) => {
         // let endTime=new Date().getTime();
@@ -39,4 +41,8 @@ export class Public_api{
       return of([]);
     }
   }
+}
+export class HttpTimeModel{
+  time:number;
+  timeKind:string;
 }

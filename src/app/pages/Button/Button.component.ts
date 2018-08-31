@@ -6,13 +6,12 @@ import {SaleCalendarTest} from "./sale-calendar.test";
   templateUrl: './Button.component.html',
   animations: [routerTransition()],
   host: {'[@routerTransition]': ''},
-  providers:[SaleCalendarTest]
+  providers:[]
 })
 export class ButtonComponent implements OnInit {
-  calendarTestData=[];
-  isShowCalendar:boolean=false;
-  constructor(private saleCalendarTest:SaleCalendarTest) {
-    this.calendarTestData=saleCalendarTest.calculateStorges;
+
+  constructor() {
+
   }
   ngOnInit() {}
 }
