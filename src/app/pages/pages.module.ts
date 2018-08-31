@@ -25,7 +25,6 @@ import { HighchartsComponent } from './highcharts/highcharts.component';
 import {ChartDataService} from "./highcharts/chartData.service";
 import { TopbarComponent } from './Components/topbar/topbar.component';
 import {CustomPageTopComponent} from "./Components/customPageTop/customPageTop.component";
-import {SlideMenuModule} from "cuppa-ng2-slidemenu";
 import {ImgPreviewModalComponent} from "./Components/img-preview-modal/img-preview-modal.component";
 import {LoadingModule} from "ngx-loading";
 import {ThemeModule} from "../../theme/theme.module";
@@ -33,6 +32,7 @@ import {HighchartsModule} from "../../theme/highcharts.module";
 import {JsonpModule} from "@angular/http";
 import { NgModelTestComponent } from './common/ng-model-test/ng-model-test.component';
 import {PipesModule} from "../../shared/pipe/pipes.module";
+import {SlideMenuModule} from "cuppa-ng2-slidemenu";
 @NgModule({
   imports: [
     CommonModule,

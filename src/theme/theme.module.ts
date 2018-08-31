@@ -10,6 +10,8 @@ import {CkEditorComponent} from "./components/ck-editor/ck-editor.component";
 import {LoadingComponent} from "./components/loading/loading.component";
 import {SideBarComponent} from "./components/sideBar/sideBar.component";
 import {SideBarItemComponent} from "./components/sideBar/sideBarItem/sideBarItem.component";
+import {SaleCalendarComponent} from "./components/sale-calendar/sale-calendar.component";
+import {PipesModule} from "../shared/pipe/pipes.module";
 
 const components=[
   NgxPaginationComponent,
@@ -18,7 +20,9 @@ const components=[
   CkEditorComponent,
   LoadingComponent,
   SideBarComponent,
-  SideBarItemComponent
+  SideBarItemComponent,
+  SaleCalendarComponent,
+
 ];
 
 @NgModule({
@@ -26,13 +30,14 @@ const components=[
     CommonModule,
     FormsModule,
     RouterModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    PipesModule
   ],
   declarations: [
-    ...components
+    ...components,
   ],
   exports:[
-    ...components
+    ...components,
   ]
 
 })

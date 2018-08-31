@@ -1,0 +1,17 @@
+<div class="calendar-container" [ngClass]="{'bottom':position=='bottom'}">
+  <div class="calendar-title text-center">
+    <h3>{{date|date:"yyyy-MM"}} 销量统计</h3>
+  </div>
+  <div class="calendar-wrap">
+    <div class="calendar-content">
+      <div class="line" *ngFor="let g of Groups">
+        <div class="item" *ngFor="let item of calculateStorges|c_reverse|slice:g.start:g.end;">
+          <p class="title">{{item.week}}</p>
+          <p>{{item.dateShow}}</p>
+          <p [ngClass]="{'blue-text':item.quantity>0}">{{item.quantity}}</p>
+          <p>{{item.typeShow}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

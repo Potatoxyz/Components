@@ -1,15 +1,18 @@
 import {Component, OnInit} from '@angular/core';
 import {routerTransition} from "../../../shared/animation/route.animate";
+import {SaleCalendarTest} from "./sale-calendar.test";
 @Component({
   selector: 'app-Button',
   templateUrl: './Button.component.html',
   animations: [routerTransition()],
-  host: {'[@routerTransition]': ''}
+  host: {'[@routerTransition]': ''},
+  providers:[SaleCalendarTest]
 })
 export class ButtonComponent implements OnInit {
-
-  constructor() {
-
+  calendarTestData=[];
+  isShowCalendar:boolean=false;
+  constructor(private saleCalendarTest:SaleCalendarTest) {
+    this.calendarTestData=saleCalendarTest.calculateStorges;
   }
   ngOnInit() {}
 }

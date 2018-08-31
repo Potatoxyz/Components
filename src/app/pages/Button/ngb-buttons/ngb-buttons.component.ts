@@ -5,7 +5,7 @@ declare var $:any;
 @Component({
   selector: 'app-ngb-buttons',
   templateUrl: './ngb-buttons.component.html',
-  styleUrls:['./ngb-buttons.component.scss'],
+  styleUrls:['./ngb-buttons.component.scss','../style.scss'],
   providers:[NgbActiveModal]
 })
 export class NgbButtonsComponent implements OnInit {

@@ -1,4 +1,9 @@
 <div class="card card-block">
   <app-ngb-buttons></app-ngb-buttons>
   <app-sweet-alert></app-sweet-alert>
+  <div class="button-wrap salesCalendarContainer" (mouseenter)="isShowCalendar=true"
+  (mouseleave)="isShowCalendar=false">
+    <button class="btn">日历</button>
+    <app-sale-calendar *ngIf="isShowCalendar" [position]="'bottom'" [calculateStorges]="calendarTestData"></app-sale-calendar>
+  </div>
 </div>

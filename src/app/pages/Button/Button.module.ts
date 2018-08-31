@@ -11,7 +11,7 @@ import {NgbModalModule, NgbModule} from "@ng-bootstrap/ng-bootstrap";
 export const Components=[
   ButtonComponent,
   SweetAlertComponent,
-  NgbButtonsComponent
+  NgbButtonsComponent,
 ];
 @NgModule({
   imports: [
