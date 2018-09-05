@@ -33,6 +33,18 @@ import {JsonpModule} from "@angular/http";
 import { NgModelTestComponent } from './common/ng-model-test/ng-model-test.component';
 import {PipesModule} from "../../shared/pipe/pipes.module";
 import {SlideMenuModule} from "cuppa-ng2-slidemenu";
+
+const ModalComponent=[
+  ImgPreviewModalComponent
+];
+const Component=[
+    ...ModalComponent,
+  PagesComponent, SidebarComponent,
+  NgBootstrapComponent,
+  AnimationComponent, CommonComponent, HttpComponent,
+  HighchartsComponent, TopbarComponent,
+  CustomPageTopComponent, NgModelTestComponent,
+];
 @NgModule({
   imports: [
     CommonModule,
@@ -59,12 +71,8 @@ import {SlideMenuModule} from "cuppa-ng2-slidemenu";
     PipesModule
   ],
   providers: [Public_api, AnywereService,ChartDataService],
-  entryComponents: [ImgPreviewModalComponent],
-  declarations: [PagesComponent, SidebarComponent,
-    NgBootstrapComponent,
-    AnimationComponent, CommonComponent, HttpComponent,
-     HighchartsComponent, TopbarComponent,
-    CustomPageTopComponent,ImgPreviewModalComponent, NgModelTestComponent]
+  entryComponents: [...ModalComponent],
+  declarations: [...Component]
 })
 export class PagesModule {
 }

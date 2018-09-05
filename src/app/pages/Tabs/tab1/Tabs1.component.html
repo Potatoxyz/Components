@@ -1,0 +1,12 @@
+<div class="tab1">
+  <div class="tab-header">
+    <div class="tab-item" *ngFor="let tab of Tabs"
+         (click)="selectTab(tab.id)"
+         [ngClass]="{'active':selectedTabId==tab.id}">
+      {{tab.name}}
+    </div>
+  </div>
+  <div class="tab-container">
+    <ng-content select=".tab-content"></ng-content>
+  </div>
+</div>
