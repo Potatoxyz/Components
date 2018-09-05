@@ -3,6 +3,7 @@ import {NgbActiveModal, NgbModal, NgbModalRef} from "@ng-bootstrap/ng-bootstrap"
 import {AnywereService} from "../../anywere.service";
 import {SaleCalendarTest} from "../sale-calendar.test";
 declare var $:any;
+var ClipboardJS=require('clipboard/dist/clipboard.min.js');
 @Component({
   selector: 'app-ngb-buttons',
   templateUrl: './ngb-buttons.component.html',
@@ -63,5 +64,21 @@ export class NgbButtonsComponent implements OnInit {
     setTimeout(()=>{
       this.showLoading=false;
     },5000)
+  }
+  CopyText(el,content,tooltip){
+    /**
+    初始化时设置动态设置要复制的内容
+    */
+    var clipboard=new ClipboardJS(el,{
+      text:()=>content
+    });
+    //监听事件
+    clipboard.on('success',()=>{
+      console.log('Copy success');
+      tooltip.open();
+      setTimeout(()=>{tooltip.close();},1000);
+    });
+    //不知道为什么要第二次点击才能触发
+    $(el).trigger('click');
   }
 }

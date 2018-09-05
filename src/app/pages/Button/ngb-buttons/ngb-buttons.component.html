@@ -42,6 +42,10 @@
     <p class="text-center text-danger fa-3x">This is a example collapse!</p>
   </div>
 </div>
+<div class="button-wrap">
+  <button class="btn btn-primary" ngbTooltip="复制成功！" triggers="manual" #tooltip="ngbTooltip"
+          (click)="CopyText($event.target,'123',tooltip)">Copy text</button>
+</div>
 
 
 <ng-template #modal let-c="close">
