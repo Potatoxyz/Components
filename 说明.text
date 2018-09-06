@@ -16,6 +16,7 @@
   2.常用内置pipe  (date、currency、number、slice、titlecase)
   3.自定义ngModel
   4.animation模块
+  5.选择节日，计算距离当前日期的天数
 
 三、Components
   1.菜单
@@ -41,3 +42,6 @@
 
 七、Table
   2.普通table (导出)
+
+八、Tabs
+  1.通用的tab

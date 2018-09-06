@@ -5,6 +5,7 @@ import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {ImgPreviewModalComponent} from "../Components/img-preview-modal/img-preview-modal.component";
 import {HeadList} from "../../../shared/Models/head-list.model";
 import {SweetAlert} from "../../../shared/method/sweetAlert";
+import {DataCalcService} from "../../../shared/service/dataCalc/dataCalc.service";
 declare var $:any;
 var Raty=require('assets/plugin/raty/jquery.raty.js');
 var MenuList=require('../page.menu');
@@ -14,7 +15,7 @@ var MenuList=require('../page.menu');
   styleUrls: ['./common.component.scss'],
   animations: [routerTransition()],
   host: {'[@routerTransition]': ''},
-  providers:[CommonService]
+  providers:[CommonService,DataCalcService]
 })
 export class CommonComponent extends SweetAlert implements OnInit {
   DatePipe=new Date();
@@ -34,7 +35,11 @@ export class CommonComponent extends SweetAlert implements OnInit {
   ckeditorValue='<div style="color:red;font-size: 20px;">123</div>';
 
   MenuItem;
+  Festival=[];
+  selectedFestivalId=1;
+  dateCalcResult={target:null,gap:null};
   constructor(private commonService:CommonService,
+              private dataCalcService:DataCalcService,
               private modalService:NgbModal,
               private Ele:ElementRef) {
     super();
@@ -42,11 +47,13 @@ export class CommonComponent extends SweetAlert implements OnInit {
     this.itemData=this.commonService.data;
     new Raty($);
     this.MenuItem=MenuList[0];
+    this.Festival=dataCalcService.Festival;
   }
   ngOnInit() {
     this.headList.forEach(value => {
       this.selectedIds.push({title:value.title,id:value.list[0].id});
-    })
+    });
+    this.calcFestival(this.selectedFestivalId);
   }
   ngAfterViewInit(){
     let ratyDom=this.Ele.nativeElement.querySelectorAll('.ratyBox');
@@ -75,5 +82,69 @@ export class CommonComponent extends SweetAlert implements OnInit {
   }
   openNgModel(){
     this.success(this.ckeditorValue);
+  }
+  getValueChange(data){
+    this.selectedFestivalId=data.value;
+    this.calcFestival(data.value);
+  }
+  calcFestival(id){
+    let item= this.Festival.find(v=>v.id==id);
+    if(item){
+      if(item.date!=='null'){
+        let date=item.date.split('-');
+        let m=date[0],d=date[1];
+        let targetDate=new Date(new Date().getFullYear(),m-1,d);
+        //节日和当前日期相差的天数
+        let gap=this.dataCalcService.getResultDay(targetDate);
+        this.dateCalcResult.target=targetDate.toLocaleDateString();
+        this.dateCalcResult.gap=gap;
+      }
+      else{
+        //5月第二个星期天
+        if(item.text=='母亲节'){
+          let date=new Date(new Date().getFullYear(),4,1);//5月1日
+          let order=2;
+          let sunday=7;
+          this.calcWeekDay(date,order,sunday);
+        }
+        //6月第三个星期天
+        if(item.text=='父亲节'){
+          let date=new Date(new Date().getFullYear(),5,1);//6月1日
+          let order=3;
+          let sunday=7;
+          this.calcWeekDay(date,order,sunday);
+        }
+        //11月第四个星期四
+        if(item.text=='感恩节'){
+          let date=new Date(new Date().getFullYear(),10,1);//11月1日
+          let order=4;
+          let thursday=4;
+          this.calcWeekDay(date,order,thursday);
+        }
+      }
+    }
+  }
+  //计算几月的第几个星期
+  calcWeekDay(targetDate:Date,order:number,week:number){
+    let date=new Date(targetDate.toLocaleDateString());
+    let d=date.getDay();
+    console.log(date.toLocaleDateString()+' '+'星期几：'+d);
+    //找出第一个星期x
+    while (d!=week){
+      if(d<week){
+        d+=1;
+        date.setDate(date.getDate()+1);
+      }
+      else{
+        d-=1;
+        date.setDate(date.getDate()-1);
+      }
+    }
+    console.log(`第一个星期${week}几日：`+date.getDate());//第一个星期x
+    //第n个星期x  再加order-1个星期天数
+    date.setDate(date.getDate()+7*(order-1));
+    let gap=this.dataCalcService.getResultDay(date);
+    this.dateCalcResult.target=date.toLocaleDateString();
+    this.dateCalcResult.gap=gap;
   }
 }
