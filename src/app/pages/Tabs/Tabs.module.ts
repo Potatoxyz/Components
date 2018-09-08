@@ -3,10 +3,12 @@ import {TabsComponent} from "./Tabs.component";
 import {Tabs1Component} from "./tab1/Tabs1.component";
 import {routing} from "./Tabs.routing";
 import {CommonModule} from "@angular/common";
+import {DropPreviewComponent} from "./drop-preview/drop-preview.component";
 
 const Components=[
   TabsComponent,
-  Tabs1Component
+  Tabs1Component,
+  DropPreviewComponent
 ];
 @NgModule({
   imports: [

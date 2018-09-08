@@ -24,6 +24,7 @@
         "../node_modules/font-awesome/css/font-awesome.min.css",
         "../node_modules/select2/dist/css/select2.css",
         "../node_modules/animate.css/animate.css",
+        "../node_modules/dropzone/dist/dropzone.css",
         "theme/theme.scss",
         "styles.scss"
       ],
