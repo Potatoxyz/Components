@@ -1,12 +1,36 @@
-<div class="zone-wrap dropzone" #zone>
-  <div class="dz-preview dz-file-preview">
-    <div class="dz-details">
-      <div class="dz-filename"><span></span></div>
-      <div class="dz-size"></div>
-      <img />
-    </div>
+<div #uploadContainer class="uploadContainer">
+  <div class="action-wrap">
+    <button class="btn btn-primary uploadAll" (click)="uploadAll()">全部上传</button>
+    <button class="btn btn-danger clearAll" (click)="clearAll()">清空文件</button>
+  </div>
+  <div class="dz-message"><p>选择文件或者拖动文件到此处</p></div>
+</div>
+<div  #previewContaienr>
+  <div class="file-item file-header" *ngIf="fileStock.length>0">
+    <div class="item">缩略图</div>
+    <div class="item">大小</div>
+    <div class="item">文件名</div>
+    <div class="item">上传进度</div>
+    <div class="item">操作</div>
   </div>
 </div>
-<div class="btn-wrap">
-  <button class="btn btn-primary" (click)="doUpload()">开始上传</button>
+
+<div class="tml" #tml>
+  <div class="file-item">
+    <div class="item"><img class="rounded" data-dz-thumbnail/></div>
+    <div class="item"><span data-dz-size></span></div>
+    <div class="item"><span data-dz-name></span></div>
+    <div class="item progress-wrap">
+      <div class="progress">
+        <div data-dz-uploadprogress class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+             aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div class="error"><span data-dz-errormessage></span></div>
+      <div class="upload-success"><span><i class="fa fa-check-circle fa-right text-green"></i>上传成功</span></div>
+    </div>
+    <div class="item action-item">
+      <button data-dz-addToQueue class="btn btn-primary">上传</button>
+      <button data-dz-remove class="btn btn-danger">删除</button>
+    </div>
+  </div>
 </div>

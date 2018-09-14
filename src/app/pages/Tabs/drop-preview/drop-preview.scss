@@ -1,7 +1,75 @@
-.dropzone{
-  background: transparent;
+.tml{
+  display: none;
 }
-.btn-wrap{
-  text-align: right;
-  padding: 10px 0;
+.uploadContainer{
+  min-height: 200px;
+  background: #e4e4e4;
+  border: 1px dashed gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  p{
+    color:grey;
+  }
+  .action-wrap{
+    position: absolute;
+    top:0;
+    left:0;
+  }
+}
+.file-item{
+  display: flex;
+  align-items: center;
+  &.file-header{
+    background: #000;
+    color:white;
+    font-weight: 800;
+    line-height: 50px;
+    .item{
+      height: auto;
+      border:none;
+    }
+  }
+  .action-item{
+    button{
+      margin-right: 10px;
+    }
+  }
+  .item{
+    width: 20%;
+    text-align: center;
+    border-bottom:1px solid #dee2e6;
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid #dee2e6;
+    padding:0 15px;
+    .progress{
+      width: 100%;
+    }
+    &:first-of-type{
+      border-left: 1px solid #dee2e6;
+    }
+    &.progress-wrap{
+      flex-wrap: wrap;
+      align-content: center;
+      .error{
+        color:#dc3545;
+      }
+      .upload-success{
+        margin-top: 10px;
+        display: none;
+      }
+    }
+  }
+}
+.file-item.dz-success .item.progress-wrap .upload-success{
+  display: block;
+}
+.progress .progress-bar{
+  height: 100%;
+  width: 0;
 }

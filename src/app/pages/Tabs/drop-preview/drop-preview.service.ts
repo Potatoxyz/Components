@@ -5,7 +5,10 @@ export class DropPreviewService{
   dropzonConfig={
     url:'',
     method:'POST',
+    autoQueue:false,  //自动加入上传队列
     autoProcessQueue:false,//  对象 processQueue() 手动上传
+
+    parallelUploads:10,  //单文件上传时，最多两个请求
 
     uploadMultiple:false,  //上传多文件时 触发事件events   processingmultiple  successmultiple  completemultiple ...
     maxFilesize:256,  //events  maxfilesexceeded
@@ -22,7 +25,11 @@ export class DropPreviewService{
 
     acceptedFiles:'image/*,.xls', //接受的文件类型
 
-    addRemoveLinks:true,  //删除文件
+    addRemoveLinks:false,  //删除文件按钮
+
+    //默认的错误信息
+    dictResponseError:"网络连接错误!",
+
   };
   constructor(){}
 }

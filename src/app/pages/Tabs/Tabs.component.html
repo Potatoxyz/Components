@@ -1,8 +1,11 @@
-<app-Tabs1 [Tabs]="Tabs1" [selectedTabId]="selectedTab1Id" (selectedTabEmit)="getSelectedTabId($event)">
-  <div class="tab-content animated"
-       [ngClass]="{'fadeIn':content.id==selectedTab1Id,'none':content.id!=selectedTab1Id}"
-       *ngFor="let content of TabContents">
-    <p>{{content.content}}</p>
-  </div>
-</app-Tabs1>
+<div class="mb-4">
+  <app-Tabs1 [Tabs]="Tabs1" [selectedTabId]="selectedTab1Id" (selectedTabEmit)="getSelectedTabId($event)">
+    <div class="tab-content animated"
+         [ngClass]="{'fadeIn':content.id==selectedTab1Id,'none':content.id!=selectedTab1Id}"
+         *ngFor="let content of TabContents">
+      <p>{{content.content}}</p>
+    </div>
+  </app-Tabs1>
+</div>
+
 <app-drop-preview></app-drop-preview>
