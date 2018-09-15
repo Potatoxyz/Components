@@ -1,0 +1,75 @@
+.tml{
+  display: none;
+}
+.previewContaienr{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.uploadContainer{
+  min-height: 200px;
+  background: transparent;
+  border: 1px dashed white;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: center;
+  .add-wrap{
+    position: absolute;
+    right: 0;
+    top: 0;
+    i{
+      font-size: 30px;
+    }
+  }
+  p{
+    color: #e1e1e1;
+  }
+}
+.file-item{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 140px;
+  margin:15px;
+  .item{
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .progress{
+      width: 100%;
+    }
+  }
+  .item.progress-wrap{
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    width: 120px;
+    .error{
+      color:#dc3545;
+    }
+    .upload-success{
+      margin-top: 10px;
+      display: none;
+    }
+  }
+  .item.action-item{
+    justify-content: space-around;
+    .action-link{
+      text-decoration: underline!important;
+    }
+  }
+}
+.file-item.dz-success .item.progress-wrap .upload-success{
+  display: block;
+}
+.progress .progress-bar{
+  height: 100%;
+  width: 0;
+}
