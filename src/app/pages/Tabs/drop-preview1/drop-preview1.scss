@@ -7,7 +7,7 @@
   flex-wrap: wrap;
 }
 .uploadContainer{
-  min-height: 200px;
+  min-height: 250px;
   background: transparent;
   border: 1px dashed white;
   cursor: pointer;
@@ -46,18 +46,20 @@
       width: 100%;
     }
   }
+  .item.img-wrap{
+    margin-bottom: 5px;
+  }
   .item.progress-wrap{
     flex-wrap: wrap;
     align-content: center;
     justify-content: center;
     width: 120px;
-    .error{
-      color:#dc3545;
-    }
-    .upload-success{
-      margin-top: 10px;
-      display: none;
-    }
+  }
+  .item.error{
+    color:#dc3545;
+  }
+  .item.upload-success{
+    display: none;
   }
   .item.action-item{
     justify-content: space-around;

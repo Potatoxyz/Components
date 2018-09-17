@@ -29,6 +29,8 @@ export class DropPreviewService{
 
     //默认的错误信息
     dictResponseError:"网络连接错误!",
+    //上传取消的提示
+    dictUploadCanceled:"",
 
   };
   constructor(){}
