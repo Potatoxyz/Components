@@ -17,7 +17,7 @@
   justify-content: center;
   flex-wrap: wrap;
   align-content: center;
-  .add-wrap{
+  .acionIcons{
     position: absolute;
     right: 0;
     top: 0;
@@ -25,6 +25,20 @@
       font-size: 30px;
     }
   }
+  .clear-wrap{
+    @extend .acionIcons;
+    right: 5px;
+  }
+  .upload-wrap{
+    @extend .acionIcons;
+    right: 40px;
+  }
+  .add-wrap{
+    @extend .acionIcons;
+    right: 85px;
+  }
+
+
   p{
     color: #e1e1e1;
   }

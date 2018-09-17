@@ -1,5 +1,7 @@
 <div #uploadContainer class="uploadContainer">
-  <div class="add-wrap"><i class="fa fa-plus-circle" (click)="openChooseFile()"></i></div>
+  <div class="acionIcons add-wrap"><i class="fa fa-plus-circle" (click)="openChooseFile()"></i></div>
+  <div class="acionIcons upload-wrap"><i class="fa fa-upload" (click)="uploadAll()"></i></div>
+  <div class="acionIcons clear-wrap"><i class="fa fa-trash" (click)="clearAll()"></i></div>
   <div class="dz-message" *ngIf="fileStock.length==0"><p>选择文件或者拖动文件到此处</p></div>
   <div  #previewContaienr class="previewContaienr">
     <div  *ngIf="fileStock.length>0">

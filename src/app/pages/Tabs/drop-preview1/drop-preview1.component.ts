@@ -35,12 +35,42 @@ export class DropPreview1Component extends SweetAlert implements OnInit,AfterVie
       previewTemplate:this.tml.nativeElement.innerHTML,
       previewsContainer:this.previewContaienr.nativeElement,
     }));
-    this.dropzone.on('success',(file,res)=>{
-      //上传成功后禁用上传按钮
-      var buttons= file.previewElement.querySelectorAll("[data-dz-addToQueue]");
-      _.each(buttons,(value)=>{
-        value.setAttribute("disabled","true");
+    var listener=(event)=>{
+      //清空上传队列，添加该文件到上传队列
+      console.log(event)
+      _.each(this.fileStock,(value)=>{
+        this.dropzone.cancelUpload(value)
       });
+      this.dropzone.enqueueFile(event.data);
+      console.log(event.data);
+      console.log("add to upload queue");
+      //获取已经加入上传队列的文件
+      var files=this.confirmFiles();
+      this.confirm("即将上传的文件："+files,()=>{
+        this.dropzone.processQueue()
+      },()=>{});
+    };
+    //自定义的指定的某个文件的上传
+    var uploadsSingleFile= (file,isRemoveListener?:any)=> {
+      var addButtons=file.previewElement.querySelectorAll("[data-dz-addToQueue]");//NodeList
+      if(isRemoveListener){
+        _.each(addButtons, (value,index)=> {
+          $(value).off();
+        });
+        return;
+      }
+      _.each(addButtons, (value,index)=> {
+        $(value).on('click',file,listener);
+      });
+    };
+    this.dropzone.on('success',(file,res)=>{
+      //显示上传成功的提示
+      var successTexts=file.previewElement.querySelectorAll(".upload-success");
+      _.each(successTexts,value=>{
+        $(value).css("display","block")
+      });
+      //移除上传按钮所有事件
+      uploadsSingleFile(file,true);
       //清空暂存的文件预览
       this.fileStock=[];
       //清空错误提示
@@ -57,24 +87,8 @@ export class DropPreview1Component extends SweetAlert implements OnInit,AfterVie
     this.dropzone.on('addedfile',(file)=>{
       //批量上传
       this.fileStock.push(file);
-      var addButtons=file.previewElement.querySelectorAll("[data-dz-addToQueue]");//NodeList
-      //自定义的指定的某个文件的上传
-      _.each(addButtons, (value,index)=> {
-        value.addEventListener('click', () =>{
-          //清空上传队列，添加该文件到上传队列
-          _.each(this.fileStock,(value)=>{
-            this.dropzone.cancelUpload(value)
-          });
-          this.dropzone.enqueueFile(file);
-          console.log(file)
-          console.log("add to upload queue");
-          //获取已经加入上传队列的文件
-          var files=this.confirmFiles();
-          this.confirm("即将上传的文件："+files,()=>{
-            this.dropzone.processQueue()
-          },()=>{});
-        });
-      })
+      //绑定 上传按钮事件
+      uploadsSingleFile(file);
     });
     this.dropzone.on('removedfile',(file)=>{
       let index=this.fileStock.findIndex(v=>v.name==file.name);
@@ -98,5 +112,23 @@ export class DropPreview1Component extends SweetAlert implements OnInit,AfterVie
   }
   openChooseFile(){
     this.dropzone.hiddenFileInput.click();
+  }
+  uploadAll(){
+    _.each(this.fileStock,(value)=>{
+      this.dropzone.enqueueFile(value);
+    });
+    var files=this.confirmFiles();
+    this.confirm("即将上传的文件："+files,()=>{
+      this.dropzone.processQueue()
+    },()=>{
+      //清空加入队列的文件
+      _.each(this.fileStock,(value)=>{
+        this.dropzone.cancelUpload(value)
+      });
+    });
+  }
+  clearAll(){
+    this.fileStock=[];
+    this.dropzone.removeAllFiles();
   }
 }
