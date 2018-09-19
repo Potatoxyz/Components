@@ -7,6 +7,6 @@
 <div class="part1">
   <button (click)="changeValue()" class="btn btn-primary">change ayncValue</button>
   <h4>Get Hero By Id：</h4>
-  <h4 *ngFor="let item of heroOb | async">{{item.name}}</h4>
+  <h4>{{heroOb | async | getfiled:'name'}}</h4>
 </div>
 

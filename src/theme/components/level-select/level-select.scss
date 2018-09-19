@@ -1,0 +1,17 @@
+.select-part-wrap{
+    display: flex;
+    flex-wrap: wrap;
+    app-level-part{
+      width: calc(33.3333% - 30px);
+      margin: 0 15px 15px 15px;
+      border: 1px solid rgba(0,0,0,.3);
+      border-radius: 5px;
+  }
+}
+.input-group{
+  padding:0 15px;
+}
+.input-group /deep/ ngb-typeahead-window{
+  min-width: 600px;
+}
+

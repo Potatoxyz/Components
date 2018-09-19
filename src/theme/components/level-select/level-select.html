@@ -1,0 +1,13 @@
+<app-modal-wrap [modalTitle]="'选择分类'" [hasSaveButton]="true"
+                [isBig]="true"
+                [emitValue]="selectedSort">
+  <div class="input-group">
+    <input type="text" class="form-control" name="search" [(ngModel)]="searchTetxt"
+           [ngbTypeahead]="search">
+    <div class="input-group-addon"><i class="fa fa-search"></i></div>
+  </div>
+  <p style="padding:0 15px">{{selectedSort}}</p>
+    <div class="select-part-wrap">
+      <app-level-part *ngFor="let item of List;let order=index" [List]="item" (emitSelectedItem)="getSelectedItem($event,order)"></app-level-part>
+    </div>
+</app-modal-wrap>

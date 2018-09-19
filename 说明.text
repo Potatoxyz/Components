@@ -1,3 +1,6 @@
+(*) Shared http 模拟后台请求
+(*) mock.js 造假数据
+(*) underscore.js 工具函数
 一、Button模块
   1.ngb 弹窗
   2.ngb 折叠
@@ -46,3 +49,6 @@
 八、Tabs
   1.通用的tab
   2.dropzone.js 图片上传预览
+
+九、Shared
+   (method) 生成随机字母

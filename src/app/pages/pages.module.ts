@@ -13,7 +13,7 @@ import {BrowserModule} from "@angular/platform-browser";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {CommonComponent} from './common/common.component';
 import {HttpClientModule} from "@angular/common/http";
-import {HttpClientInMemoryWebApiModule} from "angular-in-memory-web-api";
+import {HttpClientInMemoryWebApiModule, InMemoryWebApiModule} from "angular-in-memory-web-api";
 import {InMemoryDataService} from "../../shared/http/in-memory-data.service";
 import {HttpComponent} from './http/http.component';
 import {Public_api} from "../../shared/http/public_api";
@@ -29,7 +29,7 @@ import {ImgPreviewModalComponent} from "./Components/img-preview-modal/img-previ
 import {LoadingModule} from "ngx-loading";
 import {ThemeModule} from "../../theme/theme.module";
 import {HighchartsModule} from "../../theme/highcharts.module";
-import {JsonpModule} from "@angular/http";
+import {HttpModule, JsonpModule} from "@angular/http";
 import { NgModelTestComponent } from './common/ng-model-test/ng-model-test.component';
 import {PipesModule} from "../../shared/pipe/pipes.module";
 import {SlideMenuModule} from "cuppa-ng2-slidemenu";
@@ -60,10 +60,11 @@ const Component=[
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    HttpModule,
     NgDatepickerModule,
     SlideMenuModule,
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, {dataEncapsulation: false}
+    InMemoryWebApiModule.forRoot(
+      InMemoryDataService, {delay: 500}
     ),
     MydirectiveModule,
     LoadingModule,

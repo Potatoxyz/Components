@@ -1,9 +1,11 @@
 import {NgModule} from "@angular/core";
 import {SortPipe} from "./sort.pipe";
 import {CReversePipe} from "./c-reverse.pipe";
+import {GetFiledPipe} from "./getFiled.pipe";
 const Pipes=[
   SortPipe,
-  CReversePipe
+  CReversePipe,
+  GetFiledPipe
 ];
 @NgModule({
   imports:[],
