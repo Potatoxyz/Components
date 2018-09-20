@@ -26,16 +26,23 @@ export class CkEditorComponent implements OnInit,AfterViewInit,ControlValueAcces
   customer_default_config={
     height:'200px',
     enterMode :CKEDITOR.ENTER_BR,
-    extraPlugins: 'colorbutton,font',
-    toolbarGroups:[
-      { name: 'styles', groups: [ 'styles' ] },
+    extraPlugins: 'colorbutton,font,image2,uploadimage',
+    toolbar: [
+      { name: 'clipboard', items: [ 'Undo', 'Redo' ] },
+      { name: 'styles', items: [ 'Styles', 'Format' ] },
       { name: 'colors', groups: [ 'colors' ] },
-      { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
-      { name: 'document', groups: [ 'mode', 'document', 'doctools' ] },
-      { name: 'tools', groups: [ 'tools' ] },
+      { name: 'basicstyles', items: [ 'Bold', 'Italic','basicstyles', 'cleanup' ] },
+      { name: 'links', items: [ 'Link', 'Unlink' ] },
+      { name: 'insert', items: [ 'Image', 'Table' ] },
+      //全屏
+      { name: 'tools', items: [ 'Maximize','Source' ] },
+      //拼写检查
+      { name: 'editing', items: [ 'Scayt' ] }
     ],
     removeButtons : 'Subscript,Superscript,BGColor,Styles,Format,Font',
-    skin:'moono-lisa'
+    skin:'moono-lisa',
+    filebrowserUploadUrl: 'http://localhost:3001/server/upload?type=image',
+    filebrowserImageUploadUrl: 'http://localhost:3001/server/upload?type=image',
   };
   @Input() config?:any={};
   onChange=(v:any)=>{};
