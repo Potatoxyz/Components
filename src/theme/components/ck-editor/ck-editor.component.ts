@@ -23,23 +23,12 @@ export class CkEditorComponent implements OnInit,AfterViewInit,ControlValueAcces
   ckIns:any;
   innerValue:any;
   @ViewChild('ck') ck:ElementRef;
+  //默认字段名是upload
   customer_default_config={
     height:'200px',
     enterMode :CKEDITOR.ENTER_BR,
     extraPlugins: 'colorbutton,font,image2,uploadimage',
-    toolbar: [
-      { name: 'clipboard', items: [ 'Undo', 'Redo' ] },
-      { name: 'styles', items: [ 'Styles', 'Format' ] },
-      { name: 'colors', groups: [ 'colors' ] },
-      { name: 'basicstyles', items: [ 'Bold', 'Italic','basicstyles', 'cleanup' ] },
-      { name: 'links', items: [ 'Link', 'Unlink' ] },
-      { name: 'insert', items: [ 'Image', 'Table' ] },
-      //全屏
-      { name: 'tools', items: [ 'Maximize','Source' ] },
-      //拼写检查
-      { name: 'editing', items: [ 'Scayt' ] }
-    ],
-    removeButtons : 'Subscript,Superscript,BGColor,Styles,Format,Font',
+    toolbar: [['Smiley','Bold','Italic','Underline','Strike','TextColor','FontSize','NumberedList','BulletedList','Blockquote','JustifyLeft','Link','Image','Table']],  // 工具部分
     skin:'moono-lisa',
     filebrowserUploadUrl: 'http://localhost:3001/server/upload?type=image',
     filebrowserImageUploadUrl: 'http://localhost:3001/server/upload?type=image',
