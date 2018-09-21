@@ -8,6 +8,8 @@
   </div>
   <p style="padding:0 15px">{{selectedSort}}</p>
     <div class="select-part-wrap">
-      <app-level-part *ngFor="let item of List;let order=index" [List]="item" (emitSelectedItem)="getSelectedItem($event,order)"></app-level-part>
+      <app-level-part *ngFor="let item of List;let order=index" [List]="item"
+                      [activeItemId]="selectedSortIdArr[order]"
+                      (emitSelectedItem)="getSelectedItem($event,order)"></app-level-part>
     </div>
 </app-modal-wrap>

@@ -2,6 +2,7 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {NgbActiveModal, NgbModal, NgbModalRef} from "@ng-bootstrap/ng-bootstrap";
 import {AnywereService} from "../../anywere.service";
 import {SaleCalendarTest} from "../sale-calendar.test";
+import {LevelSelectComponent} from "../../../../theme/components/level-select/level-select.component";
 declare var $:any;
 var ClipboardJS=require('clipboard/dist/clipboard.min.js');
 @Component({
@@ -20,6 +21,7 @@ export class NgbButtonsComponent implements OnInit {
   isShowCalendar:boolean=false;
   constructor(private modalservice:NgbModal,
               public activeModal:NgbActiveModal,
+              public modalService:NgbModal,
               private anywereService:AnywereService,
               private saleCalendarTest:SaleCalendarTest) {
     this.calendarTestData=saleCalendarTest.calculateStorges;
@@ -80,5 +82,9 @@ export class NgbButtonsComponent implements OnInit {
     });
     //不知道为什么要第二次点击才能触发
     $(el).trigger('click');
+  }
+  openLevelSelectModal(){
+  let modal=this.modalService.open(LevelSelectComponent,{backdrop:'static',size:'lg'});
+  modal.result.then(re=>{},rec=>{});
   }
 }

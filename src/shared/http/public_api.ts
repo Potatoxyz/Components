@@ -1,7 +1,6 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs/Observable";
-
 import {catchError, first, isEmpty, last, map, tap} from "rxjs/operators";
 import {of} from "rxjs/observable/of";
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
@@ -27,11 +26,6 @@ export class Public_api{
         let endTime:HttpTimeModel={time:this.endTime,timeKind:'end'};
         this._time.next(endTime);
       }),
-      map((value) => {
-        // let endTime=new Date().getTime();
-        // this._time.next({startTime:startTime,endTime:endTime});
-        // console.log('get');
-        return value}),
       catchError(this.handdleError())
     );
   }

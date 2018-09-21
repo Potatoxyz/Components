@@ -1,0 +1,24 @@
+.pop-content{
+  background: #fff;
+  color:black;
+  .btn-group{
+    .btn{
+      color:white;
+    }
+    .close-btn{
+      color:black;
+    }
+  }
+}
+.blackTheme{
+  background: rgba(0,0,0,.7);
+  color:white;
+  .btn-group{
+    .btn{
+      color:white;
+    }
+  }
+}
+.big-pop-content{
+  width: 1200px;
+}

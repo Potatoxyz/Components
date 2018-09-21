@@ -15,11 +15,11 @@ export class InMemoryDataService implements InMemoryDbService {
         'id|+1': 1,
         'name|1':()=>GenetatorRandom(2)
       }],
-      'categories|1-30':{
+      'categories|10-30':[{
         'id|+1':1,
-        'text|1':GenetatorRandom(2),
+        'text|1':()=>GenetatorRandom(2),
         'hasChild|1-2':true
-      }
+      }]
     });
     const categories=MockData.categories;
     const heroes =MockData.list;
@@ -43,7 +43,10 @@ export class InMemoryDataService implements InMemoryDbService {
       // 'returnType` can be 'object' | 'observable' | 'promise'
       returnType = body.returnType || 'object';
     }
-    const db = { heroes, nobodies, stringers };
+    /**
+     新建的数据放入此处返回
+    */
+    const db = { heroes,categories, nobodies, stringers };
 
     switch (returnType) {
       case ('observable'):

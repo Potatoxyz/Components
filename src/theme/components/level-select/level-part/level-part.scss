@@ -1,5 +1,4 @@
 ul.select-wrap{
-  padding-left: 10px;
   margin-bottom: 0;
   max-height: 400px;
   box-sizing: border-box;
@@ -8,5 +7,15 @@ ul.select-wrap{
     font-size: 14px;
     cursor: pointer;
     line-height: 27px;
+    padding-left: 10px;
+    &.active{
+      background: #209e91;
+      font-weight: bold;
+      color: white;
+    }
+    i{
+      line-height: 27px;
+      margin-right: 5px;
+    }
   }
 }

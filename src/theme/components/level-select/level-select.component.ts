@@ -1,12 +1,13 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Observable} from "rxjs/Observable";
 import {SweetAlert} from "../../../shared/method/sweetAlert";
+import {LevelSelectService} from "../../../app/pages/Button/level-select.service";
 
 @Component({
   selector: 'app-level-select',
   templateUrl: './level-select.html',
   styleUrls: ['./level-select.scss'],
-  providers:[]
+  providers:[LevelSelectService]
 })
 export class LevelSelectComponent extends SweetAlert implements OnInit{
   selectedId:number=null;
@@ -14,6 +15,8 @@ export class LevelSelectComponent extends SweetAlert implements OnInit{
   List=[];
   selectedSort:string='';
   selectedSortArr=[];
+  //选中的样式
+  selectedSortIdArr=[];
   searchTetxt:string='';
 
   testSearchData=[
@@ -35,7 +38,7 @@ export class LevelSelectComponent extends SweetAlert implements OnInit{
           return results;
         }});
 
-  constructor() {
+  constructor(private levelSelectService:LevelSelectService) {
     super();
   }
   getSelectedItem(item,order){
@@ -43,34 +46,36 @@ export class LevelSelectComponent extends SweetAlert implements OnInit{
     this.order=order;
     console.log(item);
     console.log(order);
-    if(item.hasChildren)
-    this.getCategories(item.id);
+    //有子分类查询
+    if(item.hasChild)
+    this.getCategories(null);
+
     this.generateSorts(item,order);
   }
   ngOnInit(){
-    this.getCategories();
+    this.getCategories(null,true);
   }
   generateSorts(item,order){
     this.selectedSortArr[order]=item.text;
     this.selectedSortArr.length=order+1;
     this.selectedSort=this.selectedSortArr.join(' > ');
+
+    this.selectedSortIdArr[order]=item.id;
+    this.selectedSortIdArr.length=order+1;
   }
-  getCategories(id=null){
-    // this.amazonListingServiceService.getCategories("DE", id).subscribe(data => {
-    //   let cats = data.content;
-    //   for (const item of cats) {
-    //     item.text = item.browseNodeName;
-    //   }
-    //   cats.unshift({id:'', text:'请选择'});
-    //   console.log(cats);
-    //   if(id==null){
-    //     this.List[0]=cats;
-    //     this.List.length=1;
-    //   }
-    //   else{
-    //     this.List[this.order+1]=cats;
-    //     this.List.length=this.order+2;
-    //   }
-    // }, this.handleError);
+  getCategories(id=null,isFirstLoad=false){
+    this.levelSelectService.getCategories(id).subscribe(data => {
+      console.log(data);
+      data.unshift({id:'', text:'请选择'});
+      //如果是第一个分类,分类总长度为1
+      if(isFirstLoad){
+        this.List[0]=data;
+        this.List.length=1;
+      }
+      else{
+        this.List[this.order+1]=data;
+        this.List.length=this.order+2;
+      }
+    }, this.error);
   }
 }

@@ -85,6 +85,12 @@ p{
 .none{
   display: none!important;
 }
+.right{
+  float: right!important;
+}
+.left{
+  float: left!important;
+}
 
 .text-red{
   color: #dc3545!important;
@@ -111,6 +117,9 @@ $bgUrl:'./assets/img/sky-bg.jpg';
   color:#fff;
   margin: -5px;
   border-radius: 5px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
   .modal-body{
     width: 100%;
   }

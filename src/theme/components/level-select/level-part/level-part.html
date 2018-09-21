@@ -1,4 +1,6 @@
 <ul class="select-wrap">
-  <li *ngFor="let item of List" (click)="emitSelectEvent(item)">{{item.text}}
-  <i class="fa fa-chevron-right right" *ngIf="item.hasChildren"></i></li>
+  <li *ngFor="let item of List"
+      [ngClass]="{'active':item.id==activeItemId}"
+      (click)="emitSelectEvent(item)">{{item.text}}
+  <i class="fa fa-chevron-right right" *ngIf="item.hasChild"></i></li>
 </ul>

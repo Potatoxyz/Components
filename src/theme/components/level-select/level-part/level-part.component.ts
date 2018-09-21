@@ -7,6 +7,7 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 })
 export class LevelPartComponent {
   @Input() List:ListSelectModel[]=[];
+  @Input() activeItemId:number=null;
   @Output() emitSelectedItem:EventEmitter<any>=new EventEmitter<any>();
   constructor() {}
   emitSelectEvent(item){

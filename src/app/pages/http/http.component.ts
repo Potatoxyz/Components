@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable} from "rxjs/Observable";
 import {AnywereService} from "../anywere.service";
-import {HttpHeroService} from "../../../shared/http/http-hero.service";
-import {Hero} from "../../../shared/http/hero";
+import {HttpHeroService} from "./http-hero.service";
+import {Hero} from "./hero";
 import {GenetatorRandom} from "../../../shared/method/genetator.random";
 var Mock = require('mockjs');
 @Component({

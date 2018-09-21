@@ -12,8 +12,16 @@ import {SideBarComponent} from "./components/sideBar/sideBar.component";
 import {SideBarItemComponent} from "./components/sideBar/sideBarItem/sideBarItem.component";
 import {SaleCalendarComponent} from "./components/sale-calendar/sale-calendar.component";
 import {PipesModule} from "../shared/pipe/pipes.module";
-
+import {LevelSelectComponent} from "./components/level-select/level-select.component";
+import {LevelPartComponent} from "./components/level-select/level-part/level-part.component";
+import {ModalWrapComponent} from "./components/modal-wrap/modal-wrap.component";
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+const ModalComponents=[
+  ModalWrapComponent,
+  LevelSelectComponent,
+];
 const components=[
+  ...ModalComponents,
   NgxPaginationComponent,
   QuickLinkComponent,
   CommonHeadComponent,
@@ -22,7 +30,7 @@ const components=[
   SideBarComponent,
   SideBarItemComponent,
   SaleCalendarComponent,
-
+  LevelPartComponent
 ];
 
 @NgModule({
@@ -31,6 +39,7 @@ const components=[
     FormsModule,
     RouterModule,
     NgxPaginationModule,
+    NgbModule,
     PipesModule
   ],
   declarations: [
@@ -38,7 +47,8 @@ const components=[
   ],
   exports:[
     ...components,
-  ]
+  ],
+  entryComponents:[...ModalComponents]
 
 })
 export class ThemeModule {

@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {SweetAlert} from "../../../../shared/method/sweetAlert";
 import {routerTransition} from "../../../../shared/animation/route.animate";
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
-import {Hero} from "../../../../shared/http/hero";
+import {Hero} from "../../http/hero";
 declare var $:any;
 @Component({
   selector: 'app-sweet-alert',
