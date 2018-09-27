@@ -1,6 +1,7 @@
 (*) Shared http 模拟后台请求
 (*) mock.js 造假数据
 (*) underscore.js 工具函数
+(*) layUi  框架
 一、Button模块
   1.ngb 弹窗
   2.ngb 折叠

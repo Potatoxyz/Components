@@ -8,6 +8,9 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR, NgModel} from "@angular/forms";
 declare var CKEDITOR:any;
 import './ckeditor.loader.ts';
 import 'assets/plugin/ckeditor/ckeditor.js';
+import {UploadFilePlugin} from "../../../assets/plugin/ckeditor/uploadFile/upload-file-plugin";
+
+
 export const CustomValueAccessor={
   provide:NG_VALUE_ACCESSOR,
   useExisting:forwardRef(()=>CkEditorComponent),
@@ -17,30 +20,42 @@ export const CustomValueAccessor={
   selector: 'app-ck-editor',
   template: '<textarea #ck></textarea>',
   styleUrls: ['./ck-editor.scss'],
-  providers:[CustomValueAccessor]
+  providers:[CustomValueAccessor,UploadFilePlugin]
 })
+/**
+ 复制粘贴内容时，不会触发change事件，所以得访问innerValue属性获取文本的内容
+*/
 export class CkEditorComponent implements OnInit,AfterViewInit,ControlValueAccessor{
   ckIns:any;
   innerValue:any;
+  @Input() config?:any={};
+  @Input() fileUploadUrl:string='http://localhost:3001/server/upload?type=image';
   @ViewChild('ck') ck:ElementRef;
   //默认字段名是upload
   customer_default_config={
     height:'200px',
     enterMode :CKEDITOR.ENTER_BR,
-    extraPlugins: 'colorbutton,font,image2,uploadimage',
-    toolbar: [['Smiley','Bold','Italic','Underline','Strike','TextColor','FontSize','NumberedList','BulletedList','Blockquote','JustifyLeft','Link','Image','Table']],  // 工具部分
+    extraPlugins: 'colorbutton,font,image2,simpleupload',
+    toolbar: [['Smiley','Bold','Italic','Underline','Strike','TextColor','FontSize','NumberedList','BulletedList','Blockquote','JustifyLeft','Link','Image','Table','simpleupload']],  // 工具部分
     skin:'moono-lisa',
-    filebrowserUploadUrl: 'http://localhost:3001/server/upload?type=image',
-    filebrowserImageUploadUrl: 'http://localhost:3001/server/upload?type=image',
+    filebrowserUploadUrl:this.fileUploadUrl,
+    filebrowserImageUploadUrl: this.fileUploadUrl,
+    language :'zh-cn'
   };
-  @Input() config?:any={};
+
   onChange=(v:any)=>{};
   onTouched=()=>{};
-  constructor(private ngZone: NgZone) {}
+  constructor(private ngZone: NgZone, private uploadFilePlugin: UploadFilePlugin,) {
+    //初始化上传文件插件
+    this.uploadFilePlugin.plugininit();
+  }
   ngOnInit() {
     this.initCkeditor();
   }
-  ngAfterViewInit(){}
+  ngAfterViewInit(){
+    //设置上传的地址
+    this.uploadFilePlugin.uploadUrl = this.fileUploadUrl;
+  }
 
   initCkeditor(){
     if (typeof CKEDITOR === 'undefined') {

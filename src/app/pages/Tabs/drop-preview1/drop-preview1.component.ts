@@ -28,9 +28,9 @@ export class DropPreview1Component extends SweetAlert implements OnInit,AfterVie
 
     this.dropzone=new Dropzone(this.uploadContainer.nativeElement,$.extend(this.dropzoneConfig,{
       url: "http://localhost:3001/server/upload",
-      paramName:'uploadForm',
-      //批量上传
-      uploadMultiple:true,
+      paramName:'upload',
+      //批量上传  upload[0],upload[1],upload[2]
+      // uploadMultiple:true,
       //更换预览模板
       previewTemplate:this.tml.nativeElement.innerHTML,
       previewsContainer:this.previewContaienr.nativeElement,
