@@ -33,6 +33,7 @@ import {HttpModule, JsonpModule} from "@angular/http";
 import { NgModelTestComponent } from './common/ng-model-test/ng-model-test.component';
 import {PipesModule} from "../../shared/pipe/pipes.module";
 import {SlideMenuModule} from "cuppa-ng2-slidemenu";
+import {DragSelectComponent} from "./http/drag-select/drag-select.component";
 
 const ModalComponent=[
   ImgPreviewModalComponent
@@ -44,6 +45,7 @@ const Component=[
   AnimationComponent, CommonComponent, HttpComponent,
   HighchartsComponent, TopbarComponent,
   CustomPageTopComponent, NgModelTestComponent,
+  DragSelectComponent
 ];
 @NgModule({
   imports: [

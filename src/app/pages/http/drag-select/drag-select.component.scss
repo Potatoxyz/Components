@@ -1,0 +1,40 @@
+.card{
+  #drag-content{
+    margin:auto;
+    max-width:800px;
+    display: flex;
+    flex-direction: row;
+    max-height: 400px;
+    flex-wrap: wrap;
+    border:1px solid #000;
+    border-radius: 5px;
+    overflow: auto;
+    position: relative;
+    padding: 10px 200px 0 200px !important;
+  }
+  .item{
+    width: calc(25% - 10px);
+    min-width: 80px;
+    margin:0 5px 10px 5px;
+    height: 80px;
+    border: 1px solid #6f6d6d;
+    border-radius: 5px;
+    line-height: 80px;
+    text-align: center;
+    &::selection{
+      color:white;
+    }
+    &.selected{
+      background-color: blue;
+    }
+  }
+}
+#moveSelected{
+  position: absolute;
+  left: 0;
+  top:0;
+  width: 0;
+  height: 0;
+  background-color: red;
+  border-radius: 5px;
+}
