@@ -1,0 +1,17 @@
+:host /deep/ .dropdown-header{
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+}
+:host /deep/ .fa{
+  margin-right: 20px;
+}
+:host /deep/ .bootstrap-select button:hover{
+  transform: scale(1);
+}
+:host /deep/ .bootstrap-select > .dropdown-toggle.bs-placeholder,
+:host /deep/ .bootstrap-select > .dropdown-toggle.bs-placeholder:hover,
+:host /deep/ .bootstrap-select > .dropdown-toggle.bs-placeholder:focus,
+:host /deep/ .bootstrap-select > .dropdown-toggle.bs-placeholder:active{
+  color:#000;
+}
