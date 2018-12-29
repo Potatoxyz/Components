@@ -16,6 +16,7 @@ import {LevelSelectComponent} from "./components/level-select/level-select.compo
 import {LevelPartComponent} from "./components/level-select/level-part/level-part.component";
 import {ModalWrapComponent} from "./components/modal-wrap/modal-wrap.component";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import {BootstrapSelect} from "./components/bootstrap-select/bootstrap-select";
 const ModalComponents=[
   ModalWrapComponent,
   LevelSelectComponent,
@@ -30,7 +31,8 @@ const components=[
   SideBarComponent,
   SideBarItemComponent,
   SaleCalendarComponent,
-  LevelPartComponent
+  LevelPartComponent,
+  BootstrapSelect
 ];
 
 @NgModule({

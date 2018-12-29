@@ -1,0 +1,17 @@
+<select multiple id="bs-select">
+  <optgroup
+    *ngFor="let group of GroupData"
+    [attr.data-id]="group.id"
+    data-icon="fa fa-user-secret"
+    label={{group.userName}} class="header">
+    <option
+      *ngFor="let subItem of group.toLists"
+      [attr.data-tokens]="subItem.id"
+      title={{subItem.userName}}
+      data-icon="fa fa-user-o"
+      [ngClass]="{'unvisible':subItem.duty=='主管'}"
+      value={{subItem.id}}>{{subItem.userName}}
+    </option>
+  </optgroup>
+</select>
+

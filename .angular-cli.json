@@ -19,8 +19,8 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "../node_modules/bootstrap/scss/bootstrap.scss",
         "assets/bootstrap-select/bootstrap-select.min.css",
+        "../node_modules/bootstrap/dist/css/bootstrap.css",
         "assets/plugin/layer/default/layer.css",
         "assets/plugin/ckeditor/uploadFile/layer-upload.scss",
         "../node_modules/font-awesome/css/font-awesome.min.css",
@@ -33,7 +33,7 @@
       "scripts": [
         "assets/jquery3.21/jquery-3.2.1.min.js",
         "../node_modules/popper.js/dist/umd/popper.js",
-        "../node_modules/bootstrap/dist/js/bootstrap.js",
+        "../node_modules/bootstrap/dist/js/bootstrap.bundle.js",
         "assets/bootstrap-select/bootstrap-select.js",
         "../node_modules/select2/dist/js/select2.full.js",
         "../node_modules/underscore/underscore-min.js"
